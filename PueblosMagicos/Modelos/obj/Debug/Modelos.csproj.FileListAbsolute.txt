@@ -1,0 +1,9 @@
+E:\TFS\InventarioPueblosMagicos\PueblosMagicos\Modelos\bin\Debug\Modelos.dll
+E:\TFS\InventarioPueblosMagicos\PueblosMagicos\Modelos\bin\Debug\Modelos.pdb
+E:\TFS\InventarioPueblosMagicos\PueblosMagicos\Modelos\obj\Debug\Modelos.dll
+E:\TFS\InventarioPueblosMagicos\PueblosMagicos\Modelos\obj\Debug\Modelos.pdb
+E:\TFS\InventarioPueblosMagicos\PueblosMagicos\Modelos\obj\Debug\Modelos.csprojResolveAssemblyReference.cache
+E:\TFS\InventarioPueblosMagicos\PueblosMagicos\Modelos\obj\Debug\Modelos.dll.mdb
+E:\TFS\InventarioPueblosMagicos\PueblosMagicos\Modelos\bin\Debug\Modelos.dll.mdb
+E:\TFS\InventarioPueblosMagicos\PueblosMagicos\Modelos\obj\Debug\Modelos.dll.mdb
+E:\TFS\InventarioPueblosMagicos\PueblosMagicos\Modelos\bin\Debug\Modelos.dll.mdb

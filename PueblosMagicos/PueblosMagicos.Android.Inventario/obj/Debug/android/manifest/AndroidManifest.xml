@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="pueblosmagicos.android.inventario" android:versionCode="1" android:versionName="1.0">
+  <!--suppress UsesMinSdkAttributes-->
+  <uses-sdk android:minSdkVersion="16" />
+  <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="17" />
+  <!-- Google Maps for Android v2 requires OpenGL ES v2 -->
+  <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+  <!-- We need to be able to download map tiles and access Google Play Services-->
+  <uses-permission android:name="android.permission.INTERNET" />
+  <!-- Allow the application to access Google web-based services. -->
+  <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+  <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+  <uses-permission android:name="android.permission.LOCATION_HARDWARE" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <!-- Google Maps for Android v2 will cache map tiles on external storage -->
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <!-- Google Maps for Android v2 needs this permission so that it may check the connection state as it must download data -->
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <!-- Permission to receive remote notifications from Google Play Services -->
+  <!-- Notice here that we have the package name of our application as a prefix on the permissions. -->
+  <uses-permission android:name="pueblosmagicos.android.inventario.permission.MAPS_RECEIVE" />
+  <permission android:name="pueblosmagicos.android.inventario.permission.MAPS_RECEIVE" android:protectionLevel="signature" />
+  <!-- These are optional, but recommended. They will allow Maps to use the My Location provider. -->
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <application android:label="pueblosmagicos.android.inventario" android:largeHeap="true" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
+    <!-- Put your Google Maps V2 API Key here. -->
+    <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDRp4CZZdkZMXNZLUtdSGyCwwneIBlLJxA" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+    <activity android:configChanges="orientation|screenSize" android:label="CajerosActivity" android:theme="@style/MyTheme.ListFont" android:uiOptions="splitActionBarWhenNarrow" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.CajerosActivity" />
+    <activity android:configChanges="orientation|screenSize" android:label="CajerosTextosActivity" android:windowSoftInputMode="stateUnspecified|adjustPan" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.CajerosTextosActivity" />
+    <activity android:label="MapActivity" android:parentActivityName="md591ed960df9c0cd5ab62b0f0537062ce8.SenalamientosActivity" android:name="md53a9ff57722cc0f37e70526836d9d6bd4.MapActivity" />
+    <activity android:configChanges="orientation|screenSize" android:label="Menu" android:parentActivityName="md591ed960df9c0cd5ab62b0f0537062ce8.SeleccionarModuloActivity" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.MenuHomeActivity" />
+    <activity android:label="MenuLateralActivity" android:theme="@style/MyTheme.MenuLateral" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.MenuLateralActivity" />
+    <activity android:label="Mapa-Oficinas" android:parentActivityName="md591ed960df9c0cd5ab62b0f0537062ce8.SeleccionarModuloActivity" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.OficinasActivity" />
+    <activity android:configChanges="orientation|screenSize" android:label="OficinasFotosActivity" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.OficinasFotosActivity" />
+    <activity android:configChanges="orientation|screenSize" android:label="OficinasTextosActivity" android:windowSoftInputMode="stateUnspecified|adjustPan" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.OficinasTextosActivity" />
+    <activity android:configChanges="orientation|screenSize" android:label="GaleriaFotosActivity" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.SenalamientosFotosActivity" />
+    <activity android:label="Graphics/Compass" android:name="md5446c5f529714f04776e32938888c7c38.Compass">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="mono.apidemo.sample" />
+      </intent-filter>
+    </activity>
+    <activity android:label="PueblosMagicos.Inventario.Android" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity android:configChanges="orientation|screenSize" android:label="MercadosActivity" android:uiOptions="splitActionBarWhenNarrow" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.MercadosActivity" />
+    <activity android:configChanges="orientation|screenSize" android:label="MercadosFotosActivity" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.MercadosFotosActivity" />
+    <activity android:configChanges="orientation|screenSize" android:label="MercadosHorariosActivity" android:theme="@style/MyTheme.ListFont" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.MercadosHorariosActivity" />
+    <activity android:configChanges="orientation|screenSize" android:label="MercadosNotasActivity" android:theme="@style/MyTheme.ListFont" android:windowSoftInputMode="stateUnspecified|adjustPan" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.MercadosTextosActivity" />
+    <activity android:label="Mapa-Senalamiento" android:parentActivityName="md591ed960df9c0cd5ab62b0f0537062ce8.SeleccionarModuloActivity" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.SenalamientosMapActivity" />
+    <activity android:configChanges="orientation|screenSize" android:label="NotasActivity" android:theme="@style/MyTheme.ListFont" android:windowSoftInputMode="stateUnspecified|adjustPan" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.SenalamientosTextosActivity" />
+    <activity android:configChanges="orientation|screenSize" android:label="OrientacionActivity" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.SenalamientosOrientacionActivity" />
+    <activity android:label="RecuperarNipActivity" android:theme="@android:style/Theme.NoTitleBar" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.RecuperarNipActivity" />
+    <activity android:label="Menu" android:parentActivityName="md591ed960df9c0cd5ab62b0f0537062ce8.MainActivity" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.SeleccionarModuloActivity" />
+    <activity android:configChanges="orientation|screenSize" android:label="SenalamientosActivity" android:theme="@style/MyTheme.ListFont" android:uiOptions="splitActionBarWhenNarrow" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.SenalamientosActivity" />
+    <activity android:noHistory="true" android:theme="@style/MyTheme.Splash" android:name="md591ed960df9c0cd5ab62b0f0537062ce8.SplashActivity" />
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="pueblosmagicos.android.inventario.mono.MonoRuntimeProvider.__mono_init__" />
+    <!--suppress ExportedReceiver-->
+    <receiver android:name="mono.android.Seppuku">
+      <intent-filter>
+        <action android:name="mono.android.intent.action.SEPPUKU" />
+        <category android:name="mono.android.intent.category.SEPPUKU.pueblosmagicos.android.inventario" />
+      </intent-filter>
+    </receiver>
+    <activity android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="false" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+  </application>
+</manifest>

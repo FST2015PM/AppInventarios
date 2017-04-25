@@ -1,0 +1,5 @@
+E:\TFS\InventarioPueblosMagicos\PueblosMagicos\Datos\bin\Debug\Datos.dll
+E:\TFS\InventarioPueblosMagicos\PueblosMagicos\Datos\bin\Debug\Datos.pdb
+E:\TFS\InventarioPueblosMagicos\PueblosMagicos\Datos\obj\Debug\Datos.dll
+E:\TFS\InventarioPueblosMagicos\PueblosMagicos\Datos\obj\Debug\Datos.pdb
+E:\TFS\InventarioPueblosMagicos\PueblosMagicos\Datos\obj\Debug\Datos.csprojResolveAssemblyReference.cache
