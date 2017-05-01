@@ -1,5 +1,0 @@
-E:\TFS\InventarioPueblosMagicos\PueblosMagicos\ReglasDeNegocio\bin\Debug\ReglasDeNegocio.dll
-E:\TFS\InventarioPueblosMagicos\PueblosMagicos\ReglasDeNegocio\bin\Debug\ReglasDeNegocio.pdb
-E:\TFS\InventarioPueblosMagicos\PueblosMagicos\ReglasDeNegocio\obj\Debug\ReglasDeNegocio.dll
-E:\TFS\InventarioPueblosMagicos\PueblosMagicos\ReglasDeNegocio\obj\Debug\ReglasDeNegocio.pdb
-E:\TFS\InventarioPueblosMagicos\PueblosMagicos\ReglasDeNegocio\obj\Debug\ReglasDeNegocio.csprojResolveAssemblyReference.cache
