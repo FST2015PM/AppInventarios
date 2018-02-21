@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+    <ImageView
+        android:id="@+id/ImageGuardarHorario"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/icon"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true" />
+    <LinearLayout
+        android:id="@+id/LinearListSimpleViewText1"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="50dip"
+        android:gravity="left">
+        <TextView
+            android:id="@+id/TextViewGuardarHorario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="18dip" />
+        <TextView
+            android:id="@+id/TextViewSubGuardarHorario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dark_grey"
+            android:textSize="14dip" />
+        <TextView
+            android:id="@+id/TextViewSubSubGuardarHorario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dark_grey"
+            android:textSize="14dip" />
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/ImageMenuHorario"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/icon"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true" />
+</RelativeLayout>

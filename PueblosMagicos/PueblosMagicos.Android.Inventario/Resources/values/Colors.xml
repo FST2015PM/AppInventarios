@@ -7,18 +7,33 @@
   <color name="window_background">#F5F5F5</color>
   <color name="splash_background">#FFFFFF</color>
   <color name="green_action_bar">#00ad47</color>
+  
   <color name="green_menu_lateral">#63995a</color>
   <color name="mercados_menu_lateral">#cc947b</color>
   <color name="cajeros_menu_lateral">#d28cb2</color>
   <color name="oficinas_menu_lateral">#977dac</color>
+  <color name="fachadas_menu_lateral">#a6cea0</color>
+  <color name="estacionamientos_menu_lateral">#d18b6b</color>
+    <color name="Wifi_menu_lateral">#e4a1c5</color>
+  
   <color name="fondo_modulos">#eff0ef</color>
   <color name="divider_list_textos">#8e8e93</color>
+  <color name="sublist_textos_dias">#e0e3e0</color>
   <color name="pink_cajeros">#c8468c</color>
   <color name="purple_oficinas">#825f9f</color>
+  <color name="estacionamientos_menu">#d26e40</color>
+  <color name="fachadas_menu">#64a859</color>
+  <color name="pink_Wifi">#c8468c</color>
+  
 
+  <color name="blue_Agencias">#6ebaeb</color>
+  <color name="agencias_menu_lateral">#c3e7ff</color>
+  
+  
 	<color name="theme_green">#269435</color>
 	<color name="theme_blue">#3b9fe5</color>
 	<color name="white">#FFFFFF</color>
+  <color name="white_inactive">#e9b7a0</color>
 	<color name="yellow">#FFFF00</color>
 	<color name="fuchsia">#FF00FF</color>
 	<color name="red">#FF0000</color>
@@ -37,6 +52,7 @@
 	<color name="black">#000000</color>
   <color name="dark_greyOrigin">#303030</color>
 	<color name="dark_grey">#6f6f74</color>
-  
+
+  <color name="transparent">#80FFFFFF</color>
 
 </resources>

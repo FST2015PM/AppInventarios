@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/imgHeaderFondo"
+    android:weightSum="100"
+    android:gravity="left|center"
+    android:paddingLeft="25dip">
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:padding="5dp"
+        android:src="@drawable/imgHeaderMenuLateral"
+        android:layout_weight="50"
+        android:gravity="center_vertical"/>
+    <LinearLayout
+            android:id="@+id/LinearListSimpleViewText1"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|left"
+            android:paddingTop="7dp"
+            android:layout_weight="50"
+            android:layout_marginLeft="75dp">
+        <TextView
+            android:id="@+id/txtHeaderMenuLateral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18dip"
+            android:text="Bienvenido" />
+        <TextView
+            android:id="@+id/txtNameHeaderMenuLateral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18dip"
+            android:text=""
+            android:textStyle="bold" />
+    </LinearLayout>
+</RelativeLayout>

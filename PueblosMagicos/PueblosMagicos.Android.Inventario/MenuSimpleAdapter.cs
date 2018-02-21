@@ -43,8 +43,10 @@ namespace PueblosMagicos.Android.Inventario
             if (view == null) // no view to re-use, create new
                 view = context.LayoutInflater.Inflate(Resource.Layout.MenuSimple, null);
                     view.FindViewById<TextView>(Resource.Id.TextViewMenuSimple).Text = item.Heading;
-                if (item.SubHeading != null)
-                    view.FindViewById<TextView>(Resource.Id.TextViewSubMenuSimple).Text = item.SubHeading;
+                    if (!string.IsNullOrWhiteSpace(item.SubHeading))
+                        view.FindViewById<TextView>(Resource.Id.TextViewSubMenuSimple).Text = item.SubHeading;
+                    else
+                        view.FindViewById<TextView>(Resource.Id.TextViewSubMenuSimple).Visibility = ViewStates.Gone;
                     view.FindViewById<ImageView>(Resource.Id.ImageMenuSimple).SetImageResource(item.ImageResourceMenuId);
             return view;
         }

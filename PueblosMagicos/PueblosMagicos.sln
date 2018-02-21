@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelos", "Modelos\Modelos.csproj", "{3D35AD9D-6F47-4945-9488-F0D0D2AC5004}"
 EndProject
@@ -21,27 +21,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapDemo", "MapDemo\MapDemo.csproj", "{C1412A3C-13E3-43A2-94A7-A7DAD19D3EDD}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 6
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://edlcm.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Modelos\\Modelos.csproj
-		SccProjectName1 = Modelos
-		SccLocalPath1 = Modelos
-		SccProjectUniqueName2 = PueblosMagicos.Inventario.iOS\\PueblosMagicos.Inventario.iOS.csproj
-		SccProjectName2 = PueblosMagicos.Inventario.iOS
-		SccLocalPath2 = PueblosMagicos.Inventario.iOS
-		SccProjectUniqueName3 = ReglasDeNegocio\\ReglasDeNegocio.csproj
-		SccProjectName3 = ReglasDeNegocio
-		SccLocalPath3 = ReglasDeNegocio
-		SccProjectUniqueName4 = PueblosMagicos.Android.Inventario\\PueblosMagicos.Android.Inventario.csproj
-		SccProjectName4 = PueblosMagicos.Android.Inventario
-		SccLocalPath4 = PueblosMagicos.Android.Inventario
-		SccProjectUniqueName5 = MapDemo\\MapDemo.csproj
-		SccProjectName5 = MapDemo
-		SccLocalPath5 = MapDemo
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
 		Ad-Hoc|iPhone = Ad-Hoc|iPhone
@@ -219,5 +198,26 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://edlcm.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Modelos\\Modelos.csproj
+		SccProjectName1 = Modelos
+		SccLocalPath1 = Modelos
+		SccProjectUniqueName2 = PueblosMagicos.Inventario.iOS\\PueblosMagicos.Inventario.iOS.csproj
+		SccProjectName2 = PueblosMagicos.Inventario.iOS
+		SccLocalPath2 = PueblosMagicos.Inventario.iOS
+		SccProjectUniqueName3 = ReglasDeNegocio\\ReglasDeNegocio.csproj
+		SccProjectName3 = ReglasDeNegocio
+		SccLocalPath3 = ReglasDeNegocio
+		SccProjectUniqueName4 = PueblosMagicos.Android.Inventario\\PueblosMagicos.Android.Inventario.csproj
+		SccProjectName4 = PueblosMagicos.Android.Inventario
+		SccLocalPath4 = PueblosMagicos.Android.Inventario
+		SccProjectUniqueName5 = MapDemo\\MapDemo.csproj
+		SccProjectName5 = MapDemo
+		SccLocalPath5 = MapDemo
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="328.0dp"
+        android:layout_height="48dp"
+        android:id="@+id/layTituloLogViewer"
+        android:gravity="center"
+        android:layout_marginTop="20dp">
+        <Button
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:id="@+id/btnRegresarLogs"
+            android:text="&lt;&lt;" />
+        <TextView
+            android:text="Log Viewer"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="202.5dp"
+            android:layout_height="39dp"
+            android:id="@+id/txtViewTituloLogViewer"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:fontFamily="Arial"
+            android:textColor="#FFFEFF" />
+    </LinearLayout>  
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/logsList" />
+</LinearLayout>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="pueblosmagicos.android.inventario" android:versionCode="1" android:versionName="1.0">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="pueblosmagicos.android.inventario" android:versionCode="1" android:versionName="1.0" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="16" />
 	<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="17" />
 	<!-- Google Maps for Android v2 requires OpenGL ES v2 -->
@@ -25,9 +25,15 @@
 	<!-- These are optional, but recommended. They will allow Maps to use the My Location provider. -->
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-	<application android:label="pueblosmagicos.android.inventario" android:largeHeap="true">
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-permission android:name="android.permission.HARDWARE_TEST" />
+	<uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+	<uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
+	<uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<application android:label="pueblosmagicos.android.inventario" android:largeHeap="true" android:icon="@drawable/iconOficinas">
 		<!-- Put your Google Maps V2 API Key here. -->
-		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDRp4CZZdkZMXNZLUtdSGyCwwneIBlLJxA" />
+		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCHKLQwxH8lP0p7bJtIXnJKRR5fp_QJl-4" />
 		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 	</application>
 </manifest>

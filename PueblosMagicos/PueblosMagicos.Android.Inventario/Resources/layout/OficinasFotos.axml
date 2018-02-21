@@ -3,156 +3,215 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <LinearLayout
-      xmlns:map="http://schemas.android.com/apk/res-auto"
-      android:orientation="vertical"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:gravity="fill_horizontal|fill_vertical"
-      android:minHeight="25px">
-    <RelativeLayout
-         android:minWidth="25px"
-         android:minHeight="25px"
-         android:layout_width="match_parent"
-         android:layout_height="70dp"
-         android:id="@+id/linearLayout1"
-         android:background="@color/purple_oficinas"
-         android:gravity="center_horizontal">
-      <TextView
-          android:text="Oficinas de congresos"
-          android:layout_width="244.0dp"
-          android:layout_height="70.5dp"
-          android:id="@+id/header_text"
-          android:textStyle="bold"
-          android:textSize="20dip"
-          android:gravity="center"
-          android:textColor="#ffffff"
-          android:drawableLeft="@drawable/iconOficinas"
-          android:layout_marginLeft="0.0dp"
-          android:layout_gravity="center"
-          android:layout_margin="5dp"
-          android:layout_marginRight="136.5dp" />
-    </RelativeLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:background="@color/purple_oficinas"
+    <LinearLayout xmlns:map="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/footer">
+        android:layout_height="match_parent"
+        android:gravity="fill_horizontal|fill_vertical"
+        android:minHeight="25px">
       <LinearLayout
           android:orientation="vertical"
-          android:layout_height="match_parent"
-          android:layout_weight="1"
-          android:id="@+id/tab1"
-          android:layout_width="2dp">
+          android:layout_width="match_parent"
+          android:layout_height="40dp"
+          android:background="@color/purple_oficinas">
         <ImageButton
-            android:id="@+id/tab1_oficinas_icon"
-            android:layout_weight="2"
-            android:layout_height="0dp"
-            android:layout_width="match_parent"
-            android:background="@color/purple_oficinas"
-            android:src="@drawable/PinIcon"
-            android:clickable="true" />
+            android:background="@drawable/btnInicio"
+            android:id="@+id/btnInicio"
+            android:layout_height="14dp"
+            android:layout_width="60dp"
+            android:layout_margin="10dp" />
       </LinearLayout>
       <LinearLayout
-          android:orientation="vertical"
-          android:layout_height="match_parent"
-          android:layout_width="0dp"
-          android:layout_weight="1"
-          android:id="@+id/tab4">
-        <ImageButton
-            android:id="@+id/tab2_oficinas_icon"
-            android:layout_weight="2"
-            android:layout_height="0dp"
-            android:background="@color/purple_oficinas"
-            android:src="@drawable/FotoIcon"
-            android:clickable="true"
-            android:layout_width="match_parent" />
-      </LinearLayout>
-      <LinearLayout
-            android:orientation="vertical"
-            android:layout_height="match_parent"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:id="@+id/tab3">
-        <ImageButton
-            android:id="@+id/tab3_oficinas_icon"
-            android:layout_weight="2"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:src="@drawable/TextoIcon"
-            android:clickable="true"
-            android:background="@color/purple_oficinas" />
-      </LinearLayout>
-    </LinearLayout>
-    <android.support.v7.widget.CardView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_gravity="center_horizontal">
-      <LinearLayout
-          android:layout_width="fill_parent"
-          android:layout_height="fill_parent"
-          android:orientation="vertical"
-          android:padding="0dp">
-        <android.support.v4.view.ViewPager
-            android:id="@+id/signalpager"
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-      </LinearLayout>
-      <LinearLayout
-          android:layout_width="fill_parent"
-          android:layout_height="fill_parent"
-          android:orientation="vertical"
-          android:gravity="top|center"
-          android:layout_marginTop="20dp">
-        <ImageButton
-            android:id="@+id/oficinaFotosSigBtn"
-            android:layout_width="120dp"
-            android:layout_height="37dp"
-            android:background="@drawable/btnSiguienteOficinas" />
-      </LinearLayout>
-      <LinearLayout
-          android:layout_width="fill_parent"
-          android:layout_height="fill_parent"
-          android:orientation="vertical"
-          android:layout_marginTop="60dp">
-        <PueblosMagicos.Android.Inventario.CirclePageIndicator
-            android:id="@+id/signalindicator"
-            android:padding="10dip"
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent" />
-      </LinearLayout>
-      <LinearLayout
-          android:layout_width="fill_parent"
-          android:layout_height="fill_parent"
-          android:orientation="vertical"
-          android:gravity="bottom|center"
-          android:layout_marginBottom="20dp">
-        <Button
-            android:id="@+id/signalopenCameraButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/CamaraBtn"
-            android:gravity="center_horizontal" />
+          android:minWidth="25px"
+          android:minHeight="25px"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/linearLayout1"
+          android:gravity="center_vertical"
+          android:background="@color/purple_oficinas"
+          android:weightSum="100"
+          android:paddingLeft="35dp">
+        <ImageView
+            android:layout_width="47dp"
+            android:layout_height="46dp"
+            android:background="@drawable/iconOficinas"
+            android:id="@+id/imageView"
+            android:scaleType="centerCrop" />
         <TextView
-            android:text="@string/openCamera"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18dip"
-            android:fontFamily="@string/ApplicationName"
-            android:textColor="@android:color/white"
-            android:gravity="center_horizontal" />
+            android:text="Oficinas de congresos"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:id="@+id/header_text"
+            android:textStyle="bold"
+            android:textSize="10pt"
+            android:textColor="#ffffff"
+            android:gravity="center|left"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" />
       </LinearLayout>
-    </android.support.v7.widget.CardView>
-  </LinearLayout>
-  <ListView
-          android:id="@+id/left_drawer"
-          android:layout_width="300dp"
-          android:layout_height="match_parent"
-          android:layout_gravity="left"
-          android:choiceMode="singleChoice"
-          android:background="@color/oficinas_menu_lateral"
-          android:divider="#FFFFFF"
-          android:dividerHeight="3px" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:background="@color/purple_oficinas"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/footer">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/tab1"
+                android:layout_width="2dp">
+                <ImageButton
+                    android:id="@+id/tab1_oficinas_icon"
+                    android:layout_weight="2"
+                    android:layout_height="0dp"
+                    android:layout_width="match_parent"
+                    android:background="@color/purple_oficinas"
+                    android:src="@drawable/PinIcon"
+                    android:clickable="true" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:id="@+id/tab4">
+                <ImageButton
+                    android:id="@+id/tab2_oficinas_icon"
+                    android:layout_weight="2"
+                    android:layout_height="0dp"
+                    android:background="@color/purple_oficinas"
+                    android:src="@drawable/FotoIcon"
+                    android:clickable="true"
+                    android:layout_width="match_parent" />
+              <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/tabMercados"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:id="@+id/tab3">
+                <ImageButton
+                    android:id="@+id/tab3_oficinas_icon"
+                    android:layout_weight="2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:src="@drawable/TextoIcon"
+                    android:clickable="true"
+                    android:background="@color/purple_oficinas" />
+            </LinearLayout>
+        </LinearLayout>
+        <android.support.v7.widget.CardView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:padding="0dp">
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/signalpager"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:gravity="bottom|center"
+                android:layout_marginTop="20dp">
+                <Button
+                    android:id="@+id/oficinaFotosSigBtn"
+                    android:layout_width="120dp"
+                    android:layout_height="30dp"
+                    android:text="SIGUIENTE"
+                    android:background="@drawable/OficinasButton"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="15dp" />
+            </LinearLayout>
+          <TextView
+              android:minWidth="25px"
+              android:minHeight="25px"
+              android:layout_height="match_parent"
+              android:layout_width="match_parent"
+              android:text="No has agregado \nfotos todavía"
+              android:gravity="center|center"
+              android:id="@+id/textViewSinFotos"
+              android:padding="10dp"
+              android:textColor="@color/white"
+              android:textSize="18dip" />
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="60dp">
+                <PueblosMagicos.Android.Inventario.CirclePageIndicator
+                    android:id="@+id/signalindicator"
+                    android:padding="10dip"
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:gravity="bottom|center"
+                android:layout_marginBottom="20dp">
+              <Button
+                  android:id="@+id/oficinaOpenCameraButton"
+                  android:layout_width="50dp"
+                  android:layout_height="50dp"
+                  android:background="@drawable/CamaraBtn"
+                  android:gravity="center_horizontal" />
+              <TextView
+                    android:id="@+id/textOpenCameraButton"
+                    android:text="@string/openCamera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dip"
+                    android:fontFamily="@string/ApplicationName"
+                    android:textColor="@android:color/white"
+                    android:gravity="center_horizontal" />
+            </LinearLayout>
+            <LinearLayout
+                  android:layout_width="fill_parent"
+                  android:layout_height="fill_parent"
+                  android:orientation="vertical"
+                  android:gravity="center|center"
+                  android:layout_marginBottom="20dp">
+              <Button
+                  android:id="@+id/oficinaChangeCameraButton"
+                  android:layout_width="50dp"
+                  android:layout_height="50dp"
+                  android:background="@drawable/CamaraBtn"
+                  android:gravity="center_horizontal" />
+              <TextView
+                  android:id="@+id/textChangeCameraButton"
+                  android:text="@string/changeCamera"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="18dip"
+                  android:fontFamily="@string/ApplicationName"
+                  android:textColor="@android:color/white"
+                  android:gravity="center_horizontal" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+    <!--<ListView
+        android:id="@+id/left_drawer"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:choiceMode="singleChoice"
+        android:background="@color/oficinas_menu_lateral"
+        android:divider="#FFFFFF"
+        android:dividerHeight="3px" />-->
 </android.support.v4.widget.DrawerLayout>

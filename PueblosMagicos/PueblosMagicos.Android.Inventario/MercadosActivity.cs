@@ -21,8 +21,9 @@ namespace PueblosMagicos.Android.Inventario
     [Activity(Label = "MercadosActivity", UiOptions = UiOptions.SplitActionBarWhenNarrow, ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize)]
     public class MercadosActivity : Activity, IOnMapReadyCallback
     {
-        private ImageButton tab1Button, tab2Button, tab3Button, tab4Button, MercadosMainSiguienteBtn;
-        private Button MercadosMapaPopupBtn;
+        private ImageButton tab1Button, tab2Button, tab3Button, tab4Button;
+        private ImageButton btnInicio; //
+        private Button MercadosMapaPopupBtn, MercadosMainSiguienteBtn;
         private Color selectedColor, deselectedColor;
 
         private GoogleMap _map;
@@ -39,11 +40,11 @@ namespace PueblosMagicos.Android.Inventario
             SetContentView(Resource.Layout.Mercados);
 
             //MenuLateral
-            mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-            mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
+            //mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+            //mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
 
-            mLeftDrawer.Adapter = new MenuLateralAdapter(this, GlobalVariables.menuLateralListAdapter);
-            mLeftDrawer.ItemClick += OnMenuLateralItemClick;
+            //mLeftDrawer.Adapter = new MenuLateralAdapter(this, GlobalVariables.menuLateralListAdapter);
+            //mLeftDrawer.ItemClick += OnMenuLateralItemClick;
 
             InitMapFragment();
 
@@ -51,22 +52,30 @@ namespace PueblosMagicos.Android.Inventario
             tab2Button = this.FindViewById<ImageButton>(Resource.Id.tab2_mercados_icon);
             tab3Button = this.FindViewById<ImageButton>(Resource.Id.tab3_mercados_icon);
             tab4Button = this.FindViewById<ImageButton>(Resource.Id.tab4_mercados_icon);
-            MercadosMainSiguienteBtn = FindViewById<ImageButton>(Resource.Id.MercadosMainSiguienteBtn);
-            MercadosMapaPopupBtn = FindViewById<Button>(Resource.Id.MercadosMapaPopupBtn);
+            btnInicio = this.FindViewById<ImageButton>(Resource.Id.btnInicio); //
 
-            selectedColor = Color.ParseColor("#303030"); //The color u want    
-            deselectedColor = Color.ParseColor("#ffffff");
+            MercadosMainSiguienteBtn = FindViewById<Button>(Resource.Id.MercadosMainSiguienteBtn); 
+            MercadosMapaPopupBtn = FindViewById<Button>(Resource.Id.MercadosMapaPopupBtn); 
+
+            selectedColor = Color.ParseColor("#ffffff"); //The color u want    
+            deselectedColor = Color.ParseColor("#efc9b9");
 
             deselectAll();
             tab1Button.SetColorFilter(selectedColor);
 
             MercadosMainSiguienteBtn.Click += showTab2;
-
-            MercadosMapaPopupBtn.Click += delegate
+            MercadosMainSiguienteBtn.Visibility = ViewStates.Gone;
+            MercadosMapaPopupBtn.Click += delegate //
             {
                 MercadosMapaPopupBtn.Visibility = ViewStates.Gone;
-            };
+                MercadosMainSiguienteBtn.Visibility = ViewStates.Visible;
+            }; //
 
+            btnInicio.Click += delegate //
+            {
+                var intent = new Intent(this, typeof(MenuHomeActivity));
+                StartActivity(intent);
+            }; //
 
             tab2Button.Click += delegate
             {
@@ -180,20 +189,35 @@ namespace PueblosMagicos.Android.Inventario
            var posicion = e.Position;
            switch (posicion)
            {
-               case 0:
-                   StartActivity(typeof(SenalamientosMapActivity));
-                   break;
-               case 3:
-                   StartActivity(typeof(MercadosActivity));
-                   break;
-               case 4:
-                   StartActivity(typeof(CajerosActivity));
-                   break;
-               case 6:
-                   StartActivity(typeof(OficinasActivity));
-                   break;
-           }
-           mDrawerLayout.CloseDrawer(mLeftDrawer);
+                case 0:
+                    StartActivity(typeof(SenalamientosMapActivity));
+                    break;
+                case 1:
+                    StartActivity(typeof(MercadosActivity));
+                    break;
+                case 2:
+                    StartActivity(typeof(CajerosActivity));
+                    break;
+                case 3:
+                    StartActivity(typeof(OficinasActivity));
+                    break;
+                case 4:
+                    StartActivity(typeof(AgenciasActivity));
+                    break;
+                case 5:
+                    StartActivity(typeof(EstacionamientosActivity));
+                    break;
+                case 6:
+                    StartActivity(typeof(FachadasActivity));
+                    break;
+                case 7:
+                     StartActivity(typeof(WifisActivity));
+                    break;
+                case 8:
+                    //StartActivity(typeof(CableadosActivity));
+                    break;
+            }
+           //mDrawerLayout.CloseDrawer(mLeftDrawer);
        }
     }
 }

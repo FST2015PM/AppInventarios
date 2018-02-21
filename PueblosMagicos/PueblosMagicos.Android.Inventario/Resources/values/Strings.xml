@@ -8,9 +8,9 @@
     <string name="orient_tab_label">Orientación</string>
     <string name="textos_tab_label">Textos</string>
     <string name="openCamera">Agregar Foto</string>
-	  <string name="header_text">SEÑALAMIENTOS</string>
-    <string name="open_drawer">Open Drawer</string>
-    <string name="close_drawer">Close Drawer</string>
-   
-
+    <string name="changeCamera">Cambiar Foto</string>
+	  <string name="header_text">Señalamientos</string>
+    <string name="open_drawer">Abrir menu</string>
+    <string name="close_drawer">Cerrar menu</string>
+    <string name="add_marker">Agregar marcador</string>
 </resources>

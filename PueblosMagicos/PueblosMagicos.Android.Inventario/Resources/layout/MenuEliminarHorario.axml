@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center|center">
+    <ImageView
+        android:id="@+id/ImageGuardarHorario"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/icon"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="0dp" />
+    <LinearLayout
+        android:id="@+id/LinearListSimpleViewText1"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="0dip"
+        android:gravity="left"
+        android:paddingTop="7dp"
+        android:layout_centerVertical="true">
+        <TextView
+            android:text="8:00 a 17:00"
+            android:id="@+id/TextViewGuardarHorario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="17dip"
+            android:textStyle="bold" />
+        <TextView
+            android:text="Entre semana"
+            android:id="@+id/TextViewSubGuardarHorario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dark_grey"
+            android:textSize="17dip" />
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/ImageMenuHorario"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/icon"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/TextViewEliminar"
+        android:layout_marginRight="20dp" />
+    <TextView
+        android:background="#ff7f50"
+        android:text="ELIMINAR"
+        android:id="@+id/TextViewEliminar"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:textColor="@color/white"
+        android:textSize="17dip"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center" />
+</RelativeLayout>

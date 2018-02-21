@@ -3,58 +3,66 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-      android:orientation="vertical"
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
-      android:gravity="fill_horizontal|fill_vertical"
-      android:minHeight="25px"
-      android:background="@color/grey">
-    <RelativeLayout
-          android:minWidth="25px"
-          android:minHeight="25px"
-          android:layout_width="match_parent"
-          android:layout_height="70dp"
-          android:id="@+id/linearLayout1"
-          android:background="@color/pink_cajeros"
-          android:gravity="center_horizontal">
-      <TextView
-          android:text="Cajeros automáticos"
-          android:layout_width="244.0dp"
-          android:layout_height="70.5dp"
-          android:id="@+id/header_text"
-          android:textStyle="bold"
-          android:textSize="20dip"
-          android:gravity="center"
-          android:textColor="#ffffff"
-          android:drawableLeft="@drawable/iconCajeros"
-          android:layout_marginLeft="0.0dp"
-          android:layout_gravity="center"
-          android:layout_margin="5dp"
-          android:layout_marginRight="136.5dp" />
-    </RelativeLayout>
-    <ScrollView
-        android:minWidth="25px"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="fill_horizontal|fill_vertical"
         android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView1">
-      <TableLayout
-          android:layout_width="fill_parent"
-          android:layout_height="fill_parent"
-          android:stretchColumns="1">
-        <LinearLayout
-            android:orientation="horizontal"
-            android:background="@color/green_action_bar"
+        android:background="@color/grey">
+		<LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/footer">
-          <LinearLayout
-              android:orientation="vertical"
-              android:layout_height="match_parent"
-              android:layout_weight="1"
-              android:id="@+id/tab1"
-              android:layout_width="2dp">
+            android:layout_height="40dp"
+            android:background="@color/pink_cajeros">
+			<ImageButton
+            android:background="@drawable/btnInicio"
+            android:id="@+id/btnInicio"
+            android:layout_height="14dp"
+            android:layout_width="60dp"
+            android:layout_margin="10dp" />
+		</LinearLayout>
+		<LinearLayout
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout1"
+            android:gravity="center_vertical"
+            android:background="@color/pink_cajeros"
+            android:weightSum="100"
+            android:paddingLeft="35dp">
+			<ImageView
+                android:layout_width="47dp"
+                android:layout_height="46dp"
+                android:background="@drawable/iconCajeros"
+                android:id="@+id/imageView"
+                android:scaleType="centerCrop" />
+			<TextView
+                android:text="Cajeros automáticos"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:id="@+id/header_text"
+                android:textStyle="bold"
+                android:textSize="10pt"
+                android:textColor="#ffffff"
+                android:gravity="center|left"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp" />
+		</LinearLayout>
+    
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@color/pink_cajeros"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/footer">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/tab1"
+            android:layout_width="2dp">
             <ImageButton
                 android:id="@+id/tab1_cajeros_icon"
                 android:layout_weight="2"
@@ -63,13 +71,13 @@
                 android:background="@color/pink_cajeros"
                 android:src="@drawable/PinIcon"
                 android:clickable="true" />
-          </LinearLayout>
-          <LinearLayout
-              android:orientation="vertical"
-              android:layout_height="match_parent"
-              android:layout_width="0dp"
-              android:layout_weight="1"
-              android:id="@+id/tab2">
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/tab2">
             <ImageButton
                 android:id="@+id/tab2_cajeros_icon"
                 android:layout_weight="2"
@@ -78,184 +86,186 @@
                 android:src="@drawable/TextoIcon"
                 android:clickable="true"
                 android:layout_width="match_parent" />
-          </LinearLayout>
+					  <ImageView
+						  android:layout_width="15dp"
+						  android:layout_height="wrap_content"
+						  android:background="@drawable/tabMercados"
+						  android:layout_gravity="center" />
+            </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
+        <ScrollView
+            android:minWidth="25px"
+            android:minHeight="25px"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white">
-          <LinearLayout
-              android:layout_width="match_parent"
-              android:layout_height="60dp"
-              android:background="@color/grey"
-              android:orientation="vertical"
-              android:gravity="center|center"
-              android:id="@+id/linearCajasTxtFinalizarBtn">
-            <ImageButton
-                android:id="@+id/btnFinalizarCajeros"
-                android:layout_width="120dp"
-                android:layout_height="33dp"
-                android:background="@drawable/btnFinalizarCajeros" />
-          </LinearLayout>
-          <LinearLayout
-              android:minWidth="25px"
-              android:minHeight="25px"
-              android:layout_height="0dp"
-              android:background="@color/grey"
-              android:layout_width="match_parent"
-              android:id="@+id/linearCajasTxt2"
-              android:gravity="center" />
-          <LinearLayout
-              android:minWidth="25px"
-              android:minHeight="25px"
-              android:layout_height="40dp"
-              android:background="@color/grey"
-              android:layout_width="fill_parent"
-              android:id="@+id/linearTextView"
-              android:weightSum="100">
-            <TextView
-                android:minWidth="25px"
-                android:minHeight="25px"
-                android:layout_height="40dp"
-                android:background="@color/grey"
-                android:layout_width="match_parent"
-                android:text="BANCO"
-                android:gravity="bottom|left"
-                android:id="@+id/textViewCajBancos"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:textColor="@color/dark_grey"
-                android:layout_weight="50" />
-            <TextView
-                android:minWidth="25px"
-                android:minHeight="25px"
-                android:layout_height="40dp"
-                android:background="@color/grey"
-                android:layout_width="match_parent"
-                android:text="300"
-                android:gravity="bottom|right"
-                android:id="@+id/textViewBancosCont"
-                android:paddingBottom="5dp"
-                android:paddingRight="10dp"
-                android:textColor="@color/dark_grey"
-                android:layout_weight="50"
-                android:clickable="true" />
-          </LinearLayout>
-          <EditText
-              android:minWidth="25px"
-              android:minHeight="25px"
-              android:inputType="textMultiLine"
-              android:textColor="@color/black"
-              android:padding="15dp"
-              android:layout_width="match_parent"
-              android:layout_height="80dp"
-              android:id="@+id/editTextCajasBanco"
-              android:layout_gravity="top"
-              android:maxLength="300"
-              android:hint="Banco"
-              android:textColorHint="@color/dark_grey"
-              android:gravity="left|top" />
-          <LinearLayout
-              android:minWidth="25px"
-              android:minHeight="25px"
-              android:layout_height="40dp"
-              android:background="@color/grey"
-              android:layout_width="fill_parent"
-              android:id="@+id/linearCajaNoCajeros"
-              android:weightSum="100">
-            <TextView
-                android:minWidth="25px"
-                android:minHeight="25px"
-                android:layout_height="40dp"
-                android:background="@color/grey"
-                android:layout_width="match_parent"
-                android:text="NÚMERO DE CAJEROS"
-                android:gravity="bottom|left"
-                android:id="@+id/textViewCajaTxtNoCajeros"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:textColor="@color/dark_grey"
-                android:layout_weight="50" />
-          </LinearLayout>
-          <EditText
-              android:minWidth="25px"
-              android:minHeight="25px"
-              android:textColor="@color/black"
-              android:padding="15dp"
-              android:layout_width="match_parent"
-              android:layout_height="60dp"
-              android:id="@+id/editTextCajasNoCajeros"
-              android:numeric="integer"
-              android:hint="Número"
-              android:textColorHint="@color/dark_grey" />
-          <TextView
-              android:minWidth="25px"
-              android:minHeight="25px"
-              android:layout_height="40dp"
-              android:background="@color/grey"
-              android:layout_width="match_parent"
-              android:id="@+id/spaceNoCajeros"
-              android:gravity="bottom" />
-          <LinearLayout
-              android:minWidth="25px"
-              android:minHeight="25px"
-              android:layout_height="60dp"
-              android:background="@color/white"
-              android:layout_width="fill_parent"
-              android:id="@+id/linearTextView"
-              android:weightSum="100">
-            <TextView
-                android:minWidth="25px"
-                android:minHeight="25px"
-                android:layout_height="60dp"
-                android:background="@color/white"
-                android:layout_width="match_parent"
-                android:text="En servicio"
-                android:gravity="center|left"
-                android:id="@+id/textViewCajServicio"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:textColor="@color/black"
-                android:textSize="19dp"
-                android:layout_weight="40" />
-            <Switch
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:id="@+id/switchCajasServicio"/>
-            <TextView
-                android:minWidth="25px"
-                android:minHeight="25px"
-                android:layout_height="60dp"
-                android:background="@color/white"
-                android:layout_width="match_parent"
-                android:gravity="center|right"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:layout_weight="10" />
-          </LinearLayout>
-          <TextView
-              android:minWidth="25px"
-              android:minHeight="25px"
-              android:layout_height="fill_parent"
-              android:background="@color/grey"
-              android:layout_width="match_parent"
-              android:id="@+id/space4"
-              android:gravity="bottom" />
-        </LinearLayout>
-      </TableLayout>
-    </ScrollView>
-  </LinearLayout>
-  <ListView
-    android:id="@+id/left_drawer"
-    android:layout_width="300dp"
-    android:layout_height="match_parent"
-    android:layout_gravity="left"
-    android:choiceMode="singleChoice"
-    android:background="@color/cajeros_menu_lateral"
-    android:divider="#FFFFFF"
-    android:dividerHeight="3px" />
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView1">
+            <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:stretchColumns="1">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white">
+                    <LinearLayout
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_height="0dp"
+                        android:background="@color/grey"
+                        android:layout_width="match_parent"
+                        android:id="@+id/linearCajasTxt2"
+                        android:gravity="center" />
+                    <LinearLayout
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_height="40dp"
+                        android:background="@color/grey"
+                        android:layout_width="fill_parent"
+                        android:id="@+id/linearTextView"
+                        android:weightSum="100">
+                        <TextView
+                            android:minWidth="25px"
+                            android:minHeight="25px"
+                            android:layout_height="40dp"
+                            android:background="@color/grey"
+                            android:layout_width="match_parent"
+                            android:text="BANCO"
+                            android:gravity="bottom|left"
+                            android:id="@+id/textViewCajBancos"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/dark_grey"
+                            android:layout_weight="50" />
+                        <TextView
+                            android:minWidth="25px"
+                            android:minHeight="25px"
+                            android:layout_height="40dp"
+                            android:background="@color/grey"
+                            android:layout_width="match_parent"
+                            android:text="300"
+                            android:gravity="bottom|right"
+                            android:id="@+id/textViewBancosCont"
+                            android:paddingBottom="5dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/dark_grey"
+                            android:layout_weight="50"
+                            android:clickable="true" />
+                    </LinearLayout>
+                    <EditText
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:inputType="text"
+                        android:textColor="@color/black"
+                        android:padding="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:id="@+id/editTextCajasBanco"
+                        android:layout_gravity="top"
+                        android:maxLength="300"
+                        android:hint="Banco"
+                        android:textColorHint="@color/dark_grey"
+						            android:textSize="16dip"
+                        android:gravity="left|top" />
+                    <LinearLayout
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_height="40dp"
+                        android:background="@color/grey"
+                        android:layout_width="fill_parent"
+                        android:id="@+id/linearCajaNoCajeros"
+                        android:weightSum="100">
+                        <TextView
+                            android:minWidth="25px"
+                            android:minHeight="25px"
+                            android:layout_height="40dp"
+                            android:background="@color/grey"
+                            android:layout_width="match_parent"
+                            android:text="NÚMERO DE CAJEROS"
+                            android:gravity="bottom|left"
+                            android:id="@+id/textViewCajaTxtNoCajeros"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/dark_grey"
+                            android:layout_weight="50" />
+                    </LinearLayout>
+                    <EditText
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:textColor="@color/black"
+                        android:padding="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:id="@+id/editTextCajasNoCajeros"
+                        android:numeric="integer"
+                        android:hint="Número"
+                        android:textColorHint="@color/dark_grey" 
+					              android:textSize="16dip" />
+					        <TextView
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_height="40dp"
+                        android:background="@color/grey"
+                        android:layout_width="match_parent"
+                        android:id="@+id/spaceNoCajeros"
+                        android:gravity="bottom" />
+                    <LinearLayout
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_height="60dp"
+                        android:background="@color/white"
+                        android:layout_width="fill_parent"
+                        android:id="@+id/linearTextView"
+                        android:weightSum="100">
+                        <TextView
+                            android:minWidth="25px"
+                            android:minHeight="25px"
+                            android:layout_height="60dp"
+                            android:background="@color/white"
+                            android:layout_width="match_parent"
+                            android:text="En servicio"
+                            android:gravity="center|left"
+                            android:id="@+id/textViewCajServicio"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="16dp"
+                            android:layout_weight="40" />
+                        <Switch
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:id="@+id/switchCajasServicio" />
+                        <TextView
+                            android:minWidth="25px"
+                            android:minHeight="25px"
+                            android:layout_height="60dp"
+                            android:background="@color/white"
+                            android:layout_width="match_parent"
+                            android:gravity="center|right"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:layout_weight="10" />
+                    </LinearLayout>
+                  <LinearLayout
+                      android:layout_height="60dp"
+                      android:background="@color/grey"
+                      android:layout_width="match_parent"
+                      android:gravity="center|bottom" >
+                    <Button
+                        android:id="@+id/btnFinalizarCajeros"
+                        android:layout_height="30dp"
+                        android:layout_width="120dp"
+                        android:text="GUARDAR"
+                        android:background="@drawable/CajerosButton"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:layout_marginTop="15dp"/>
+                  </LinearLayout>
+                </LinearLayout>
+            </TableLayout>
+        </ScrollView>
+    </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

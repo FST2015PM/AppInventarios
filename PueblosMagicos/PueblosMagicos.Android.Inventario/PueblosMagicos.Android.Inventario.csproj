@@ -17,7 +17,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
@@ -46,6 +46,7 @@
     <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
     <EnableProguard>False</EnableProguard>
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
+    <AndroidSupportedAbis>armeabi;armeabi-v7a;arm64-v8a</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -60,6 +61,10 @@
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CartoMobileSDK.Android, Version=1.0.6348.36226, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CartoMobileSDK.Android.4.0.2\lib\MonoAndroid230\CartoMobileSDK.Android.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Glide, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Glide.Xamarin.3.7.0\lib\Glide.dll</HintPath>
       <Private>True</Private>
@@ -160,18 +165,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapters\TaskListAdapter.cs" />
+    <Compile Include="AgenciasActivity.cs" />
+    <Compile Include="AgenciasHorariosActivity.cs" />
+    <Compile Include="AgenciasTextosActivity.cs" />
     <Compile Include="BitmapHelpers.cs" />
+    <Compile Include="CableadoActivity.cs" />
     <Compile Include="CajerosActivity.cs" />
     <Compile Include="CajerosTextosActivity.cs" />
+    <Compile Include="CartoTestLayoutActivity.cs" />
+    <Compile Include="DataTables\Agencias.cs" />
+    <Compile Include="DataTables\Bitacora.cs" />
+    <Compile Include="DataTables\Cableados.cs" />
     <Compile Include="DataTables\Cajeros.cs" />
+    <Compile Include="DataTables\Estacionamientos.cs" />
+    <Compile Include="DataTables\Fachadas.cs" />
     <Compile Include="DataTables\Mercados.cs" />
     <Compile Include="DataTables\Oficinas.cs" />
     <Compile Include="DataTables\Senalamientos.cs" />
     <Compile Include="DataTables\UserSession.cs" />
+    <Compile Include="DataTables\Wifi.cs" />
+    <Compile Include="EstacionamientosFotosActivity.cs" />
+    <Compile Include="EstacionamientosActivity.cs" />
+    <Compile Include="EstacionamientosHorariosActivity.cs" />
+    <Compile Include="EstacionamientosTextosActivity.cs" />
+    <Compile Include="FachadasActivity.cs" />
+    <Compile Include="FachadasFotosActivity.cs" />
+    <Compile Include="FachadasTextosActivity.cs" />
     <Compile Include="Fragments.cs" />
     <Compile Include="Library\CirclePageIndicator.cs" />
     <Compile Include="Library\PageIndicator.cs" />
     <Compile Include="LocationConverter.cs" />
+    <Compile Include="LogViewerActivity.cs" />
     <Compile Include="MapActivity.cs" />
     <Compile Include="MenuEditarAdapter.cs" />
     <Compile Include="MenuHomeActivity.cs" />
@@ -185,7 +210,6 @@
     <Compile Include="OficinasTextosActivity.cs" />
     <Compile Include="SenalamientosFotosActivity.cs" />
     <Compile Include="GlobalVariables.cs" />
-    <Compile Include="Graphics\Compass.cs" />
     <Compile Include="Graphics\GraphicsActivity.cs" />
     <Compile Include="Graphics\PictureLayout.cs" />
     <Compile Include="ImageAdapter.cs" />
@@ -202,10 +226,11 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeleccionarModuloActivity.cs" />
-    <Compile Include="SenalamientosActivity.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Services\SecurityService.cs" />
     <Compile Include="SplashActivity.cs" />
+    <Compile Include="WifisActivity.cs" />
+    <Compile Include="WifisTextosActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -230,6 +255,7 @@
     <AndroidResource Include="Resources\drawable\splash_screen.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\drawable\tabMercados.png" />
     <AndroidResource Include="Resources\drawable\TextoIcon.png" />
     <AndroidResource Include="Resources\layout\SenalamientosFotos.axml">
       <SubType>Designer</SubType>
@@ -238,9 +264,6 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\RecuperarNip.axml" />
-    <AndroidResource Include="Resources\layout\Senalamientos.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\simple_fragment.axml" />
     <AndroidResource Include="Resources\layout\SenalamientosTextos.axml">
       <SubType>Designer</SubType>
@@ -269,7 +292,9 @@
     <AndroidResource Include="Resources\layout\MenuSimple.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\SenalamientosMap.axml" />
+    <AndroidResource Include="Resources\layout\SenalamientosMap.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\layout\Map.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -292,7 +317,58 @@
     <AndroidResource Include="Resources\layout\OficinasTextos.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\MenuHome.axml" />
+    <AndroidResource Include="Resources\layout\MenuHome.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Estacionamientos.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\EstacionamientosFotos.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\EstacionamientosTextos.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\EstacionamientosHorarios.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Agencias.axml" />
+    <AndroidResource Include="Resources\layout\AgenciasHorarios.axml" />
+    <AndroidResource Include="Resources\layout\AgenciasTextos.axml" />
+    <AndroidResource Include="Resources\layout\Fachadas.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\FachadasFotos.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\FachadasTextos.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Wifi.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\WifiTextos.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\FachadaEditarHorario.axml" />
+    <AndroidResource Include="Resources\layout\MenuLateralHeader.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\MenuEliminarHorario.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CartoTestLayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\LogViewer.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\LogItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Cableado.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
@@ -300,7 +376,9 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\values\Strings.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml">
@@ -382,13 +460,13 @@
     <AndroidResource Include="Resources\drawable\MercadosMapaPopupBtn.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\MercadosEditarEliminarIco.png" />
+    <AndroidResource Include="Resources\drawable\ListEditarEliminarIco.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\OpcionesMenuIco.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\MercadosEditarEliminarVacioIco.png" />
+    <AndroidResource Include="Resources\drawable\ListEditarEliminarVacioIco.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\SenalamientosOpcionActual.png" />
@@ -493,43 +571,84 @@
     <AndroidResource Include="Resources\drawable\PinIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\16 x 16\fotoMercados.png" />
+    <AndroidResource Include="Resources\drawable\CajerosButton.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\16 x 16\fotoOficinas.png" />
+    <AndroidResource Include="Resources\drawable\OficinasButton.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\16 x 16\fotoSenalamientos.png" />
+    <AndroidResource Include="Resources\drawable\SenalamientosButton.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\16 x 16\horarioMercados.png" />
+    <AndroidResource Include="Resources\drawable\MercadosButton.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\16 x 16\orientacionSenalamientos.png" />
+    <AndroidResource Include="Resources\drawable\EstacionamientosMapaPopupBtn.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\16 x 16\pinCajeros.png" />
+    <AndroidResource Include="Resources\drawable\EstacionamientosButton.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\16 x 16\pinMercados.png" />
+    <AndroidResource Include="Resources\drawable\iconEstacionamientos.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\16 x 16\pinOficinas.png" />
+    <AndroidResource Include="Resources\drawable\AgenciasButton.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\16 x 16\pinSenalamientos.png" />
+    <AndroidResource Include="Resources\drawable\AgenciasPopupBtn.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\16 x 16\textoCajeros.png" />
+    <AndroidResource Include="Resources\drawable\iconAgencias.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\16 x 16\textoMercados.png" />
+    <AndroidResource Include="Resources\drawable\FachadasMapaPopupBtn.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\16 x 16\textoOficinas.png" />
+    <AndroidResource Include="Resources\drawable\FachadasButton.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\16 x 16\textoSenalamientos.png" />
+    <AndroidResource Include="Resources\drawable\iconWifi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\WifiPopupBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\WifiButton.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\iconFachadas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\tabWifi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\IconPin2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\MenuLateral.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\btnInicio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\IconHamburguer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\imgHeaderMenuLateral.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\imgHeaderFondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\tabActiveBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\tabActiveFoto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\CableadoButton.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

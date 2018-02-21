@@ -11,20 +11,22 @@ using Android.Views;
 using Android.Widget;
 using Android.Graphics;
 using Android.Content.PM;
-using Android.Support.V4.Widget;
-using Android.Support.V4.App;
 
 namespace PueblosMagicos.Android.Inventario
-{
-    [Activity(Label = "MercadosHorariosActivity", Theme = "@style/MyTheme.ListFont", ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize)]
+{ //, Theme = "@style/MyTheme.ListFont", ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize
+    [Activity(Label = "MercadosHorariosActivity")]
     public class MercadosHorariosActivity : Activity
     {
-        private ImageButton tab1Button, tab2Button, tab3Button, tab4Button;
-        private ImageView buttonGuardar, buttonRegresar, buttonSiguiente;
-        private TimePicker timePickerApertura, timePickerCierre;
+        private ImageButton tab1Button, tab2Button, tab3Button, tab4Button, btnInicio; //
+        private Button buttonGuardar, buttonRegresar, buttonSiguiente;
+         
+        //private TimePicker timePickerApertura, timePickerCierre;
         private FrameLayout containerMercadoList, containerMercadoSubList, containerMercadoGuardarList;
-        private TextView textViewApertura, textViewCancelar, textViewCierre, textViewEspacio, textViewEditar, textViewAgregar, textViewEditarCancelar, textViewEditarOk, textViewSinHorarios;
+        private TextView textViewApertura, textViewCancelar, textViewCierre, textViewEspacio, textViewEditar,
+            textViewAgregar, textViewEditarCancelar, textViewEditarOk, textViewSinHorarios, textTimeApertura,
+            textTimeCierre;
         private LinearLayout linearBtnGuardar, linearBtnRegresar, linearApertura, linearHorarios, linearBtnSiguiente, linearHorariosEditar;
+            //linearHorariosPicker1, linearHorariosPicker2;
         private Color selectedColor, deselectedColor;
         private ListView list, guardarList;
         List<MenusTableItem> recuperarListAdapter = new List<MenusTableItem>();
@@ -34,10 +36,17 @@ namespace PueblosMagicos.Android.Inventario
         private string diasLaborales;
         private string[] diasApertura = { "Entre semana", "Fines de semana", "Toda la semana" };
         private bool editar = false;
+        private bool eliminar = false; // Línea agregada
         private int posicionActual = 0;
+        // Timepicker Dialog
+        private const int APERTURA_TIME_DIALOG_ID = 1;
+        private const int CIERRE_TIME_DIALOG_ID = 1;
+        int hour, hourApertura, hourCierre;
+        int minute, minuteApertura, minuteCierre;
+        private int activePicker = 0;
+        //
         TimeZoneInfo timeZone;
 
-        DrawerLayout mDrawerLayout;
         List<String> mLeftItems = new List<string>();
         ListView mLeftDrawer;
 
@@ -47,22 +56,16 @@ namespace PueblosMagicos.Android.Inventario
             RequestWindowFeature(WindowFeatures.NoTitle);
             SetContentView(Resource.Layout.MercadosHorarios);
 
-            //MenuLateral
-            mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-            mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
-
-            mLeftDrawer.Adapter = new MenuLateralAdapter(this, GlobalVariables.menuLateralListAdapter);
-            mLeftDrawer.ItemClick += OnMenuLateralItemClick;
-
             // Create your application here
             tab1Button = this.FindViewById<ImageButton>(Resource.Id.tab1_mercados_icon);
             tab2Button = this.FindViewById<ImageButton>(Resource.Id.tab2_mercados_icon);
             tab3Button = this.FindViewById<ImageButton>(Resource.Id.tab3_mercados_icon);
             tab4Button = this.FindViewById<ImageButton>(Resource.Id.tab4_mercados_icon);
+            btnInicio = this.FindViewById<ImageButton>(Resource.Id.btnInicio); //
 
-            buttonGuardar = this.FindViewById<ImageView>(Resource.Id.MercadosGuardarBtn);
-            buttonRegresar = this.FindViewById<ImageView>(Resource.Id.MercadosRegresarBtn);
-            buttonSiguiente = this.FindViewById<ImageView>(Resource.Id.MercadosSiguienteBtn);
+            buttonGuardar = FindViewById<Button>(Resource.Id.MercadosGuardarBtn);
+            buttonRegresar = FindViewById<Button>(Resource.Id.MercadosRegresarBtn);
+            buttonSiguiente = FindViewById<Button>(Resource.Id.MercadosSiguienteBtn);
 
             containerMercadoList = this.FindViewById<FrameLayout>(Resource.Id.containerMercadoHorList);
             containerMercadoSubList = this.FindViewById<FrameLayout>(Resource.Id.containerMercadoHorSubList);
@@ -77,12 +80,8 @@ namespace PueblosMagicos.Android.Inventario
             textViewEditarOk = this.FindViewById<TextView>(Resource.Id.textViewEditarOk);
             textViewEditarCancelar = this.FindViewById<TextView>(Resource.Id.textViewEditarCancelar);
             textViewSinHorarios = this.FindViewById<TextView>(Resource.Id.textViewSinHorarios);
-
-            timePickerApertura = this.FindViewById<TimePicker>(Resource.Id.timePickerApertura);
-            timePickerCierre = this.FindViewById<TimePicker>(Resource.Id.timePickerCierre);
-
-            timePickerApertura.SetIs24HourView(Java.Lang.Boolean.True);
-            timePickerCierre.SetIs24HourView(Java.Lang.Boolean.True);
+            textTimeApertura = this.FindViewById<TextView>(Resource.Id.textTimeApertura); //*
+            textTimeCierre = this.FindViewById<TextView>(Resource.Id.textTimeCierre); //*
 
             linearBtnGuardar = this.FindViewById<LinearLayout>(Resource.Id.linearBtnGuardar);
             linearBtnRegresar = this.FindViewById<LinearLayout>(Resource.Id.linearBtnRegresar);
@@ -94,6 +93,8 @@ namespace PueblosMagicos.Android.Inventario
             var sparseArray = FindViewById<ListView>(Resource.Id.listViewMercadoHorSubList).CheckedItemPositions;
 
             textViewSinHorarios.Visibility = ViewStates.Gone;
+            buttonGuardar.Visibility = ViewStates.Gone; //
+            buttonRegresar.Text = "Regresar"; //
 
             list = this.FindViewById<ListView>(Resource.Id.listViewMercadoHorList);
             guardarList = this.FindViewById<ListView>(Resource.Id.listViewMercadoHorGuaList);
@@ -101,29 +102,39 @@ namespace PueblosMagicos.Android.Inventario
             if (!GlobalVariables.mercadoHorDiasListAdapter.Any())
                 GlobalVariables.mercadoHorDiasListAdapter.Add(new MenusTableItem() { Heading = "Días", ImageResourceMenuId = Resource.Drawable.OpcionesMenuIco });
 
-            if (!GlobalVariables.mercadoHorMenuListAdapter.Any())
-                textViewSinHorarios.Visibility = ViewStates.Visible;
-
             guardarList.Adapter = new MenuListAdapter(this, GlobalVariables.mercadoHorMenuListAdapter);
 
             guardarList.ItemClick += OnListItemGuardarClick;
 
-            selectedColor = Color.ParseColor("#303030"); //The color u want    
-            deselectedColor = Color.ParseColor("#ffffff");
+            selectedColor = Color.ParseColor("#ffffff"); //The color u want    
+            deselectedColor = Color.ParseColor("#efc9b9");
             timeZone = TimeZoneInfo.Local;
 
-            GuardarCancelarButtons();
+            showViewHorario(); //
+            inicializarSpinner(); //
+
             deselectAll();
             tab3Button.SetColorFilter(selectedColor);
 
             buttonSiguiente.Click += showTab4;
             buttonRegresar.Click += showViewBack;
 
+            // Timepicker Dialog
+            textTimeApertura.Click += activePickerApertura;
+            textTimeCierre.Click += activePickerCierre;
+            UpdateDisplay(activePicker);
+
+            btnInicio.Click += delegate //
+            {
+                var intent = new Intent(this, typeof(MenuHomeActivity));
+                StartActivity(intent);
+            };
+
             textViewAgregar.Click += delegate
             {
                 posicionActual = GlobalVariables.mercadoHorMenuListAdapter.Count();
                 showViewAgregar();
-
+                
                 editar = false;
                 GlobalVariables.mercadoHorDiasSemana = Enumerable.Repeat(false, 7).ToArray();
                 reiniciaDiasSeleccionados();
@@ -131,6 +142,8 @@ namespace PueblosMagicos.Android.Inventario
                 GlobalVariables.mercadoHorDiasListAdapter.Add(new MenusTableItem() { Heading = "Días", ImageResourceMenuId = Resource.Drawable.OpcionesMenuIco });
                 list.Adapter = new MenuSimpleAdapter(this, GlobalVariables.mercadoHorDiasListAdapter);
                 list.ItemClick += OnListItemClick;
+                buttonGuardar.Visibility = ViewStates.Gone; //
+                inicializarSpinner(); //
             };
 
             textViewEditar.Click += delegate
@@ -139,12 +152,9 @@ namespace PueblosMagicos.Android.Inventario
                     Toast.MakeText(ApplicationContext, "No existen elementos para editar", ToastLength.Long).Show();
                 else
                 {
-                    recuperarListAdapter = GlobalVariables.mercadoHorMenuListAdapter.ToList();
-                    recuperarEditarListAdapter = GlobalVariables.editarListAdapter.ToList();
-                    guardarDiasHorarios();
                     linearHorariosEditar.Visibility = ViewStates.Visible;
                     linearHorarios.Visibility = ViewStates.Gone;
-                    GlobalVariables.editarListAdapter.Clear();
+                    GlobalVariables.mercadoEditarListAdapter.Clear();
                     
                     foreach (MenusTableItem item in GlobalVariables.mercadoHorMenuListAdapter)
                     {
@@ -152,89 +162,95 @@ namespace PueblosMagicos.Android.Inventario
                         TextView tempSubText = new TextView(this);
                         tempText.Text = item.Heading;
                         tempSubText.Text = item.SubHeading;
-                        GlobalVariables.editarListAdapter.Add(new MenusEditItem() { Text = tempText, SubHeading = tempSubText });
+                        GlobalVariables.mercadoEditarListAdapter.Add(new MenusEditItem() { Text = tempText, SubHeading = tempSubText });
                     }
-                    guardarList.Adapter = new MenuEditarAdapter(this, GlobalVariables.editarListAdapter);
+                    guardarList.Adapter = new MenuEditarAdapter(this, GlobalVariables.mercadoEditarListAdapter, (int) GlobalVariables.Modulos.Mercado, true);
+                    eliminar = false;  //Línea adicional
                 }
+                buttonGuardar.Visibility = ViewStates.Visible; //
             };
 
             textViewEditarOk.Click += delegate
             {
-                fillMenuListAdapter();
-                linearHorariosEditar.Visibility = ViewStates.Gone;
-                linearHorarios.Visibility = ViewStates.Visible;
-                GlobalVariables.mercadoHorMenuListAdapter.ForEach(delegate(MenusTableItem item)
+                if (eliminar) //
                 {
-                    item.ImageResourceId = Resource.Drawable.MercadosEditarEliminarVacioIco;
-                    item.ImageResourceMenuId = Resource.Drawable.MercadosEditarEliminarVacioIco;
-                });
+                    GlobalVariables.mercadoEditarListAdapter.ElementAt(posicionActual).IsDelete = false; //
+                    guardarList.Adapter = new MenuEditarAdapter(this, GlobalVariables.mercadoEditarListAdapter, (int)GlobalVariables.Modulos.Mercado, true); //
+                } //
+                else //
+                { //
+                    fillMenuListAdapter();
+                    linearHorariosEditar.Visibility = ViewStates.Gone;
+                    linearHorarios.Visibility = ViewStates.Visible;
+                    GlobalVariables.mercadoHorMenuListAdapter.ForEach(delegate(MenusTableItem item)
+                    {
+                        item.ImageResourceId = Resource.Drawable.ListEditarEliminarVacioIco;
+                        item.ImageResourceMenuId = Resource.Drawable.ListEditarEliminarVacioIco;
+                    });
 
-                guardarList.Adapter = new MenuListAdapter(this, GlobalVariables.mercadoHorMenuListAdapter);
-                if (!GlobalVariables.mercadoHorMenuListAdapter.Any())
-                    textViewSinHorarios.Visibility = ViewStates.Visible;
-                GlobalVariables.mercadoHorDiasSemana = Enumerable.Repeat(false, 7).ToArray();
-                reiniciaDiasSeleccionados();
+                    guardarList.Adapter = new MenuListAdapter(this, GlobalVariables.mercadoHorMenuListAdapter);
+                    if (!GlobalVariables.mercadoHorMenuListAdapter.Any())
+                    { //
+                        textViewSinHorarios.Visibility = ViewStates.Visible; //
+                        buttonSiguiente.Visibility = ViewStates.Gone; //
+                    } //
+                    else buttonSiguiente.Visibility = ViewStates.Visible; //
+
+                    GlobalVariables.mercadoHorDiasSemana = Enumerable.Repeat(false, 7).ToArray();
+                    reiniciaDiasSeleccionados();
+                } //
+                editar = false; // 
+                eliminar = false; //
             };
 
             textViewEditarCancelar.Click += delegate
             {
-                fillMenuListAdapter();
-                GlobalVariables.mercadoHorMenuListAdapter = recuperarListAdapter.ToList();
-                GlobalVariables.editarListAdapter.Clear();
-                foreach (MenusTableItem item in GlobalVariables.mercadoHorMenuListAdapter)
-                {
-                    TextView tempText = new TextView(this);
-                    TextView tempSubText = new TextView(this);
-                    tempText.Text = item.Heading;
-                    tempSubText.Text = item.SubHeading;
-                    GlobalVariables.editarListAdapter.Add(new MenusEditItem() { Text = tempText, SubHeading = tempSubText });
-                }
-                restaurarDiasHorarios();
-                linearHorariosEditar.Visibility = ViewStates.Gone;
-                linearHorarios.Visibility = ViewStates.Visible;
-                GlobalVariables.mercadoHorMenuListAdapter.ForEach(delegate(MenusTableItem item)
-                {
-                    item.ImageResourceId = Resource.Drawable.MercadosEditarEliminarVacioIco;
-                    item.ImageResourceMenuId = Resource.Drawable.MercadosEditarEliminarVacioIco;
-                });
-
-                guardarList.Adapter = new MenuListAdapter(this, GlobalVariables.mercadoHorMenuListAdapter);
-                GlobalVariables.mercadoHorDiasSemana = Enumerable.Repeat(false, 7).ToArray();
-                reiniciaDiasSeleccionados();
+                if (eliminar) //
+                { //
+                    GlobalVariables.mercadoEditarListAdapter.ElementAt(posicionActual).IsDelete = false; //
+                    guardarList.Adapter = new MenuEditarAdapter(this, GlobalVariables.mercadoEditarListAdapter, (int)GlobalVariables.Modulos.Mercado, true); //
+                } //
+                else //
+                { //
+                    linearHorariosEditar.Visibility = ViewStates.Gone;
+                    linearHorarios.Visibility = ViewStates.Visible;
+                    guardarList.Adapter = new MenuListAdapter(this, GlobalVariables.mercadoHorMenuListAdapter);
+                    GlobalVariables.mercadoHorDiasSemana = Enumerable.Repeat(false, 7).ToArray();
+                    reiniciaDiasSeleccionados();
+                } //
+                editar = false; // 
+                eliminar = false; //
             };
 
             buttonGuardar.Click += delegate
             {
                 string diasMercado = GlobalVariables.mercadoHorDiasListAdapter.ElementAt(0).SubHeading;
                
-                if (diasMercado == "" || diasMercado == null)
+                if (diasMercado == null || diasMercado.Trim() == "")
                     Toast.MakeText(ApplicationContext, "Seleccione los días de apertura", ToastLength.Long).Show();
                 else
                 {
                     GuardarCancelarButtons();
 
-                    int hourApertura = timePickerApertura.CurrentHour.IntValue() ;
-                    int minuteApertura = timePickerApertura.CurrentMinute.IntValue();
-                    int hourCierre = timePickerCierre.CurrentHour.IntValue();
-                    int minuteCierre = timePickerCierre.CurrentMinute.IntValue();
                     string timeApertura = string.Format("{0}:{1}", hourApertura, minuteApertura.ToString().PadLeft(2, '0'));
                     string timeCierre = string.Format("{0}:{1}", hourCierre, minuteCierre.ToString().PadLeft(2, '0'));
                     if (editar) {
                         linearHorarios.Visibility = ViewStates.Gone;
                         linearHorariosEditar.Visibility = ViewStates.Visible;
-                        GlobalVariables.editarListAdapter.ElementAt(posicionActual).Text.Text = timeApertura + " a " + timeCierre;
-                        GlobalVariables.editarListAdapter.ElementAt(posicionActual).SubHeading.Text = diasMercado;
-                        guardarList.Adapter = new MenuEditarAdapter(this, GlobalVariables.editarListAdapter);
+                        GlobalVariables.mercadoEditarListAdapter.ElementAt(posicionActual).Text.Text = timeApertura + " a " + timeCierre;
+                        GlobalVariables.mercadoEditarListAdapter.ElementAt(posicionActual).SubHeading.Text = diasMercado;
+                        guardarList.Adapter = new MenuEditarAdapter(this, GlobalVariables.mercadoEditarListAdapter, (int)GlobalVariables.Modulos.Mercado, true);
                         editar = false;
                     }
                     else
                     {
-                        GlobalVariables.mercadoHorMenuListAdapter.Add(new MenusTableItem() { Heading = timeApertura + " a " + timeCierre, SubHeading = diasMercado, ImageResourceId = Resource.Drawable.MercadosEditarEliminarVacioIco, ImageResourceMenuId = Resource.Drawable.MercadosEditarEliminarVacioIco });
+                        GlobalVariables.mercadoHorMenuListAdapter.Add(new MenusTableItem() { Heading = timeApertura + " a " + timeCierre, SubHeading = diasMercado, ImageResourceId = Resource.Drawable.ListEditarEliminarVacioIco, ImageResourceMenuId = Resource.Drawable.ListEditarEliminarVacioIco });
                         posicionActual = GlobalVariables.mercadoHorMenuListAdapter.Count() - 1;
                         guardarList.Adapter = new MenuListAdapter(this, GlobalVariables.mercadoHorMenuListAdapter);
                     }
                     
                     textViewSinHorarios.Visibility = ViewStates.Gone;
+                    buttonSiguiente.Visibility = ViewStates.Visible; //
                     
                     GlobalVariables.mercadosHorHorarios[posicionActual, 0] = hourApertura;
                     GlobalVariables.mercadosHorHorarios[posicionActual, 1] = minuteApertura;
@@ -257,6 +273,7 @@ namespace PueblosMagicos.Android.Inventario
                     linearHorarios.Visibility = ViewStates.Gone;
                     linearHorariosEditar.Visibility = ViewStates.Visible;
                     restaurarDiasHorarios();
+                    editar = false; //
                 }
                 GlobalVariables.mercadoHorDiasSemana = Enumerable.Repeat(false, 7).ToArray();
                 reiniciaDiasSeleccionados();
@@ -288,7 +305,85 @@ namespace PueblosMagicos.Android.Inventario
                 var intent = new Intent(this, typeof(MercadosTextosActivity));
                 StartActivity(intent);
             };
+        }
 
+        // Timepicker Dialog
+        private void activePickerApertura(object sender, EventArgs e)
+        {
+            activePicker = 1;
+            ShowDialog(APERTURA_TIME_DIALOG_ID);
+        }
+
+        // Timepicker Dialog
+        private void activePickerCierre(object sender, EventArgs e)
+        {
+            activePicker = 2;
+            ShowDialog(CIERRE_TIME_DIALOG_ID);
+        }
+
+        // Timepicker Dialog
+        private void UpdateDisplay(int picker)
+        {
+            string time;
+            switch (picker) {
+                case 0:
+                    time = string.Format("{0}:{1}", hourApertura.ToString().PadLeft(2, '0'), minuteApertura.ToString().PadLeft(2, '0'));
+                    textTimeApertura.Text = time;
+                    time = string.Format("{0}:{1}", hourCierre.ToString().PadLeft(2, '0'), minuteCierre.ToString().PadLeft(2, '0'));
+                    textTimeCierre.Text = time;
+                    break;
+                case 1:
+                    time = string.Format("{0}:{1}", hourApertura.ToString().PadLeft(2, '0'), minuteApertura.ToString().PadLeft(2, '0'));
+                    textTimeApertura.Text = time;
+                    break;
+                case 2:
+                    time = string.Format("{0}:{1}", hourCierre.ToString().PadLeft(2, '0'), minuteCierre.ToString().PadLeft(2, '0'));
+                    textTimeCierre.Text = time;
+                    break;
+            }
+            activePicker = 0;
+            showBtnGuardar();
+        }
+
+        // Timepicker Dialog
+        private void TimePickerCallback(object sender, TimePickerDialog.TimeSetEventArgs e)
+        {
+            if (activePicker == 1) {
+                hourApertura = e.HourOfDay;
+                minuteApertura = e.Minute;
+            }
+            else if (activePicker == 2)
+            {
+                hourCierre = e.HourOfDay;
+                minuteCierre = e.Minute;
+            }           
+            UpdateDisplay(activePicker);
+        }
+
+        // Timepicker Dialog
+        protected override Dialog OnCreateDialog(int id)
+        {
+            if (id == APERTURA_TIME_DIALOG_ID)
+            {
+                return new TimePickerDialog(this, TimePickerCallback, hourApertura, minuteApertura, true);
+            }
+            else if (id == CIERRE_TIME_DIALOG_ID)
+            {
+                return new TimePickerDialog(this, TimePickerCallback, hourCierre, minuteCierre, true);
+            }
+
+            return null;
+        }
+
+        // Agregado
+        private void showBtnGuardar()
+        {
+            string dias = GlobalVariables.mercadoHorDiasListAdapter.ElementAt(0).SubHeading; //
+            if (!string.IsNullOrWhiteSpace(dias) && hourCierre > hourApertura)
+            {
+                buttonGuardar.Visibility = ViewStates.Visible;
+            }//
+            else buttonGuardar.Visibility = ViewStates.Gone; //
         }
 
         private void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -299,7 +394,6 @@ namespace PueblosMagicos.Android.Inventario
             linearApertura.Visibility = ViewStates.Gone;
             linearBtnGuardar.Visibility = ViewStates.Gone;
             buttonGuardar.Visibility = ViewStates.Gone;
-            buttonSiguiente.Visibility = ViewStates.Gone;
             containerMercadoList.Visibility = ViewStates.Gone;
             textViewApertura.Visibility = ViewStates.Gone;
             textViewCancelar.Visibility = ViewStates.Gone;
@@ -307,8 +401,8 @@ namespace PueblosMagicos.Android.Inventario
             textViewEspacio.Visibility = ViewStates.Gone;
             containerMercadoList.Visibility = ViewStates.Gone;
             textViewApertura.Visibility = ViewStates.Gone;
-            timePickerApertura.Visibility = ViewStates.Gone;
-            timePickerCierre.Visibility = ViewStates.Gone;
+            textTimeApertura.Visibility = ViewStates.Gone;
+            textTimeCierre.Visibility = ViewStates.Gone;
             linearBtnSiguiente.Visibility = ViewStates.Gone;
             linearHorarios.Visibility = ViewStates.Gone;
             linearBtnGuardar.Visibility = ViewStates.Gone;
@@ -320,11 +414,12 @@ namespace PueblosMagicos.Android.Inventario
 
             //Activar los elementos seleccionados
             InicializarDiasSeleccionados();
+            changeTextBtnRegresar(); //
         }
 
         private void InicializarDiasSeleccionados()
         {
-            var subListAdapter = new ArrayAdapter<String>(this, GlobalVariables.SimpleListItemChecked, OpcionesMenus.DiasMercados);
+            var subListAdapter = new ArrayAdapter<String>(this, GlobalVariables.SimpleListItemChecked, OpcionesMenus.Dias);
             var subList = this.FindViewById<ListView>(Resource.Id.listViewMercadoHorSubList);
 
             subList.Adapter = subListAdapter;
@@ -340,9 +435,33 @@ namespace PueblosMagicos.Android.Inventario
             }
         }
 
+        private void inicializarSpinner() //
+        {
+            // TimePicker Dialog
+            hourApertura = 0;
+            minuteApertura = 0;
+            hourCierre = 0;
+            minuteCierre = 0;
+            activePicker = 0;
+            UpdateDisplay(activePicker);
+        }
+
         public void OnSubListItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            
+            changeTextBtnRegresar(); //
+        }
+
+        public void changeTextBtnRegresar() //
+        {
+            var sparseArray = FindViewById<ListView>(Resource.Id.listViewMercadoHorSubList).CheckedItemPositions;
+            string text = "Regresar";
+            if (sparseArray != null)
+                for (int x = 0; x < sparseArray.Size(); x++)
+                {
+                    if (sparseArray.ValueAt(x))
+                        text = "Guardar";
+                }
+            buttonRegresar.Text = text;
         }
 
         public void OnListItemGuardarClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -353,7 +472,7 @@ namespace PueblosMagicos.Android.Inventario
         {
             linearApertura.Visibility = ViewStates.Gone;
             linearBtnGuardar.Visibility = ViewStates.Gone;
-            buttonGuardar.Visibility = ViewStates.Gone;
+            //buttonGuardar.Visibility = ViewStates.Gone;
             containerMercadoGuardarList.Visibility = ViewStates.Visible;
             textViewApertura.Visibility = ViewStates.Gone;
             textViewCancelar.Visibility = ViewStates.Gone;
@@ -361,8 +480,10 @@ namespace PueblosMagicos.Android.Inventario
             textViewEspacio.Visibility = ViewStates.Gone;
             containerMercadoList.Visibility = ViewStates.Gone;
             textViewApertura.Visibility = ViewStates.Gone;
-            timePickerApertura.Visibility = ViewStates.Gone;
-            timePickerCierre.Visibility = ViewStates.Gone;
+
+            // TimePicker Dialog
+            textTimeApertura.Visibility = ViewStates.Gone;
+            textTimeCierre.Visibility = ViewStates.Gone;
 
             linearHorariosEditar.Visibility = ViewStates.Gone;
             linearBtnRegresar.Visibility = ViewStates.Gone;
@@ -371,7 +492,7 @@ namespace PueblosMagicos.Android.Inventario
             containerMercadoList.Visibility = ViewStates.Gone;
 
             linearHorarios.Visibility = ViewStates.Visible;
-            buttonSiguiente.Visibility = ViewStates.Visible;
+            //buttonSiguiente.Visibility = ViewStates.Visible;
             linearBtnSiguiente.Visibility = ViewStates.Visible;
 
             }
@@ -396,12 +517,17 @@ namespace PueblosMagicos.Android.Inventario
         private void showViewBack(object sender, EventArgs e)
         {
             showViewAgregar();
+            if (!GlobalVariables.mercadoHorMenuListAdapter.Any()) //
+            {
+                textViewCancelar.Visibility = ViewStates.Gone;
+                //
+            }
         }
         private void showViewAgregar()
         {
             linearApertura.Visibility = ViewStates.Visible;
             linearBtnGuardar.Visibility = ViewStates.Visible;
-            buttonGuardar.Visibility = ViewStates.Visible;
+            //buttonGuardar.Visibility = ViewStates.Visible;
             containerMercadoList.Visibility = ViewStates.Visible;
             textViewApertura.Visibility = ViewStates.Visible;
             textViewCancelar.Visibility = ViewStates.Visible;
@@ -409,25 +535,39 @@ namespace PueblosMagicos.Android.Inventario
             textViewEspacio.Visibility = ViewStates.Visible;
             containerMercadoList.Visibility = ViewStates.Visible;
             textViewApertura.Visibility = ViewStates.Visible;
-            timePickerApertura.Visibility = ViewStates.Visible;
-            timePickerCierre.Visibility = ViewStates.Visible;
+
+            // TimePicker Dialog
+            textTimeApertura.Visibility = ViewStates.Visible;
+            textTimeCierre.Visibility = ViewStates.Visible;
 
             linearBtnRegresar.Visibility = ViewStates.Gone;
             buttonRegresar.Visibility = ViewStates.Gone;
             containerMercadoSubList.Visibility = ViewStates.Gone;
             containerMercadoGuardarList.Visibility = ViewStates.Gone;
             linearHorarios.Visibility = ViewStates.Gone;
-            buttonSiguiente.Visibility = ViewStates.Gone;
-            linearHorarios.Visibility = ViewStates.Gone;
+            //buttonSiguiente.Visibility = ViewStates.Gone;
+            linearHorariosEditar.Visibility = ViewStates.Gone;
             linearBtnSiguiente.Visibility = ViewStates.Gone;
-
+            //
             AgregarSubHeadingDias();
-           
         }
 
+        private void showViewHorario() //
+        {
+            if (!GlobalVariables.mercadoHorMenuListAdapter.Any())
+            {
+                showViewAgregar();
+                textViewCancelar.Visibility = ViewStates.Gone;
+                reiniciaDiasSeleccionados();
+            }
+            else
+            {
+                GuardarCancelarButtons();
+            }
+        }
         private void AgregarSubHeadingDias()
         {
-            diasLaborales = " ";
+            diasLaborales = "";
             var sparseArray = FindViewById<ListView>(Resource.Id.listViewMercadoHorSubList).CheckedItemPositions;
             if (sparseArray != null)
             {
@@ -444,7 +584,7 @@ namespace PueblosMagicos.Android.Inventario
                     {
                         if (sparseArray.ValueAt(x))
                         {
-                            diasLaborales+= " " + OpcionesMenus.DiasMercados[x];
+                            diasLaborales+= " " + OpcionesMenus.Dias[x];
                             seleccionados++;
                         }
                         GlobalVariables.mercadoHorDiasSemana[x] = sparseArray.ValueAt(x);
@@ -466,6 +606,8 @@ namespace PueblosMagicos.Android.Inventario
             GlobalVariables.mercadoHorDiasListAdapter.ElementAt(0).SubHeading = item.SubHeading;
             list.Adapter = new MenuSimpleAdapter(this, GlobalVariables.mercadoHorDiasListAdapter);
             list.ItemClick += OnListItemClick;
+            //Agregado
+            showBtnGuardar();
         }
 
         private void reiniciaDiasSeleccionados()
@@ -482,28 +624,39 @@ namespace PueblosMagicos.Android.Inventario
             tab3Button.SetColorFilter(selectedColor);
             GlobalVariables.mercadoHorMenuListAdapter.ForEach(delegate(MenusTableItem item)
             {
-                item.ImageResourceId = Resource.Drawable.MercadosEditarEliminarVacioIco;
-                item.ImageResourceMenuId = Resource.Drawable.MercadosEditarEliminarVacioIco;
+                item.ImageResourceId = Resource.Drawable.ListEditarEliminarVacioIco;
+                item.ImageResourceMenuId = Resource.Drawable.ListEditarEliminarVacioIco;
             });
-            GuardarCancelarButtons();
             guardarList.Adapter = new MenuListAdapter(this, GlobalVariables.mercadoHorMenuListAdapter);
 
+            showViewHorario(); //
         }
 
         private void fillMenuListAdapter(){
             GlobalVariables.mercadoHorMenuListAdapter.Clear();
-            foreach (MenusEditItem item in GlobalVariables.editarListAdapter)
+            foreach (MenusEditItem item in GlobalVariables.mercadoEditarListAdapter)
                 {
-                    GlobalVariables.mercadoHorMenuListAdapter.Add(new MenusTableItem() { Heading = item.Text.Text, SubHeading = item.SubHeading.Text, ImageResourceId = Resource.Drawable.MercadosEditarEliminarVacioIco, ImageResourceMenuId = Resource.Drawable.MercadosEditarEliminarVacioIco });
+                    GlobalVariables.mercadoHorMenuListAdapter.Add(new MenusTableItem() { Heading = item.Text.Text, SubHeading = item.SubHeading.Text, ImageResourceId = Resource.Drawable.ListEditarEliminarVacioIco, ImageResourceMenuId = Resource.Drawable.ListEditarEliminarVacioIco });
                 }
                 guardarList.Adapter = new MenuListAdapter(this, GlobalVariables.mercadoHorMenuListAdapter);
             }
 
         internal void btnRemoveHorarioClick(int position)
         {
+            //
             posicionActual = position;
-            GlobalVariables.editarListAdapter.RemoveAt(posicionActual);
-            guardarList.Adapter = new MenuEditarAdapter(this, GlobalVariables.editarListAdapter);
+            GlobalVariables.mercadoEditarListAdapter.ElementAt(posicionActual).IsDelete = true;
+            guardarList.Adapter = new MenuEditarAdapter(this, GlobalVariables.mercadoEditarListAdapter, (int)GlobalVariables.Modulos.Mercado, true);
+            eliminar = true;
+            //
+        }
+
+        internal void btnConfirmRemoveHorarioClick(int position)
+        {
+            //
+            posicionActual = position;
+            GlobalVariables.mercadoEditarListAdapter.RemoveAt(posicionActual);
+            guardarList.Adapter = new MenuEditarAdapter(this, GlobalVariables.mercadoEditarListAdapter, (int)GlobalVariables.Modulos.Mercado, true);
             int[,] tempDiasArray = new int[GlobalVariables.mercadoHorDias.GetLength(0), 7];
             int[,] tempHorarioArray = new int[GlobalVariables.mercadosHorHorarios.GetLength(0), GlobalVariables.mercadosHorHorarios.GetLength(1)];
             for (int item = 0; item < GlobalVariables.mercadoHorDias.GetLength(0); item++)
@@ -535,34 +688,57 @@ namespace PueblosMagicos.Android.Inventario
             GlobalVariables.mercadosHorHorarios = tempHorarioArray;
             linearHorarios.Visibility = ViewStates.Gone;
             linearHorariosEditar.Visibility = ViewStates.Visible;
+
+            // Lineas adicionales
+            fillMenuListAdapter();
+            guardarList.Adapter = new MenuEditarAdapter(this, GlobalVariables.mercadoEditarListAdapter, (int)GlobalVariables.Modulos.Mercado, true);
+            eliminar = false;
+            //Agregado
+            InicializarDiasSeleccionados();
+
+            showViewHorario(); //
+            inicializarSpinner(); //
+            
         }
 
         internal void btnEditHorarioClick(int position)
         {
             posicionActual = position;
-
-            guardarDiasHorarios();
-
-            GlobalVariables.mercadoHorDiasListAdapter.Clear();
-            GlobalVariables.mercadoHorDiasListAdapter.Add(new MenusTableItem() { Heading = "Días", ImageResourceMenuId = Resource.Drawable.OpcionesMenuIco });
-            
-            for (int cont = 0; cont < GlobalVariables.mercadoHorDiasSemana.Length; cont++)
+            //
+            if (eliminar) //
             {
-                if (GlobalVariables.mercadoHorDias[posicionActual, cont] == 0)
-                    GlobalVariables.mercadoHorDiasSemana[cont] = false;
-                else
-                    GlobalVariables.mercadoHorDiasSemana[cont] = true;
+                GlobalVariables.mercadoEditarListAdapter.ElementAt(posicionActual).IsDelete = false;
+                guardarList.Adapter = new MenuEditarAdapter(this, GlobalVariables.mercadoEditarListAdapter, (int)GlobalVariables.Modulos.Mercado, true);
             }
-            InicializarDiasSeleccionados();
-            timePickerApertura.CurrentHour = (Java.Lang.Integer)(GlobalVariables.mercadosHorHorarios[posicionActual, 0]);
-            timePickerApertura.CurrentMinute = (Java.Lang.Integer)(GlobalVariables.mercadosHorHorarios[posicionActual, 1]);
-            timePickerCierre.CurrentHour = (Java.Lang.Integer)(GlobalVariables.mercadosHorHorarios[posicionActual, 2]);
-            timePickerCierre.CurrentMinute = (Java.Lang.Integer)(GlobalVariables.mercadosHorHorarios[posicionActual, 3]);
+            else //
+            {
+                guardarDiasHorarios();
 
-            showViewAgregar();
-            AgregarSubHeadingDias();
-            linearHorariosEditar.Visibility = ViewStates.Gone;
-            editar = true;
+                GlobalVariables.mercadoHorDiasListAdapter.Clear();
+                GlobalVariables.mercadoHorDiasListAdapter.Add(new MenusTableItem() { Heading = "Días", ImageResourceMenuId = Resource.Drawable.OpcionesMenuIco });
+
+                for (int cont = 0; cont < GlobalVariables.mercadoHorDiasSemana.Length; cont++)
+                {
+                    if (GlobalVariables.mercadoHorDias[posicionActual, cont] == 0)
+                        GlobalVariables.mercadoHorDiasSemana[cont] = false;
+                    else
+                        GlobalVariables.mercadoHorDiasSemana[cont] = true;
+                }
+                InicializarDiasSeleccionados();
+                // TimePicker Dialog
+                hourApertura = (GlobalVariables.mercadosHorHorarios[posicionActual, 0]);
+                minuteApertura = (GlobalVariables.mercadosHorHorarios[posicionActual, 1]);
+                hourCierre = (GlobalVariables.mercadosHorHorarios[posicionActual, 2]);
+                minuteCierre = (GlobalVariables.mercadosHorHorarios[posicionActual, 3]);
+                activePicker = 0;
+                UpdateDisplay(activePicker);
+
+                showViewAgregar();
+                AgregarSubHeadingDias();
+                linearHorariosEditar.Visibility = ViewStates.Gone;
+                editar = true;
+            }
+            eliminar = false;
         }
 
         private void guardarDiasHorarios()
@@ -584,8 +760,6 @@ namespace PueblosMagicos.Android.Inventario
             }
         }
 
-
-
         private void restaurarDiasHorarios()
         {
             for (int indice = 0; indice < GlobalVariables.mercadoHorDias.GetLength(0); indice++)
@@ -603,28 +777,6 @@ namespace PueblosMagicos.Android.Inventario
                     GlobalVariables.mercadosHorHorarios[indice, subIndice] = recuperarHorarios[indice, subIndice];
                 }
             }
-        }
-
-        private void OnMenuLateralItemClick(object sender, AdapterView.ItemClickEventArgs e)
-        {
-            var listView = sender as ListView;
-            var posicion = e.Position;
-            switch (posicion)
-            {
-                case 0:
-                    StartActivity(typeof(SenalamientosMapActivity));
-                    break;
-                case 3:
-                    StartActivity(typeof(MercadosActivity));
-                    break;
-                case 4:
-                    StartActivity(typeof(CajerosActivity));
-                    break;
-                case 6:
-                    StartActivity(typeof(OficinasActivity));
-                    break;
-            }
-            mDrawerLayout.CloseDrawer(mLeftDrawer);
         }
     }
 }

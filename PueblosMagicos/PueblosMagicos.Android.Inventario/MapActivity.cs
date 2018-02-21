@@ -17,7 +17,7 @@ using PueblosMagicos.Android.Inventario;
 
 namespace PueblosMagicos.Inventario.Android
 {
-    [Activity(Label = "MapActivity", ParentActivity = typeof(SenalamientosActivity))]
+    [Activity(Label = "MapActivity", ParentActivity = typeof(MenuHomeActivity))]
     public class MapActivity : Activity, IOnMapReadyCallback
     {
         private static readonly LatLng Passchendaele = new LatLng(50.897778, 3.013333);

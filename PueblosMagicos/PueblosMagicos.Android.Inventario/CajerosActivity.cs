@@ -22,6 +22,7 @@ namespace PueblosMagicos.Android.Inventario
     public class CajerosActivity : Activity, IOnMapReadyCallback
     {
         private ImageButton tab1Button, tab2Button;
+        private ImageButton btnInicio; //
         private Button cajerosMapaPopupBtn, SiguienteMapaBtn;
         private Color selectedColor, deselectedColor;
 
@@ -41,31 +42,35 @@ namespace PueblosMagicos.Android.Inventario
             SetContentView(Resource.Layout.Cajeros);
 
             //MenuLateral
-            mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-            mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
-            mLeftDrawer.Adapter = new MenuLateralAdapter(this, GlobalVariables.menuLateralListAdapter);
-            mLeftDrawer.ItemClick += OnMenuLateralItemClick;
+            //mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+            //mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
+            //mLeftDrawer.Adapter = new MenuLateralAdapter(this, GlobalVariables.menuLateralListAdapter);
+            //mLeftDrawer.ItemClick += OnMenuLateralItemClick;
 
 
             InitMapFragment();
 
             tab1Button = this.FindViewById<ImageButton>(Resource.Id.tab1_cajeros_icon);
             tab2Button = this.FindViewById<ImageButton>(Resource.Id.tab2_cajeros_icon);
+            btnInicio = this.FindViewById<ImageButton>(Resource.Id.btnInicio); //
 
             cajerosMapaPopupBtn = FindViewById<Button>(Resource.Id.cajerosMapaPopupBtn);
             SiguienteMapaBtn = FindViewById<Button>(Resource.Id.siguienteMapaBtn);
 
-            selectedColor = Color.ParseColor("#303030"); //The color u want    
-            deselectedColor = Color.ParseColor("#ffffff");
+            selectedColor = Color.ParseColor("#ffffff"); //The color u want    
+            deselectedColor = Color.ParseColor("#f0aad0");
 
             deselectAll();
             tab1Button.SetColorFilter(selectedColor);
 
             SiguienteMapaBtn.Click += showTab2;
 
+            SiguienteMapaBtn.Visibility = ViewStates.Gone;
+
             cajerosMapaPopupBtn.Click += delegate
             {
                 cajerosMapaPopupBtn.Visibility = ViewStates.Gone;
+                SiguienteMapaBtn.Visibility = ViewStates.Visible;
             };
 
             tab2Button.Click += delegate
@@ -75,6 +80,12 @@ namespace PueblosMagicos.Android.Inventario
 
                 StartActivity(typeof(CajerosTextosActivity));
             };
+
+            btnInicio.Click += delegate //
+            {
+                var intent = new Intent(this, typeof(MenuHomeActivity));
+                StartActivity(intent);
+            }; //
         }
 
         private bool SetupMapIfNeeded()
@@ -163,17 +174,32 @@ namespace PueblosMagicos.Android.Inventario
                 case 0:
                     StartActivity(typeof(SenalamientosMapActivity));
                     break;
-                case 3:
+                case 1:
                     StartActivity(typeof(MercadosActivity));
                     break;
-                case 4:
+                case 2:
                     StartActivity(typeof(CajerosActivity));
                     break;
-                case 6:
+                case 3:
                     StartActivity(typeof(OficinasActivity));
                     break;
+                case 4:
+                    StartActivity(typeof(AgenciasActivity));
+                    break;
+                case 5:
+                    StartActivity(typeof(EstacionamientosActivity));
+                    break;
+                case 6:
+                    StartActivity(typeof(FachadasActivity));
+                    break;
+                case 7:
+                     StartActivity(typeof(WifisActivity));
+                    break;
+                case 8:
+                    //StartActivity(typeof(CableadosActivity));
+                    break;
             }
-            mDrawerLayout.CloseDrawer(mLeftDrawer);
+            //mDrawerLayout.CloseDrawer(mLeftDrawer);
         }
 
     }

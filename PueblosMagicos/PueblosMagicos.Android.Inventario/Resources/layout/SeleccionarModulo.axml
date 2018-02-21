@@ -38,95 +38,250 @@
                         android:layout_height="match_parent"
                         android:id="@+id/textView1"
                         android:layout_marginLeft="120dp"
-                        android:textColor="#4a933e"
+                        android:textColor="@color/white"
                         android:paddingTop="25dp"
                         android:paddingLeft="5dp"
                         android:textStyle="bold" />
                 </FrameLayout>
-                <FrameLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="120dp"
-                    android:id="@+id/frameLayout2">
-                    <ImageButton
-                        android:src="@drawable/senalamiento"
-                        android:layout_width="80dp"
-                        android:layout_height="match_parent"
-                        android:id="@+id/btnSenalamiento"
-                        android:layout_marginLeft="20dp"
-                        android:background="?android:attr/selectableItemBackground" />
-                    <ImageButton
-                        android:src="@drawable/mercados"
-                        android:layout_width="80dp"
-                        android:layout_height="match_parent"
-                        android:id="@+id/btnMercado"
-                        android:layout_marginLeft="145dp"
-                        android:background="?android:attr/selectableItemBackground" />
-                    <ImageButton
-                        android:src="@drawable/cajeros"
-                        android:layout_width="80dp"
-                        android:layout_height="match_parent"
-                        android:id="@+id/btnCajero"
-                        android:layout_marginLeft="270dp"
-                        android:background="?android:attr/selectableItemBackground" />
-                </FrameLayout>
-                <FrameLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="100dp"
-                    android:id="@+id/frameLayout3"
-                    android:layout_marginTop="30dp">
-                    <ImageButton
-                        android:src="@drawable/wifi"
-                        android:layout_width="80dp"
-                        android:layout_height="match_parent"
-                        android:id="@+id/imageButton4"
-                        android:layout_marginLeft="20dp"
-                        android:background="?android:attr/selectableItemBackground" />
-                    <ImageButton
-                        android:src="@drawable/oficinas"
-                        android:layout_width="80dp"
-                        android:layout_height="match_parent"
-                        android:id="@+id/btnOficina"
-                        android:layout_marginLeft="145dp"
-                        android:background="?android:attr/selectableItemBackground" />
-                    <ImageButton
-                        android:src="@drawable/agencias"
-                        android:layout_width="80dp"
-                        android:layout_height="match_parent"
-                        android:id="@+id/imageButton6"
-                        android:layout_marginLeft="270dp"
-                        android:background="?android:attr/selectableItemBackground" />
-                </FrameLayout>
-                <FrameLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="100dp"
-                    android:id="@+id/frameLayout3"
-                    android:layout_marginTop="30dp">
-                    <ImageButton
-                        android:src="@drawable/fachadas"
-                        android:layout_width="80dp"
-                        android:layout_height="match_parent"
-                        android:id="@+id/imageButton7"
-                        android:layout_marginLeft="20dp"
-                        android:background="?android:attr/selectableItemBackground" />
-                    <ImageButton
-                        android:src="@drawable/estacionamientos"
-                        android:layout_width="80dp"
-                        android:layout_height="match_parent"
-                        android:id="@+id/imageButton8"
-                        android:layout_marginLeft="145dp"
-                        android:background="?android:attr/selectableItemBackground" />
-                    <ImageButton
-                        android:src="@drawable/cableado"
-                        android:layout_width="80dp"
-                        android:layout_height="match_parent"
-                        android:id="@+id/imageButton9"
-                        android:layout_marginLeft="270dp"
-                        android:background="?android:attr/selectableItemBackground" />
-                </FrameLayout>
+                <TableRow
+                    android:id="@+id/tableRow1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp">
+                    <FrameLayout
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal">
+                        <ImageButton
+                            android:src="@drawable/senalamiento"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            android:gravity="center_horizontal"
+                            android:id="@+id/btnSenalamiento"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:layout_marginLeft="35dp"
+                            android:layout_marginRight="5dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:clickable="false"
+                            android:text="SEÑALAMIENTOS"
+                            android:paddingLeft="38dp"
+                            android:textSize="11dp"
+                            android:textColor="@color/white" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal">
+                        <ImageButton
+                            android:src="@drawable/mercados"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/btnMercado"
+                            android:layout_weight=".3"
+                            android:gravity="center_horizontal"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:layout_marginLeft="5dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:clickable="false"
+                            android:text="MERCADOS"
+                            android:paddingLeft="18dp"
+                            android:textSize="11dp"
+                            android:textColor="@color/white" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_height="133dp"
+                        android:layout_gravity="center_horizontal">
+                        <ImageButton
+                            android:src="@drawable/cajeros"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/btnCajero"
+                            android:layout_weight=".3"
+                            android:gravity="center_horizontal"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:layout_marginRight="30dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:clickable="false"
+                            android:text="CAJEROS"
+                            android:paddingLeft="22dp"
+                            android:textSize="11dp"
+                            android:paddingBottom="13dp"
+                            android:textColor="@color/white" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:clickable="false"
+                            android:text="AUTOMÁTICOS"
+                            android:paddingLeft="9dp"
+                            android:paddingTop="0dp"
+                            android:textSize="11dp"
+                            android:singleLine="false"
+                            android:textColor="@color/white" />
+                    </FrameLayout>
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+                    <FrameLayout
+                        android:layout_height="133dp"
+                        android:layout_gravity="center_horizontal">
+                        <ImageButton
+                            android:src="@drawable/oficinas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/btnOficina"
+                            android:layout_weight=".3"
+                            android:gravity="center_horizontal"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:layout_marginLeft="35dp"
+                            android:layout_marginRight="5dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:clickable="false"
+                            android:text="OFICINAS DE"
+                            android:paddingLeft="50dp"
+                            android:textSize="11dp"
+                            android:paddingBottom="13dp"
+                            android:textColor="@color/white" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:clickable="false"
+                            android:text="CONGRESOS"
+                            android:paddingLeft="50dp"
+                            android:paddingTop="0dp"
+                            android:textSize="11dp"
+                            android:singleLine="false"
+                            android:textColor="@color/white" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_height="133dp"
+                        android:layout_gravity="center_horizontal">
+                        <ImageButton
+                            android:src="@drawable/agencias"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/btnAgencia"
+                            android:layout_weight=".3"
+                            android:gravity="center_horizontal"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:layout_marginLeft="10dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:clickable="false"
+                            android:text="AGENCIAS Y"
+                            android:paddingLeft="18dp"
+                            android:textSize="11dp"
+                            android:paddingBottom="13dp"
+                            android:textColor="@color/white" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:clickable="false"
+                            android:text="TOUROPERADORES"
+                            android:paddingLeft="0dp"
+                            android:paddingTop="0dp"
+                            android:textSize="11dp"
+                            android:singleLine="false"
+                            android:textColor="@color/white" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="match_parent">
+                        <ImageButton
+                            android:src="@drawable/estacionamientos"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/btnEstacionamientos"
+                            android:layout_weight=".3"
+                            android:gravity="center_horizontal"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:layout_marginRight="30dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:clickable="false"
+                            android:text="ESTACIONAMIENTOS"
+                            android:textSize="11dp"
+                            android:textColor="@color/white"
+                            android:paddingRight="30dp" />
+                    </FrameLayout>
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <FrameLayout
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal">
+                        <ImageButton
+                            android:src="@drawable/wifi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/btnWifi"
+                            android:layout_weight=".3"
+                            android:gravity="center_horizontal"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:layout_marginLeft="5dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:clickable="false"
+                            android:text="WIFI"
+                            android:paddingLeft="35dp"
+                            android:textSize="11dp"
+                            android:textColor="@color/white" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="match_parent">
+                      <ImageButton
+                          android:src="@drawable/cableado"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/btnCableado"
+                          android:layout_weight=".3"
+                          android:gravity="center_horizontal"
+                          android:background="?android:attr/selectableItemBackground"
+                          android:layout_marginRight="30dp" />
+                      <TextView
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="bottom"
+                          android:clickable="false"
+                          android:text="CABLEADO"
+                          android:textSize="11dp"
+                          android:textColor="@color/white"
+                          android:paddingRight="30dp" />
+                    </FrameLayout>
+                </TableRow>
             </TableLayout>
         </ScrollView>
     </LinearLayout>
-    <ListView
+<!--<ListView
         android:id="@+id/left_drawer"
         android:layout_width="300dp"
         android:layout_height="match_parent"
@@ -134,5 +289,5 @@
         android:choiceMode="singleChoice"
         android:background="@color/green_menu_lateral"
         android:divider="#FFFFFF"
-        android:dividerHeight="3px" />
+        android:dividerHeight="3px" />-->
 </android.support.v4.widget.DrawerLayout>

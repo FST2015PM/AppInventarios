@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:map="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="fill_horizontal|fill_vertical"
+        android:minHeight="25px">
+      <LinearLayout
+          android:orientation="vertical"
+          android:layout_width="match_parent"
+          android:layout_height="40dp"
+          android:background="@color/pink_Wifi">
+        <ImageButton
+            android:background="@drawable/btnInicio"
+            android:id="@+id/btnInicio"
+            android:layout_height="14dp"
+            android:layout_width="60dp"
+            android:layout_margin="10dp" />
+      </LinearLayout>
+      <LinearLayout
+          android:minWidth="25px"
+          android:minHeight="25px"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/linearLayout1"
+          android:gravity="center_vertical"
+          android:background="@color/pink_Wifi"
+          android:weightSum="100"
+          android:paddingLeft="35dp">
+        <ImageView
+            android:layout_width="47dp"
+            android:layout_height="46dp"
+            android:background="@drawable/iconWifi"
+            android:id="@+id/imageView"
+            android:scaleType="centerCrop" />
+        <TextView
+            android:text="WiFi"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:id="@+id/header_text"
+            android:textStyle="bold"
+            android:textSize="10pt"
+            android:textColor="#ffffff"
+            android:gravity="center|left"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" />
+      </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:background="@color/pink_Wifi"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/footer">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/tab1"
+                android:layout_width="2dp">
+                <ImageButton
+                    android:id="@+id/tab1_Wifi_icon"
+                    android:layout_weight="2"
+                    android:layout_height="0dp"
+                    android:layout_width="match_parent"
+                    android:background="@color/pink_Wifi"
+                    android:src="@drawable/PinIcon"
+                    android:clickable="true" />
+              <ImageView
+                   android:layout_width="15dp"
+                   android:layout_height="wrap_content"
+                   android:background="@drawable/tabMercados"
+                   android:layout_gravity="center" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:id="@+id/tab2">
+                <ImageButton
+                    android:id="@+id/tab2_Wifi_icon"
+                    android:layout_weight="2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:src="@drawable/TextoIcon"
+                    android:clickable="true"
+                    android:background="@color/pink_Wifi" />
+            </LinearLayout>
+        </LinearLayout>
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:gravity="center_horizontal"
+          android:minHeight="25px">
+        <FrameLayout
+            android:id="@+id/mapWifi"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center" />
+        <LinearLayout
+            android:gravity="center|bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+          <Button
+              android:id="@+id/WifiMapaSigBtn"
+              android:layout_height="30dp"
+              android:layout_width="120dp"
+              android:text="GUARDAR"
+              android:background="@drawable/WifiButton"
+              android:gravity="center"
+              android:textColor="@color/white"
+              android:layout_marginTop="15dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|bottom"
+            android:layout_alignParentBottom="true">
+          <Button
+              android:id="@+id/WifiMapaPopupBtn"
+              android:layout_width="264dp"
+              android:layout_height="69dp"
+              android:background="@drawable/WifiPopupBtn"
+              android:gravity="center_horizontal"
+              android:layout_marginTop="15dp" />
+        </LinearLayout>
+      </RelativeLayout>
+    </LinearLayout>
+</android.support.v4.widget.DrawerLayout>

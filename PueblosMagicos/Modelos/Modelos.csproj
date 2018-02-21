@@ -41,13 +41,25 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgencyDTO.cs" />
+    <Compile Include="AtmDTO.cs" />
+    <Compile Include="CableadoDTO.cs" />
+    <Compile Include="CableLocationDTO.cs" />
+    <Compile Include="CoordinatesDTO.cs" />
     <Compile Include="Globals.cs" />
+    <Compile Include="ImageDTO.cs" />
+    <Compile Include="LocationDTO.cs" />
     <Compile Include="LoginData.cs" />
     <Compile Include="LoginResult.cs" />
     <Compile Include="MagicTown.cs" />
+    <Compile Include="MarketDTO.cs" />
+    <Compile Include="OfficeDTO.cs" />
+    <Compile Include="ParkingDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session.cs" />
+    <Compile Include="SignalDTO.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="WiFiDTO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -22,6 +22,7 @@ namespace PueblosMagicos.Android.Inventario
     public class OficinasActivity : Activity, IOnMapReadyCallback
     {
         private ImageButton tab1Button, tab2Button, tab3Button;
+        private ImageButton btnInicio; //
         private Button SenalMapaPopupBtn, SenalMapaSigBtn;
         private Color selectedColor, deselectedColor;
 
@@ -39,30 +40,32 @@ namespace PueblosMagicos.Android.Inventario
             SetContentView(Resource.Layout.Oficinas);
 
             //MenuLateral
-            mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-            mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
-            mLeftDrawer.Adapter = new MenuLateralAdapter(this, GlobalVariables.menuLateralListAdapter);
-            mLeftDrawer.ItemClick += OnMenuLateralItemClick;
+            //mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+            //mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
+            //mLeftDrawer.Adapter = new MenuLateralAdapter(this, GlobalVariables.menuLateralListAdapter);
+            //mLeftDrawer.ItemClick += OnMenuLateralItemClick;
 
             InitMapFragment();
 
             tab1Button = this.FindViewById<ImageButton>(Resource.Id.tab1_oficinas_icon);
             tab2Button = this.FindViewById<ImageButton>(Resource.Id.tab2_oficinas_icon);
             tab3Button = this.FindViewById<ImageButton>(Resource.Id.tab3_oficinas_icon);
+            btnInicio = this.FindViewById<ImageButton>(Resource.Id.btnInicio); //
             SenalMapaPopupBtn = FindViewById<Button>(Resource.Id.oficinasMapaPopupBtn);
             SenalMapaSigBtn = FindViewById<Button>(Resource.Id.siguienteOficinaBtn);
 
-            selectedColor = Color.ParseColor("#303030"); //The color u want    
-            deselectedColor = Color.ParseColor("#ffffff");
+            selectedColor = Color.ParseColor("#ffffff"); //The color u want    
+            deselectedColor = Color.ParseColor("#ca9def");
 
             deselectAll();
             tab1Button.SetColorFilter(selectedColor);
 
             SenalMapaSigBtn.Click += showTab2;
-
+            SenalMapaSigBtn.Visibility = ViewStates.Gone;
             SenalMapaPopupBtn.Click += delegate
             {
                 SenalMapaPopupBtn.Visibility = ViewStates.Gone;
+                SenalMapaSigBtn.Visibility = ViewStates.Visible;
             };
 
             tab2Button.Click += showTab2;
@@ -74,6 +77,12 @@ namespace PueblosMagicos.Android.Inventario
 
                 StartActivity(typeof(OficinasTextosActivity));
             };
+
+            btnInicio.Click += delegate //
+            {
+                var intent = new Intent(this, typeof(MenuHomeActivity));
+                StartActivity(intent);
+            }; //
 
         }
 
@@ -164,17 +173,32 @@ namespace PueblosMagicos.Android.Inventario
                 case 0:
                     StartActivity(typeof(SenalamientosMapActivity));
                     break;
-                case 3:
+                case 1:
                     StartActivity(typeof(MercadosActivity));
                     break;
-                case 4:
+                case 2:
                     StartActivity(typeof(CajerosActivity));
                     break;
-                case 6:
+                case 3:
                     StartActivity(typeof(OficinasActivity));
                     break;
+                case 4:
+                    StartActivity(typeof(AgenciasActivity));
+                    break;
+                case 5:
+                    StartActivity(typeof(EstacionamientosActivity));
+                    break;
+                case 6:
+                    StartActivity(typeof(FachadasActivity));
+                    break;
+                case 7:
+                     StartActivity(typeof(WifisActivity));
+                    break;
+                case 8:
+                    //StartActivity(typeof(CableadosActivity));
+                    break;
             }
-            mDrawerLayout.CloseDrawer(mLeftDrawer);
+            //mDrawerLayout.CloseDrawer(mLeftDrawer);
         }
 
     }

@@ -38,8 +38,7 @@
             android:focusableInTouchMode="true"
             android:inputType="textEmailAddress"
             android:drawableLeft="@drawable/MailIcon_Gris"
-            android:drawablePadding="10dp" 
-            android:text="ernesto.delacruz.morales@gmail.com" />
+            android:drawablePadding="10dp" />
     <!--android:background="@drawable/rounded_edittext"-->
     <!---->
     </LinearLayout>
@@ -61,8 +60,7 @@
             android:textSize="15dip"
             android:drawableLeft="@drawable/KeyIcon_Gris"
             android:inputType="textPassword"
-            android:drawablePadding="10dp"
-            android:text="NbsSedNtXV" />
+            android:drawablePadding="10dp" />
     <!--android:background="@drawable/rounded_edittext"-->
     </LinearLayout>
     <LinearLayout

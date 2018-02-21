@@ -261,20 +261,29 @@ namespace PueblosMagicos.Android.Inventario
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f06002f
-			public const int DarkYellow = 2131099695;
+			// aapt resource value: 0x7f06003a
+			public const int DarkYellow = 2131099706;
+			
+			// aapt resource value: 0x7f060018
+			public const int Wifi_menu_lateral = 2131099672;
 			
 			// aapt resource value: 0x7f06000e
 			public const int accent = 2131099662;
 			
-			// aapt resource value: 0x7f060026
-			public const int aqua = 2131099686;
+			// aapt resource value: 0x7f060022
+			public const int agencias_menu_lateral = 2131099682;
 			
-			// aapt resource value: 0x7f06002c
-			public const int black = 2131099692;
+			// aapt resource value: 0x7f060030
+			public const int aqua = 2131099696;
 			
-			// aapt resource value: 0x7f06002a
-			public const int blue = 2131099690;
+			// aapt resource value: 0x7f060036
+			public const int black = 2131099702;
+			
+			// aapt resource value: 0x7f060034
+			public const int blue = 2131099700;
+			
+			// aapt resource value: 0x7f060021
+			public const int blue_Agencias = 2131099681;
 			
 			// aapt resource value: 0x7f060014
 			public const int cajeros_menu_lateral = 2131099668;
@@ -291,8 +300,8 @@ namespace PueblosMagicos.Android.Inventario
 			// aapt resource value: 0x7f06000b
 			public const int cardview_shadow_start_color = 2131099659;
 			
-			// aapt resource value: 0x7f06003e
-			public const int common_google_signin_btn_text_dark = 2131099710;
+			// aapt resource value: 0x7f060049
+			public const int common_google_signin_btn_text_dark = 2131099721;
 			
 			// aapt resource value: 0x7f060000
 			public const int common_google_signin_btn_text_dark_default = 2131099648;
@@ -306,8 +315,8 @@ namespace PueblosMagicos.Android.Inventario
 			// aapt resource value: 0x7f060003
 			public const int common_google_signin_btn_text_dark_pressed = 2131099651;
 			
-			// aapt resource value: 0x7f06003f
-			public const int common_google_signin_btn_text_light = 2131099711;
+			// aapt resource value: 0x7f06004a
+			public const int common_google_signin_btn_text_light = 2131099722;
 			
 			// aapt resource value: 0x7f060004
 			public const int common_google_signin_btn_text_light_default = 2131099652;
@@ -321,41 +330,53 @@ namespace PueblosMagicos.Android.Inventario
 			// aapt resource value: 0x7f060007
 			public const int common_google_signin_btn_text_light_pressed = 2131099655;
 			
-			// aapt resource value: 0x7f06002e
-			public const int dark_grey = 2131099694;
-			
-			// aapt resource value: 0x7f06002d
-			public const int dark_greyOrigin = 2131099693;
-			
 			// aapt resource value: 0x7f060038
-			public const int default_circle_indicator_fill_color = 2131099704;
+			public const int dark_grey = 2131099704;
 			
-			// aapt resource value: 0x7f060039
-			public const int default_circle_indicator_page_color = 2131099705;
+			// aapt resource value: 0x7f060037
+			public const int dark_greyOrigin = 2131099703;
 			
-			// aapt resource value: 0x7f06003a
-			public const int default_circle_indicator_stroke_color = 2131099706;
+			// aapt resource value: 0x7f060043
+			public const int default_circle_indicator_fill_color = 2131099715;
 			
-			// aapt resource value: 0x7f06003b
-			public const int default_title_indicator_footer_color = 2131099707;
+			// aapt resource value: 0x7f060044
+			public const int default_circle_indicator_page_color = 2131099716;
 			
-			// aapt resource value: 0x7f06003c
-			public const int default_title_indicator_selected_color = 2131099708;
+			// aapt resource value: 0x7f060045
+			public const int default_circle_indicator_stroke_color = 2131099717;
 			
-			// aapt resource value: 0x7f06003d
-			public const int default_title_indicator_text_color = 2131099709;
+			// aapt resource value: 0x7f060046
+			public const int default_title_indicator_footer_color = 2131099718;
 			
-			// aapt resource value: 0x7f060017
-			public const int divider_list_textos = 2131099671;
+			// aapt resource value: 0x7f060047
+			public const int default_title_indicator_selected_color = 2131099719;
 			
-			// aapt resource value: 0x7f060016
-			public const int fondo_modulos = 2131099670;
+			// aapt resource value: 0x7f060048
+			public const int default_title_indicator_text_color = 2131099720;
+			
+			// aapt resource value: 0x7f06001a
+			public const int divider_list_textos = 2131099674;
 			
 			// aapt resource value: 0x7f06001e
-			public const int fuchsia = 2131099678;
+			public const int estacionamientos_menu = 2131099678;
 			
-			// aapt resource value: 0x7f060029
-			public const int green = 2131099689;
+			// aapt resource value: 0x7f060017
+			public const int estacionamientos_menu_lateral = 2131099671;
+			
+			// aapt resource value: 0x7f06001f
+			public const int fachadas_menu = 2131099679;
+			
+			// aapt resource value: 0x7f060016
+			public const int fachadas_menu_lateral = 2131099670;
+			
+			// aapt resource value: 0x7f060019
+			public const int fondo_modulos = 2131099673;
+			
+			// aapt resource value: 0x7f060028
+			public const int fuchsia = 2131099688;
+			
+			// aapt resource value: 0x7f060033
+			public const int green = 2131099699;
 			
 			// aapt resource value: 0x7f060011
 			public const int green_action_bar = 2131099665;
@@ -363,32 +384,35 @@ namespace PueblosMagicos.Android.Inventario
 			// aapt resource value: 0x7f060012
 			public const int green_menu_lateral = 2131099666;
 			
-			// aapt resource value: 0x7f060022
-			public const int grey = 2131099682;
+			// aapt resource value: 0x7f06002c
+			public const int grey = 2131099692;
 			
-			// aapt resource value: 0x7f060021
-			public const int greyOrigin = 2131099681;
+			// aapt resource value: 0x7f06002b
+			public const int greyOrigin = 2131099691;
 			
-			// aapt resource value: 0x7f060027
-			public const int lime = 2131099687;
+			// aapt resource value: 0x7f060031
+			public const int lime = 2131099697;
 			
-			// aapt resource value: 0x7f060025
-			public const int maroon = 2131099685;
+			// aapt resource value: 0x7f06002f
+			public const int maroon = 2131099695;
 			
 			// aapt resource value: 0x7f060013
 			public const int mercados_menu_lateral = 2131099667;
 			
-			// aapt resource value: 0x7f06002b
-			public const int navy = 2131099691;
+			// aapt resource value: 0x7f060035
+			public const int navy = 2131099701;
 			
 			// aapt resource value: 0x7f060015
 			public const int oficinas_menu_lateral = 2131099669;
 			
-			// aapt resource value: 0x7f060023
-			public const int olive = 2131099683;
+			// aapt resource value: 0x7f06002d
+			public const int olive = 2131099693;
 			
-			// aapt resource value: 0x7f060018
-			public const int pink_cajeros = 2131099672;
+			// aapt resource value: 0x7f060020
+			public const int pink_Wifi = 2131099680;
+			
+			// aapt resource value: 0x7f06001c
+			public const int pink_cajeros = 2131099676;
 			
 			// aapt resource value: 0x7f06000c
 			public const int primary = 2131099660;
@@ -396,62 +420,71 @@ namespace PueblosMagicos.Android.Inventario
 			// aapt resource value: 0x7f06000d
 			public const int primaryDark = 2131099661;
 			
-			// aapt resource value: 0x7f060024
-			public const int purple = 2131099684;
+			// aapt resource value: 0x7f06002e
+			public const int purple = 2131099694;
 			
-			// aapt resource value: 0x7f060019
-			public const int purple_oficinas = 2131099673;
+			// aapt resource value: 0x7f06001d
+			public const int purple_oficinas = 2131099677;
 			
-			// aapt resource value: 0x7f06001f
-			public const int red = 2131099679;
+			// aapt resource value: 0x7f060029
+			public const int red = 2131099689;
 			
-			// aapt resource value: 0x7f060020
-			public const int silver = 2131099680;
+			// aapt resource value: 0x7f06002a
+			public const int silver = 2131099690;
 			
 			// aapt resource value: 0x7f060010
 			public const int splash_background = 2131099664;
 			
-			// aapt resource value: 0x7f060028
-			public const int teal = 2131099688;
-			
 			// aapt resource value: 0x7f06001b
-			public const int theme_blue = 2131099675;
-			
-			// aapt resource value: 0x7f06001a
-			public const int theme_green = 2131099674;
-			
-			// aapt resource value: 0x7f060030
-			public const int vpi__background_holo_dark = 2131099696;
-			
-			// aapt resource value: 0x7f060031
-			public const int vpi__background_holo_light = 2131099697;
-			
-			// aapt resource value: 0x7f060034
-			public const int vpi__bright_foreground_disabled_holo_dark = 2131099700;
-			
-			// aapt resource value: 0x7f060035
-			public const int vpi__bright_foreground_disabled_holo_light = 2131099701;
+			public const int sublist_textos_dias = 2131099675;
 			
 			// aapt resource value: 0x7f060032
-			public const int vpi__bright_foreground_holo_dark = 2131099698;
+			public const int teal = 2131099698;
 			
-			// aapt resource value: 0x7f060033
-			public const int vpi__bright_foreground_holo_light = 2131099699;
+			// aapt resource value: 0x7f060024
+			public const int theme_blue = 2131099684;
 			
-			// aapt resource value: 0x7f060036
-			public const int vpi__bright_foreground_inverse_holo_dark = 2131099702;
+			// aapt resource value: 0x7f060023
+			public const int theme_green = 2131099683;
 			
-			// aapt resource value: 0x7f060037
-			public const int vpi__bright_foreground_inverse_holo_light = 2131099703;
+			// aapt resource value: 0x7f060039
+			public const int transparent = 2131099705;
 			
-			// aapt resource value: 0x7f06001c
-			public const int white = 2131099676;
+			// aapt resource value: 0x7f06003b
+			public const int vpi__background_holo_dark = 2131099707;
+			
+			// aapt resource value: 0x7f06003c
+			public const int vpi__background_holo_light = 2131099708;
+			
+			// aapt resource value: 0x7f06003f
+			public const int vpi__bright_foreground_disabled_holo_dark = 2131099711;
+			
+			// aapt resource value: 0x7f060040
+			public const int vpi__bright_foreground_disabled_holo_light = 2131099712;
+			
+			// aapt resource value: 0x7f06003d
+			public const int vpi__bright_foreground_holo_dark = 2131099709;
+			
+			// aapt resource value: 0x7f06003e
+			public const int vpi__bright_foreground_holo_light = 2131099710;
+			
+			// aapt resource value: 0x7f060041
+			public const int vpi__bright_foreground_inverse_holo_dark = 2131099713;
+			
+			// aapt resource value: 0x7f060042
+			public const int vpi__bright_foreground_inverse_holo_light = 2131099714;
+			
+			// aapt resource value: 0x7f060025
+			public const int white = 2131099685;
+			
+			// aapt resource value: 0x7f060026
+			public const int white_inactive = 2131099686;
 			
 			// aapt resource value: 0x7f06000f
 			public const int window_background = 2131099663;
 			
-			// aapt resource value: 0x7f06001d
-			public const int yellow = 2131099677;
+			// aapt resource value: 0x7f060027
+			public const int yellow = 2131099687;
 			
 			static Color()
 			{
@@ -522,253 +555,334 @@ namespace PueblosMagicos.Android.Inventario
 			public const int agencias = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int btnFinalizarCajeros = 2130837505;
+			public const int AgenciasButton = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int btnFinalizarOficinas = 2130837506;
+			public const int AgenciasPopupBtn = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int btnGuardarCajeros = 2130837507;
+			public const int btnFinalizarCajeros = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int btnGuardarOficinas = 2130837508;
+			public const int btnFinalizarOficinas = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int btnSiguienteCajeros = 2130837509;
+			public const int btnGuardarCajeros = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int btnSiguienteOficinas = 2130837510;
+			public const int btnGuardarOficinas = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int cableado = 2130837511;
+			public const int btnInicio = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int cajeros = 2130837512;
+			public const int btnSiguienteCajeros = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int CajerosMapaPopupBtn = 2130837513;
+			public const int btnSiguienteOficinas = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int CamaraBtn = 2130837514;
+			public const int cableado = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int CerrarPopupIco = 2130837515;
+			public const int CableadoButton = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int common_full_open_on_phone = 2130837516;
+			public const int cajeros = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int common_google_signin_btn_icon_dark = 2130837517;
+			public const int CajerosButton = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int common_google_signin_btn_icon_dark_disabled = 2130837518;
+			public const int CajerosMapaPopupBtn = 2130837518;
 			
 			// aapt resource value: 0x7f02000f
-			public const int common_google_signin_btn_icon_dark_focused = 2130837519;
+			public const int CamaraBtn = 2130837519;
 			
 			// aapt resource value: 0x7f020010
-			public const int common_google_signin_btn_icon_dark_normal = 2130837520;
+			public const int CerrarPopupIco = 2130837520;
 			
 			// aapt resource value: 0x7f020011
-			public const int common_google_signin_btn_icon_dark_pressed = 2130837521;
+			public const int common_full_open_on_phone = 2130837521;
 			
 			// aapt resource value: 0x7f020012
-			public const int common_google_signin_btn_icon_light = 2130837522;
+			public const int common_google_signin_btn_icon_dark = 2130837522;
 			
 			// aapt resource value: 0x7f020013
-			public const int common_google_signin_btn_icon_light_disabled = 2130837523;
+			public const int common_google_signin_btn_icon_dark_disabled = 2130837523;
 			
 			// aapt resource value: 0x7f020014
-			public const int common_google_signin_btn_icon_light_focused = 2130837524;
+			public const int common_google_signin_btn_icon_dark_focused = 2130837524;
 			
 			// aapt resource value: 0x7f020015
-			public const int common_google_signin_btn_icon_light_normal = 2130837525;
+			public const int common_google_signin_btn_icon_dark_normal = 2130837525;
 			
 			// aapt resource value: 0x7f020016
-			public const int common_google_signin_btn_icon_light_pressed = 2130837526;
+			public const int common_google_signin_btn_icon_dark_pressed = 2130837526;
 			
 			// aapt resource value: 0x7f020017
-			public const int common_google_signin_btn_text_dark = 2130837527;
+			public const int common_google_signin_btn_icon_light = 2130837527;
 			
 			// aapt resource value: 0x7f020018
-			public const int common_google_signin_btn_text_dark_disabled = 2130837528;
+			public const int common_google_signin_btn_icon_light_disabled = 2130837528;
 			
 			// aapt resource value: 0x7f020019
-			public const int common_google_signin_btn_text_dark_focused = 2130837529;
+			public const int common_google_signin_btn_icon_light_focused = 2130837529;
 			
 			// aapt resource value: 0x7f02001a
-			public const int common_google_signin_btn_text_dark_normal = 2130837530;
+			public const int common_google_signin_btn_icon_light_normal = 2130837530;
 			
 			// aapt resource value: 0x7f02001b
-			public const int common_google_signin_btn_text_dark_pressed = 2130837531;
+			public const int common_google_signin_btn_icon_light_pressed = 2130837531;
 			
 			// aapt resource value: 0x7f02001c
-			public const int common_google_signin_btn_text_light = 2130837532;
+			public const int common_google_signin_btn_text_dark = 2130837532;
 			
 			// aapt resource value: 0x7f02001d
-			public const int common_google_signin_btn_text_light_disabled = 2130837533;
+			public const int common_google_signin_btn_text_dark_disabled = 2130837533;
 			
 			// aapt resource value: 0x7f02001e
-			public const int common_google_signin_btn_text_light_focused = 2130837534;
+			public const int common_google_signin_btn_text_dark_focused = 2130837534;
 			
 			// aapt resource value: 0x7f02001f
-			public const int common_google_signin_btn_text_light_normal = 2130837535;
+			public const int common_google_signin_btn_text_dark_normal = 2130837535;
 			
 			// aapt resource value: 0x7f020020
-			public const int common_google_signin_btn_text_light_pressed = 2130837536;
+			public const int common_google_signin_btn_text_dark_pressed = 2130837536;
 			
 			// aapt resource value: 0x7f020021
-			public const int Compass = 2130837537;
+			public const int common_google_signin_btn_text_light = 2130837537;
 			
 			// aapt resource value: 0x7f020022
-			public const int estacionamientos = 2130837538;
+			public const int common_google_signin_btn_text_light_disabled = 2130837538;
 			
 			// aapt resource value: 0x7f020023
-			public const int fachadas = 2130837539;
+			public const int common_google_signin_btn_text_light_focused = 2130837539;
 			
 			// aapt resource value: 0x7f020024
-			public const int finalizadoMercados = 2130837540;
+			public const int common_google_signin_btn_text_light_normal = 2130837540;
 			
 			// aapt resource value: 0x7f020025
-			public const int finalizadoTextos = 2130837541;
+			public const int common_google_signin_btn_text_light_pressed = 2130837541;
 			
 			// aapt resource value: 0x7f020026
-			public const int fondo = 2130837542;
+			public const int Compass = 2130837542;
 			
 			// aapt resource value: 0x7f020027
-			public const int fondo_Seleccionar = 2130837543;
+			public const int estacionamientos = 2130837543;
 			
 			// aapt resource value: 0x7f020028
-			public const int FotoIcon = 2130837544;
+			public const int EstacionamientosButton = 2130837544;
 			
 			// aapt resource value: 0x7f020029
-			public const int HorarioIco = 2130837545;
+			public const int EstacionamientosMapaPopupBtn = 2130837545;
 			
 			// aapt resource value: 0x7f02002a
-			public const int icAgencias = 2130837546;
+			public const int fachadas = 2130837546;
 			
 			// aapt resource value: 0x7f02002b
-			public const int icCableado = 2130837547;
+			public const int FachadasButton = 2130837547;
 			
 			// aapt resource value: 0x7f02002c
-			public const int icCajeros = 2130837548;
+			public const int FachadasMapaPopupBtn = 2130837548;
 			
 			// aapt resource value: 0x7f02002d
-			public const int icCongresos = 2130837549;
+			public const int finalizadoMercados = 2130837549;
 			
 			// aapt resource value: 0x7f02002e
-			public const int icCuestionario = 2130837550;
+			public const int finalizadoTextos = 2130837550;
 			
 			// aapt resource value: 0x7f02002f
-			public const int icEstacionamientos = 2130837551;
+			public const int fondo = 2130837551;
 			
 			// aapt resource value: 0x7f020030
-			public const int icFachadas = 2130837552;
+			public const int fondo_Seleccionar = 2130837552;
 			
 			// aapt resource value: 0x7f020031
-			public const int icMagicos = 2130837553;
+			public const int FotoIcon = 2130837553;
 			
 			// aapt resource value: 0x7f020032
-			public const int icMercados = 2130837554;
+			public const int HorarioIco = 2130837554;
 			
 			// aapt resource value: 0x7f020033
-			public const int Icon = 2130837555;
+			public const int icAgencias = 2130837555;
 			
 			// aapt resource value: 0x7f020034
-			public const int iconBar = 2130837556;
+			public const int icCableado = 2130837556;
 			
 			// aapt resource value: 0x7f020035
-			public const int iconCajeros = 2130837557;
+			public const int icCajeros = 2130837557;
 			
 			// aapt resource value: 0x7f020036
-			public const int iconOficinas = 2130837558;
+			public const int icCongresos = 2130837558;
 			
 			// aapt resource value: 0x7f020037
-			public const int icSenalamientos = 2130837559;
+			public const int icCuestionario = 2130837559;
 			
 			// aapt resource value: 0x7f020038
-			public const int icWiFi = 2130837560;
+			public const int icEstacionamientos = 2130837560;
 			
 			// aapt resource value: 0x7f020039
-			public const int KeyIcon_Gris = 2130837561;
+			public const int icFachadas = 2130837561;
 			
 			// aapt resource value: 0x7f02003a
-			public const int MailIcon_Gris = 2130837562;
+			public const int icMagicos = 2130837562;
 			
 			// aapt resource value: 0x7f02003b
-			public const int MercadoIco = 2130837563;
+			public const int icMercados = 2130837563;
 			
 			// aapt resource value: 0x7f02003c
-			public const int mercados = 2130837564;
+			public const int Icon = 2130837564;
 			
 			// aapt resource value: 0x7f02003d
-			public const int MercadosEditarEliminarIco = 2130837565;
+			public const int iconAgencias = 2130837565;
 			
 			// aapt resource value: 0x7f02003e
-			public const int MercadosEditarEliminarVacioIco = 2130837566;
+			public const int iconBar = 2130837566;
 			
 			// aapt resource value: 0x7f02003f
-			public const int MercadosGuardarBtn = 2130837567;
+			public const int iconCajeros = 2130837567;
 			
 			// aapt resource value: 0x7f020040
-			public const int MercadosMapaPopupBtn = 2130837568;
+			public const int iconEstacionamientos = 2130837568;
 			
 			// aapt resource value: 0x7f020041
-			public const int MercadosRegresarBtn = 2130837569;
+			public const int iconFachadas = 2130837569;
 			
 			// aapt resource value: 0x7f020042
-			public const int MercadosSiguienteBtn = 2130837570;
+			public const int IconHamburguer = 2130837570;
 			
 			// aapt resource value: 0x7f020043
-			public const int oficinas = 2130837571;
+			public const int iconOficinas = 2130837571;
 			
 			// aapt resource value: 0x7f020044
-			public const int OficinasMapaPopupBtn = 2130837572;
+			public const int IconPin2 = 2130837572;
 			
 			// aapt resource value: 0x7f020045
-			public const int OpcionesMenuIco = 2130837573;
+			public const int iconWifi = 2130837573;
 			
 			// aapt resource value: 0x7f020046
-			public const int OrientacionIcon = 2130837574;
+			public const int icSenalamientos = 2130837574;
 			
 			// aapt resource value: 0x7f020047
-			public const int PinIcon = 2130837575;
+			public const int icWiFi = 2130837575;
 			
 			// aapt resource value: 0x7f020048
-			public const int pinSenalamientos = 2130837576;
+			public const int imgHeaderFondo = 2130837576;
 			
 			// aapt resource value: 0x7f020049
-			public const int RegresarBtn = 2130837577;
+			public const int imgHeaderMenuLateral = 2130837577;
 			
 			// aapt resource value: 0x7f02004a
-			public const int senalamiento = 2130837578;
+			public const int KeyIcon_Gris = 2130837578;
 			
 			// aapt resource value: 0x7f02004b
-			public const int SenalamientosIcon = 2130837579;
+			public const int ListEditarEliminarIco = 2130837579;
 			
 			// aapt resource value: 0x7f02004c
-			public const int SenalamientosOpcionActual = 2130837580;
+			public const int ListEditarEliminarVacioIco = 2130837580;
 			
 			// aapt resource value: 0x7f02004d
-			public const int SenalamientosSiguienteBtn = 2130837581;
+			public const int MailIcon_Gris = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int SenalMapaPopupBtn = 2130837582;
+			public const int MenuLateral = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int SenalOrientPopupBtn = 2130837583;
+			public const int MercadoIco = 2130837583;
 			
 			// aapt resource value: 0x7f020050
-			public const int splash = 2130837584;
+			public const int mercados = 2130837584;
 			
 			// aapt resource value: 0x7f020051
-			public const int splash_screen = 2130837585;
+			public const int MercadosButton = 2130837585;
 			
 			// aapt resource value: 0x7f020052
-			public const int TextoIcon = 2130837586;
+			public const int MercadosGuardarBtn = 2130837586;
 			
 			// aapt resource value: 0x7f020053
-			public const int wifi = 2130837587;
+			public const int MercadosMapaPopupBtn = 2130837587;
+			
+			// aapt resource value: 0x7f020054
+			public const int MercadosRegresarBtn = 2130837588;
+			
+			// aapt resource value: 0x7f020055
+			public const int MercadosSiguienteBtn = 2130837589;
+			
+			// aapt resource value: 0x7f020056
+			public const int oficinas = 2130837590;
+			
+			// aapt resource value: 0x7f020057
+			public const int OficinasButton = 2130837591;
+			
+			// aapt resource value: 0x7f020058
+			public const int OficinasMapaPopupBtn = 2130837592;
+			
+			// aapt resource value: 0x7f020059
+			public const int OpcionesMenuIco = 2130837593;
+			
+			// aapt resource value: 0x7f02005a
+			public const int OrientacionIcon = 2130837594;
+			
+			// aapt resource value: 0x7f02005b
+			public const int PinIcon = 2130837595;
+			
+			// aapt resource value: 0x7f02005c
+			public const int pinSenalamientos = 2130837596;
+			
+			// aapt resource value: 0x7f02005d
+			public const int RegresarBtn = 2130837597;
+			
+			// aapt resource value: 0x7f02005e
+			public const int senalamiento = 2130837598;
+			
+			// aapt resource value: 0x7f02005f
+			public const int SenalamientosButton = 2130837599;
+			
+			// aapt resource value: 0x7f020060
+			public const int SenalamientosIcon = 2130837600;
+			
+			// aapt resource value: 0x7f020061
+			public const int SenalamientosOpcionActual = 2130837601;
+			
+			// aapt resource value: 0x7f020062
+			public const int SenalamientosSiguienteBtn = 2130837602;
+			
+			// aapt resource value: 0x7f020063
+			public const int SenalMapaPopupBtn = 2130837603;
+			
+			// aapt resource value: 0x7f020064
+			public const int SenalOrientPopupBtn = 2130837604;
+			
+			// aapt resource value: 0x7f020065
+			public const int splash = 2130837605;
+			
+			// aapt resource value: 0x7f020066
+			public const int splash_screen = 2130837606;
+			
+			// aapt resource value: 0x7f020067
+			public const int tabActiveBlack = 2130837607;
+			
+			// aapt resource value: 0x7f020068
+			public const int tabActiveFoto = 2130837608;
+			
+			// aapt resource value: 0x7f020069
+			public const int tabMercados = 2130837609;
+			
+			// aapt resource value: 0x7f02006a
+			public const int tabWifi = 2130837610;
+			
+			// aapt resource value: 0x7f02006b
+			public const int TextoIcon = 2130837611;
+			
+			// aapt resource value: 0x7f02006c
+			public const int wifi = 2130837612;
+			
+			// aapt resource value: 0x7f02006d
+			public const int WifiButton = 2130837613;
+			
+			// aapt resource value: 0x7f02006e
+			public const int WifiPopupBtn = 2130837614;
 			
 			static Drawable()
 			{
@@ -783,86 +897,128 @@ namespace PueblosMagicos.Android.Inventario
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0a0033
-			public const int ErrorLegendMain = 2131361843;
-			
-			// aapt resource value: 0x7f0a003b
-			public const int ImageMenuLateral = 2131361851;
-			
-			// aapt resource value: 0x7f0a0041
-			public const int ImageMenuSimple = 2131361857;
-			
-			// aapt resource value: 0x7f0a0049
-			public const int ImageMercadosGuardarHorario = 2131361865;
-			
-			// aapt resource value: 0x7f0a004c
-			public const int ImageMercadosMenuHorario = 2131361868;
-			
-			// aapt resource value: 0x7f0a003c
-			public const int LinearListMenuLateral = 2131361852;
-			
-			// aapt resource value: 0x7f0a003e
-			public const int LinearListSimpleViewText1 = 2131361854;
-			
-			// aapt resource value: 0x7f0a004e
-			public const int MercadosFotosSigBtn = 2131361870;
-			
 			// aapt resource value: 0x7f0a0052
-			public const int MercadosGuardarBtn = 2131361874;
+			public const int AgenciasFinalizarBtn = 2131361874;
 			
-			// aapt resource value: 0x7f0a004f
-			public const int MercadosIndicator = 2131361871;
+			// aapt resource value: 0x7f0a0035
+			public const int AgenciasGuardarBtn = 2131361845;
 			
-			// aapt resource value: 0x7f0a0047
-			public const int MercadosMainSiguienteBtn = 2131361863;
+			// aapt resource value: 0x7f0a0037
+			public const int AgenciasRegresarBtn = 2131361847;
 			
-			// aapt resource value: 0x7f0a0048
-			public const int MercadosMapaPopupBtn = 2131361864;
+			// aapt resource value: 0x7f0a0039
+			public const int AgenciasSiguienteBtn = 2131361849;
 			
-			// aapt resource value: 0x7f0a0054
-			public const int MercadosRegresarBtn = 2131361876;
+			// aapt resource value: 0x7f0a00f8
+			public const int ErrorLegendMain = 2131362040;
 			
-			// aapt resource value: 0x7f0a0056
-			public const int MercadosSiguienteBtn = 2131361878;
+			// aapt resource value: 0x7f0a0093
+			public const int EstacionamientosGuardarBtn = 2131361939;
 			
-			// aapt resource value: 0x7f0a006e
-			public const int MercadosTxtRegresarBtn = 2131361902;
+			// aapt resource value: 0x7f0a0095
+			public const int EstacionamientosRegresarBtn = 2131361941;
 			
-			// aapt resource value: 0x7f0a0070
-			public const int MercadosTxtSiguienteBtn = 2131361904;
+			// aapt resource value: 0x7f0a0097
+			public const int EstacionamientosSiguienteBtn = 2131361943;
 			
-			// aapt resource value: 0x7f0a00af
-			public const int SenalFotosSigBtn = 2131361967;
+			// aapt resource value: 0x7f0a00e9
+			public const int FachadasFinalizarBtn = 2131362025;
 			
-			// aapt resource value: 0x7f0a00ae
-			public const int SenalMapaPopupBtn = 2131361966;
+			// aapt resource value: 0x7f0a00e7
+			public const int FachadasGuardarBtn = 2131362023;
 			
-			// aapt resource value: 0x7f0a00ad
-			public const int SenalMapaSigBtn = 2131361965;
+			// aapt resource value: 0x7f0a00c0
+			public const int ImageGuardarHorario = 2131361984;
 			
-			// aapt resource value: 0x7f0a00bf
-			public const int SenalOrientPopupBtn = 2131361983;
+			// aapt resource value: 0x7f0a00c5
+			public const int ImageMenuHorario = 2131361989;
 			
-			// aapt resource value: 0x7f0a00b3
-			public const int SenalOrientSigBtn = 2131361971;
+			// aapt resource value: 0x7f0a0102
+			public const int ImageMenuLateral = 2131362050;
+			
+			// aapt resource value: 0x7f0a0108
+			public const int ImageMenuSimple = 2131362056;
+			
+			// aapt resource value: 0x7f0a0100
+			public const int LinearListMenuLateral = 2131362048;
+			
+			// aapt resource value: 0x7f0a00c1
+			public const int LinearListSimpleViewText1 = 2131361985;
+			
+			// aapt resource value: 0x7f0a0105
+			public const int LinearTextMenuSimple = 2131362053;
+			
+			// aapt resource value: 0x7f0a0111
+			public const int MercadosFotosSigBtn = 2131362065;
+			
+			// aapt resource value: 0x7f0a011b
+			public const int MercadosGuardarBtn = 2131362075;
+			
+			// aapt resource value: 0x7f0a0112
+			public const int MercadosIndicator = 2131362066;
+			
+			// aapt resource value: 0x7f0a010e
+			public const int MercadosMainSiguienteBtn = 2131362062;
+			
+			// aapt resource value: 0x7f0a010f
+			public const int MercadosMapaPopupBtn = 2131362063;
+			
+			// aapt resource value: 0x7f0a011c
+			public const int MercadosRegresarBtn = 2131362076;
+			
+			// aapt resource value: 0x7f0a011d
+			public const int MercadosSiguienteBtn = 2131362077;
+			
+			// aapt resource value: 0x7f0a0131
+			public const int MercadosTxtRegresarBtn = 2131362097;
+			
+			// aapt resource value: 0x7f0a0133
+			public const int MercadosTxtSiguienteBtn = 2131362099;
+			
+			// aapt resource value: 0x7f0a015c
+			public const int SenalFotosSigBtn = 2131362140;
+			
+			// aapt resource value: 0x7f0a0161
+			public const int SenalMapaPopupBtn = 2131362145;
+			
+			// aapt resource value: 0x7f0a0160
+			public const int SenalMapaSigBtn = 2131362144;
+			
+			// aapt resource value: 0x7f0a0172
+			public const int SenalOrientPopupBtn = 2131362162;
+			
+			// aapt resource value: 0x7f0a0164
+			public const int SenalOrientSigBtn = 2131362148;
+			
+			// aapt resource value: 0x7f0a017d
+			public const int SenalTxtFinalizarBtn = 2131362173;
+			
+			// aapt resource value: 0x7f0a00fc
+			public const int TextViewEliminar = 2131362044;
+			
+			// aapt resource value: 0x7f0a00c2
+			public const int TextViewGuardarHorario = 2131361986;
+			
+			// aapt resource value: 0x7f0a0101
+			public const int TextViewMenuLateral = 2131362049;
+			
+			// aapt resource value: 0x7f0a0106
+			public const int TextViewMenuSimple = 2131362054;
 			
 			// aapt resource value: 0x7f0a00c3
-			public const int SenalTxtFinalizarBtn = 2131361987;
+			public const int TextViewSubGuardarHorario = 2131361987;
 			
-			// aapt resource value: 0x7f0a003d
-			public const int TextViewMenuLateral = 2131361853;
+			// aapt resource value: 0x7f0a0107
+			public const int TextViewSubMenuSimple = 2131362055;
 			
-			// aapt resource value: 0x7f0a003f
-			public const int TextViewMenuSimple = 2131361855;
+			// aapt resource value: 0x7f0a00c4
+			public const int TextViewSubSubGuardarHorario = 2131361988;
 			
-			// aapt resource value: 0x7f0a004a
-			public const int TextViewMercadosGuardarHorario = 2131361866;
+			// aapt resource value: 0x7f0a0182
+			public const int WifiMapaPopupBtn = 2131362178;
 			
-			// aapt resource value: 0x7f0a0040
-			public const int TextViewSubMenuSimple = 2131361856;
-			
-			// aapt resource value: 0x7f0a004b
-			public const int TextViewSubMercadosGuardarHorario = 2131361867;
+			// aapt resource value: 0x7f0a0181
+			public const int WifiMapaSigBtn = 2131362177;
 			
 			// aapt resource value: 0x7f0a0005
 			public const int adjust_height = 2131361797;
@@ -870,59 +1026,134 @@ namespace PueblosMagicos.Android.Inventario
 			// aapt resource value: 0x7f0a0006
 			public const int adjust_width = 2131361798;
 			
+			// aapt resource value: 0x7f0a001f
+			public const int agenciasMapaPopupBtn = 2131361823;
+			
 			// aapt resource value: 0x7f0a000a
 			public const int auto = 2131361802;
 			
-			// aapt resource value: 0x7f0a00a5
-			public const int btnCajero = 2131361957;
+			// aapt resource value: 0x7f0a0157
+			public const int btnAgencia = 2131362135;
 			
-			// aapt resource value: 0x7f0a0020
-			public const int btnFinalizarCajeros = 2131361824;
+			// aapt resource value: 0x7f0a015b
+			public const int btnCableado = 2131362139;
+			
+			// aapt resource value: 0x7f0a0154
+			public const int btnCajero = 2131362132;
+			
+			// aapt resource value: 0x7f0a0158
+			public const int btnEstacionamientos = 2131362136;
+			
+			// aapt resource value: 0x7f0a006f
+			public const int btnFinalizarCajeros = 2131361903;
+			
+			// aapt resource value: 0x7f0a00bf
+			public const int btnFinalizarEstacionamientos = 2131361983;
+			
+			// aapt resource value: 0x7f0a014b
+			public const int btnFinalizarOficinas = 2131362123;
+			
+			// aapt resource value: 0x7f0a0198
+			public const int btnFinalizarWifi = 2131362200;
+			
+			// aapt resource value: 0x7f0a0012
+			public const int btnInicio = 2131361810;
+			
+			// aapt resource value: 0x7f0a0053
+			public const int btnInicioCableado = 2131361875;
+			
+			// aapt resource value: 0x7f0a0153
+			public const int btnMercado = 2131362131;
+			
+			// aapt resource value: 0x7f0a0156
+			public const int btnOficina = 2131362134;
+			
+			// aapt resource value: 0x7f0a00bd
+			public const int btnRegresarEstacionamientos = 2131361981;
+			
+			// aapt resource value: 0x7f0a00f1
+			public const int btnRegresarLogs = 2131362033;
+			
+			// aapt resource value: 0x7f0a0196
+			public const int btnRegresarWifi = 2131362198;
+			
+			// aapt resource value: 0x7f0a0152
+			public const int btnSenalamiento = 2131362130;
+			
+			// aapt resource value: 0x7f0a015a
+			public const int btnWifi = 2131362138;
+			
+			// aapt resource value: 0x7f0a0062
+			public const int cajerosMapaPopupBtn = 2131361890;
+			
+			// aapt resource value: 0x7f0a0163
+			public const int compass = 2131362147;
+			
+			// aapt resource value: 0x7f0a0031
+			public const int containerAgenciasHorGuaList = 2131361841;
+			
+			// aapt resource value: 0x7f0a002d
+			public const int containerAgenciasHorList = 2131361837;
+			
+			// aapt resource value: 0x7f0a002f
+			public const int containerAgenciasHorSubList = 2131361839;
+			
+			// aapt resource value: 0x7f0a004c
+			public const int containerAgenciasTxtList = 2131361868;
+			
+			// aapt resource value: 0x7f0a004e
+			public const int containerAgenciasTxtSubList = 2131361870;
 			
 			// aapt resource value: 0x7f0a008f
-			public const int btnFinalizarOficinas = 2131361935;
+			public const int containerEstacionamientoHorGuaList = 2131361935;
 			
-			// aapt resource value: 0x7f0a00a4
-			public const int btnMercado = 2131361956;
+			// aapt resource value: 0x7f0a008b
+			public const int containerEstacionamientoHorList = 2131361931;
 			
-			// aapt resource value: 0x7f0a00a8
-			public const int btnOficina = 2131361960;
+			// aapt resource value: 0x7f0a008d
+			public const int containerEstacionamientoHorSubList = 2131361933;
 			
-			// aapt resource value: 0x7f0a00a3
-			public const int btnSenalamiento = 2131361955;
+			// aapt resource value: 0x7f0a00b8
+			public const int containerEstacionamientosTxtList = 2131361976;
 			
-			// aapt resource value: 0x7f0a001b
-			public const int cajerosMapaPopupBtn = 2131361819;
+			// aapt resource value: 0x7f0a00ba
+			public const int containerEstacionamientosTxtSubList = 2131361978;
 			
-			// aapt resource value: 0x7f0a00b2
-			public const int compass = 2131361970;
+			// aapt resource value: 0x7f0a00e3
+			public const int containerFachadaHorGuaList = 2131362019;
 			
-			// aapt resource value: 0x7f0a00c5
-			public const int containerList = 2131361989;
+			// aapt resource value: 0x7f0a0177
+			public const int containerList = 2131362167;
 			
-			// aapt resource value: 0x7f0a0076
-			public const int containerMercTxtList = 2131361910;
+			// aapt resource value: 0x7f0a012a
+			public const int containerMercTxtList = 2131362090;
 			
-			// aapt resource value: 0x7f0a0078
-			public const int containerMercTxtSubList = 2131361912;
+			// aapt resource value: 0x7f0a012c
+			public const int containerMercTxtSubList = 2131362092;
 			
-			// aapt resource value: 0x7f0a007a
-			public const int containerMercTxtSubList2 = 2131361914;
+			// aapt resource value: 0x7f0a012e
+			public const int containerMercTxtSubList2 = 2131362094;
 			
-			// aapt resource value: 0x7f0a006a
-			public const int containerMercadoHorGuaList = 2131361898;
+			// aapt resource value: 0x7f0a0119
+			public const int containerMercadoHorGuaList = 2131362073;
 			
-			// aapt resource value: 0x7f0a0066
-			public const int containerMercadoHorList = 2131361894;
+			// aapt resource value: 0x7f0a0115
+			public const int containerMercadoHorList = 2131362069;
 			
-			// aapt resource value: 0x7f0a0068
-			public const int containerMercadoHorSubList = 2131361896;
+			// aapt resource value: 0x7f0a0117
+			public const int containerMercadoHorSubList = 2131362071;
 			
-			// aapt resource value: 0x7f0a00b1
-			public const int containerOrientacionTab = 2131361969;
+			// aapt resource value: 0x7f0a0162
+			public const int containerOrientacionTab = 2131362146;
 			
-			// aapt resource value: 0x7f0a00c7
-			public const int containerSubList = 2131361991;
+			// aapt resource value: 0x7f0a0179
+			public const int containerSubList = 2131362169;
+			
+			// aapt resource value: 0x7f0a0191
+			public const int containerWifiTxtList = 2131362193;
+			
+			// aapt resource value: 0x7f0a0193
+			public const int containerWifiTxtSubList = 2131362195;
 			
 			// aapt resource value: 0x7f0a000b
 			public const int dark = 2131361803;
@@ -930,65 +1161,134 @@ namespace PueblosMagicos.Android.Inventario
 			// aapt resource value: 0x7f0a0011
 			public const int drawer_layout = 2131361809;
 			
-			// aapt resource value: 0x7f0a0025
-			public const int editTextCajasBanco = 2131361829;
+			// aapt resource value: 0x7f0a0046
+			public const int editTextAgenciaContacto = 2131361862;
 			
-			// aapt resource value: 0x7f0a0028
-			public const int editTextCajasNoCajeros = 2131361832;
+			// aapt resource value: 0x7f0a0041
+			public const int editTextAgenciaNombre = 2131361857;
 			
-			// aapt resource value: 0x7f0a007f
-			public const int editTextMercTxtDesc = 2131361919;
+			// aapt resource value: 0x7f0a004a
+			public const int editTextAgenciaProducto = 2131361866;
 			
-			// aapt resource value: 0x7f0a0082
-			public const int editTextMercTxtNoCom = 2131361922;
+			// aapt resource value: 0x7f0a0068
+			public const int editTextCajasBanco = 2131361896;
 			
-			// aapt resource value: 0x7f0a0074
-			public const int editTextMercTxtNombre = 2131361908;
+			// aapt resource value: 0x7f0a006b
+			public const int editTextCajasNoCajeros = 2131361899;
 			
-			// aapt resource value: 0x7f0a0099
-			public const int editTextOficinaAforo = 2131361945;
-			
-			// aapt resource value: 0x7f0a009c
-			public const int editTextOficinaContacto = 2131361948;
-			
-			// aapt resource value: 0x7f0a0096
-			public const int editTextOficinaNoSalas = 2131361942;
-			
-			// aapt resource value: 0x7f0a0093
-			public const int editTextOficinaNombre = 2131361939;
-			
-			// aapt resource value: 0x7f0a00cb
-			public const int editTextSenalCom = 2131361995;
-			
-			// aapt resource value: 0x7f0a0014
-			public const int footer = 2131361812;
+			// aapt resource value: 0x7f0a00aa
+			public const int editTextEstacionamientoAdicionales = 2131361962;
 			
 			// aapt resource value: 0x7f0a009f
-			public const int frameLayout1 = 2131361951;
-			
-			// aapt resource value: 0x7f0a00bd
-			public const int frameLayout11 = 2131361981;
-			
-			// aapt resource value: 0x7f0a00a2
-			public const int frameLayout2 = 2131361954;
+			public const int editTextEstacionamientoCapacidadAutos = 2131361951;
 			
 			// aapt resource value: 0x7f0a00a6
-			public const int frameLayout3 = 2131361958;
+			public const int editTextEstacionamientoContacto = 2131361958;
 			
-			// aapt resource value: 0x7f0a00b5
-			public const int frameLayout5 = 2131361973;
+			// aapt resource value: 0x7f0a009c
+			public const int editTextEstacionamientoNombre = 2131361948;
 			
-			// aapt resource value: 0x7f0a00b7
-			public const int frameLayout6 = 2131361975;
+			// aapt resource value: 0x7f0a00a2
+			public const int editTextEstacionamientoTarifa = 2131361954;
 			
-			// aapt resource value: 0x7f0a00b9
-			public const int frameLayout8 = 2131361977;
+			// aapt resource value: 0x7f0a00db
+			public const int editTextFachadaNumeroCalle = 2131362011;
 			
-			// aapt resource value: 0x7f0a00bb
-			public const int frameLayout9 = 2131361979;
+			// aapt resource value: 0x7f0a0125
+			public const int editTextMercTxtDesc = 2131362085;
 			
-			// aapt resource value: 0x7f0a0013
-			public const int header_text = 2131361811;
+			// aapt resource value: 0x7f0a0128
+			public const int editTextMercTxtNoCom = 2131362088;
+			
+			// aapt resource value: 0x7f0a0121
+			public const int editTextMercTxtNombre = 2131362081;
+			
+			// aapt resource value: 0x7f0a0146
+			public const int editTextOficinaAforo = 2131362118;
+			
+			// aapt resource value: 0x7f0a0149
+			public const int editTextOficinaContacto = 2131362121;
+			
+			// aapt resource value: 0x7f0a0143
+			public const int editTextOficinaNoSalas = 2131362115;
+			
+			// aapt resource value: 0x7f0a0140
+			public const int editTextOficinaNombre = 2131362112;
+			
+			// aapt resource value: 0x7f0a0175
+			public const int editTextSenalCom = 2131362165;
+			
+			// aapt resource value: 0x7f0a0186
+			public const int editTextWifiProveedor = 2131362182;
+			
+			// aapt resource value: 0x7f0a018c
+			public const int editTextWifiVelocidadDeBajada = 2131362188;
+			
+			// aapt resource value: 0x7f0a0189
+			public const int editTextWifiVelocidadDeSubida = 2131362185;
+			
+			// aapt resource value: 0x7f0a007e
+			public const int estacionamientoChangeCameraButton = 2131361918;
+			
+			// aapt resource value: 0x7f0a0079
+			public const int estacionamientoFotosSigBtn = 2131361913;
+			
+			// aapt resource value: 0x7f0a007c
+			public const int estacionamientoOpenCameraButton = 2131361916;
+			
+			// aapt resource value: 0x7f0a0077
+			public const int estacionamientosMapaPopupBtn = 2131361911;
+			
+			// aapt resource value: 0x7f0a00ce
+			public const int fachadaChangeCameraButton = 2131361998;
+			
+			// aapt resource value: 0x7f0a00cc
+			public const int fachadaFotosSigBtn = 2131361996;
+			
+			// aapt resource value: 0x7f0a00cd
+			public const int fachadaOpenCameraButton = 2131361997;
+			
+			// aapt resource value: 0x7f0a00cb
+			public const int fachadasMapaPopupBtn = 2131361995;
+			
+			// aapt resource value: 0x7f0a0016
+			public const int footer = 2131361814;
+			
+			// aapt resource value: 0x7f0a0057
+			public const int footerCableado = 2131361879;
+			
+			// aapt resource value: 0x7f0a014e
+			public const int frameLayout1 = 2131362126;
+			
+			// aapt resource value: 0x7f0a0170
+			public const int frameLayout11 = 2131362160;
+			
+			// aapt resource value: 0x7f0a0165
+			public const int frameLayout2 = 2131362149;
+			
+			// aapt resource value: 0x7f0a0166
+			public const int frameLayout3 = 2131362150;
+			
+			// aapt resource value: 0x7f0a0168
+			public const int frameLayout5 = 2131362152;
+			
+			// aapt resource value: 0x7f0a016a
+			public const int frameLayout6 = 2131362154;
+			
+			// aapt resource value: 0x7f0a016c
+			public const int frameLayout8 = 2131362156;
+			
+			// aapt resource value: 0x7f0a016e
+			public const int frameLayout9 = 2131362158;
+			
+			// aapt resource value: 0x7f0a0054
+			public const int guardarBtnCableado = 2131361876;
+			
+			// aapt resource value: 0x7f0a0015
+			public const int header_text = 2131361813;
+			
+			// aapt resource value: 0x7f0a0056
+			public const int header_textCableado = 2131361878;
 			
 			// aapt resource value: 0x7f0a000d
 			public const int horizontal = 2131361805;
@@ -999,173 +1299,353 @@ namespace PueblosMagicos.Android.Inventario
 			// aapt resource value: 0x7f0a0007
 			public const int icon_only = 2131361799;
 			
-			// aapt resource value: 0x7f0a00a7
-			public const int imageButton4 = 2131361959;
+			// aapt resource value: 0x7f0a0014
+			public const int imageView = 2131361812;
 			
-			// aapt resource value: 0x7f0a00a9
-			public const int imageButton6 = 2131361961;
+			// aapt resource value: 0x7f0a014f
+			public const int imageView1 = 2131362127;
 			
-			// aapt resource value: 0x7f0a00aa
-			public const int imageButton7 = 2131361962;
+			// aapt resource value: 0x7f0a0055
+			public const int imageViewCableado = 2131361877;
 			
-			// aapt resource value: 0x7f0a00ab
-			public const int imageButton8 = 2131361963;
+			// aapt resource value: 0x7f0a00f4
+			public const int inputCorreo = 2131362036;
 			
-			// aapt resource value: 0x7f0a00ac
-			public const int imageButton9 = 2131361964;
+			// aapt resource value: 0x7f0a014c
+			public const int inputCorreoRecuperar = 2131362124;
 			
-			// aapt resource value: 0x7f0a002e
-			public const int imageView = 2131361838;
+			// aapt resource value: 0x7f0a00f5
+			public const int inputNIP = 2131362037;
 			
-			// aapt resource value: 0x7f0a00a0
-			public const int imageView1 = 2131361952;
+			// aapt resource value: 0x7f0a00eb
+			public const int layLogItem1 = 2131362027;
 			
-			// aapt resource value: 0x7f0a002f
-			public const int inputCorreo = 2131361839;
+			// aapt resource value: 0x7f0a00f0
+			public const int layTituloLogViewer = 2131362032;
 			
-			// aapt resource value: 0x7f0a009d
-			public const int inputCorreoRecuperar = 2131361949;
-			
-			// aapt resource value: 0x7f0a0030
-			public const int inputNIP = 2131361840;
-			
-			// aapt resource value: 0x7f0a001c
-			public const int left_drawer = 2131361820;
+			// aapt resource value: 0x7f0a00fb
+			public const int left_drawer = 2131362043;
 			
 			// aapt resource value: 0x7f0a000c
 			public const int light = 2131361804;
 			
-			// aapt resource value: 0x7f0a00c0
-			public const int linear1 = 2131361984;
+			// aapt resource value: 0x7f0a005d
+			public const int limpiarLineaBtnCableado = 2131361885;
 			
-			// aapt resource value: 0x7f0a0057
-			public const int linearApertura = 2131361879;
+			// aapt resource value: 0x7f0a00ec
+			public const int linDos = 2131362028;
+			
+			// aapt resource value: 0x7f0a0043
+			public const int linearAgenciasContacto = 2131361859;
 			
 			// aapt resource value: 0x7f0a0051
-			public const int linearBtnGuardar = 2131361873;
+			public const int linearAgenciasFinalizarBtn = 2131361873;
 			
-			// aapt resource value: 0x7f0a0053
-			public const int linearBtnRegresar = 2131361875;
+			// aapt resource value: 0x7f0a004b
+			public const int linearAgenciasList = 2131361867;
 			
-			// aapt resource value: 0x7f0a0055
-			public const int linearBtnSiguiente = 2131361877;
+			// aapt resource value: 0x7f0a003e
+			public const int linearAgenciasNombre = 2131361854;
 			
-			// aapt resource value: 0x7f0a006d
-			public const int linearBtnTxtRegresar = 2131361901;
-			
-			// aapt resource value: 0x7f0a006f
-			public const int linearBtnTxtSiguiente = 2131361903;
-			
-			// aapt resource value: 0x7f0a0026
-			public const int linearCajaNoCajeros = 2131361830;
-			
-			// aapt resource value: 0x7f0a0021
-			public const int linearCajasTxt2 = 2131361825;
-			
-			// aapt resource value: 0x7f0a001f
-			public const int linearCajasTxtFinalizarBtn = 2131361823;
-			
-			// aapt resource value: 0x7f0a005a
-			public const int linearHorarios = 2131361882;
-			
-			// aapt resource value: 0x7f0a005d
-			public const int linearHorariosEditar = 2131361885;
-			
-			// aapt resource value: 0x7f0a0060
-			public const int linearHorariosPicker1 = 2131361888;
-			
-			// aapt resource value: 0x7f0a0063
-			public const int linearHorariosPicker2 = 2131361891;
-			
-			// aapt resource value: 0x7f0a0012
-			public const int linearLayout1 = 2131361810;
-			
-			// aapt resource value: 0x7f0a007c
-			public const int linearMercTxtDesc = 2131361916;
-			
-			// aapt resource value: 0x7f0a0075
-			public const int linearMercTxtList = 2131361909;
-			
-			// aapt resource value: 0x7f0a0080
-			public const int linearMercTxtNoCom = 2131361920;
-			
-			// aapt resource value: 0x7f0a0071
-			public const int linearMercTxtNombre = 2131361905;
-			
-			// aapt resource value: 0x7f0a0097
-			public const int linearOficinaAforo = 2131361943;
-			
-			// aapt resource value: 0x7f0a0094
-			public const int linearOficinaNoSalas = 2131361940;
-			
-			// aapt resource value: 0x7f0a0090
-			public const int linearOficinasTxt2 = 2131361936;
-			
-			// aapt resource value: 0x7f0a008e
-			public const int linearOficinasTxtFinalizarBtn = 2131361934;
-			
-			// aapt resource value: 0x7f0a00c4
-			public const int linearSenalTxt2 = 2131361988;
-			
-			// aapt resource value: 0x7f0a00c2
-			public const int linearSenalTxtFinalizarBtn = 2131361986;
-			
-			// aapt resource value: 0x7f0a0022
-			public const int linearTextView = 2131361826;
-			
-			// aapt resource value: 0x7f0a006b
-			public const int listViewMercadoHorGuaList = 2131361899;
-			
-			// aapt resource value: 0x7f0a0067
-			public const int listViewMercadoHorList = 2131361895;
-			
-			// aapt resource value: 0x7f0a0069
-			public const int listViewMercadoHorSubList = 2131361897;
-			
-			// aapt resource value: 0x7f0a0077
-			public const int listViewMercadosTxtList = 2131361911;
-			
-			// aapt resource value: 0x7f0a0079
-			public const int listViewMercadosTxtSubList = 2131361913;
-			
-			// aapt resource value: 0x7f0a007b
-			public const int listViewMercadosTxtSubList2 = 2131361915;
-			
-			// aapt resource value: 0x7f0a00c6
-			public const int listViewSenalTxtList = 2131361990;
-			
-			// aapt resource value: 0x7f0a00c8
-			public const int listViewSenalTxtSubList = 2131361992;
-			
-			// aapt resource value: 0x7f0a0031
-			public const int loginButton = 2131361841;
-			
-			// aapt resource value: 0x7f0a002d
-			public const int map = 2131361837;
-			
-			// aapt resource value: 0x7f0a0039
-			public const int map2 = 2131361849;
-			
-			// aapt resource value: 0x7f0a0019
-			public const int mapCajeros = 2131361817;
-			
-			// aapt resource value: 0x7f0a0046
-			public const int mapMarketsWithOverlay = 2131361862;
-			
-			// aapt resource value: 0x7f0a003a
-			public const int mapMenuHome = 2131361850;
-			
-			// aapt resource value: 0x7f0a0087
-			public const int mapOficinas = 2131361927;
-			
-			// aapt resource value: 0x7f0a00b0
-			public const int mapWithOverlay = 2131361968;
+			// aapt resource value: 0x7f0a0047
+			public const int linearAgenciasProductos = 2131361863;
 			
 			// aapt resource value: 0x7f0a0050
-			public const int marketopenCameraButton = 2131361872;
+			public const int linearAgenciasRegresarBtn = 2131361872;
+			
+			// aapt resource value: 0x7f0a0020
+			public const int linearApertura = 2131361824;
+			
+			// aapt resource value: 0x7f0a0034
+			public const int linearBtnGuardar = 2131361844;
+			
+			// aapt resource value: 0x7f0a0036
+			public const int linearBtnRegresar = 2131361846;
+			
+			// aapt resource value: 0x7f0a0038
+			public const int linearBtnSiguiente = 2131361848;
+			
+			// aapt resource value: 0x7f0a0130
+			public const int linearBtnTxtRegresar = 2131362096;
+			
+			// aapt resource value: 0x7f0a0132
+			public const int linearBtnTxtSiguiente = 2131362098;
+			
+			// aapt resource value: 0x7f0a0069
+			public const int linearCajaNoCajeros = 2131361897;
+			
+			// aapt resource value: 0x7f0a0064
+			public const int linearCajasTxt2 = 2131361892;
+			
+			// aapt resource value: 0x7f0a009d
+			public const int linearEstacionamientoCapacidadAutos = 2131361949;
+			
+			// aapt resource value: 0x7f0a00a0
+			public const int linearEstacionamientoTarifa = 2131361952;
+			
+			// aapt resource value: 0x7f0a0080
+			public const int linearEstacionamientosApertura = 2131361920;
+			
+			// aapt resource value: 0x7f0a0092
+			public const int linearEstacionamientosBtnGuardar = 2131361938;
+			
+			// aapt resource value: 0x7f0a0094
+			public const int linearEstacionamientosBtnRegresar = 2131361940;
+			
+			// aapt resource value: 0x7f0a0096
+			public const int linearEstacionamientosBtnSiguiente = 2131361942;
+			
+			// aapt resource value: 0x7f0a0083
+			public const int linearEstacionamientosHorarios = 2131361923;
+			
+			// aapt resource value: 0x7f0a0086
+			public const int linearEstacionamientosHorariosEditar = 2131361926;
+			
+			// aapt resource value: 0x7f0a00be
+			public const int linearEstacionamientosTxtFinalizarBtn = 2131361982;
+			
+			// aapt resource value: 0x7f0a00bc
+			public const int linearEstacionamientosTxtRegresarBtn = 2131361980;
+			
+			// aapt resource value: 0x7f0a00cf
+			public const int linearFachadasApertura = 2131361999;
+			
+			// aapt resource value: 0x7f0a00e8
+			public const int linearFachadasBtnFinalizar = 2131362024;
+			
+			// aapt resource value: 0x7f0a00e6
+			public const int linearFachadasBtnGuardar = 2131362022;
+			
+			// aapt resource value: 0x7f0a00d2
+			public const int linearFachadasHorariosAgregar = 2131362002;
+			
+			// aapt resource value: 0x7f0a00d5
+			public const int linearFachadasHorariosEditar = 2131362005;
+			
+			// aapt resource value: 0x7f0a00d8
+			public const int linearFachadasHorariosNumero = 2131362008;
+			
+			// aapt resource value: 0x7f0a0023
+			public const int linearHorarios = 2131361827;
+			
+			// aapt resource value: 0x7f0a0026
+			public const int linearHorariosEditar = 2131361830;
+			
+			// aapt resource value: 0x7f0a0013
+			public const int linearLayout1 = 2131361811;
+			
+			// aapt resource value: 0x7f0a0122
+			public const int linearMercTxtDesc = 2131362082;
+			
+			// aapt resource value: 0x7f0a0129
+			public const int linearMercTxtList = 2131362089;
+			
+			// aapt resource value: 0x7f0a0126
+			public const int linearMercTxtNoCom = 2131362086;
+			
+			// aapt resource value: 0x7f0a011e
+			public const int linearMercTxtNombre = 2131362078;
+			
+			// aapt resource value: 0x7f0a0144
+			public const int linearOficinaAforo = 2131362116;
+			
+			// aapt resource value: 0x7f0a0141
+			public const int linearOficinaNoSalas = 2131362113;
+			
+			// aapt resource value: 0x7f0a013d
+			public const int linearOficinasTxt2 = 2131362109;
+			
+			// aapt resource value: 0x7f0a014a
+			public const int linearOficinasTxtFinalizarBtn = 2131362122;
+			
+			// aapt resource value: 0x7f0a0176
+			public const int linearSenalTxt2 = 2131362166;
+			
+			// aapt resource value: 0x7f0a017c
+			public const int linearSenalTxtFinalizarBtn = 2131362172;
+			
+			// aapt resource value: 0x7f0a00b0
+			public const int linearSwitch24Hrs = 2131361968;
+			
+			// aapt resource value: 0x7f0a00df
+			public const int linearSwitchAnuncio = 2131362015;
+			
+			// aapt resource value: 0x7f0a00b4
+			public const int linearSwitchAutoservicio = 2131361972;
+			
+			// aapt resource value: 0x7f0a00dc
+			public const int linearSwitchComercio = 2131362012;
+			
+			// aapt resource value: 0x7f0a018d
+			public const int linearSwitchFunciona = 2131362189;
+			
+			// aapt resource value: 0x7f0a00ac
+			public const int linearSwitchTiempoLibre = 2131361964;
+			
+			// aapt resource value: 0x7f0a0065
+			public const int linearTextView = 2131361893;
+			
+			// aapt resource value: 0x7f0a00a7
+			public const int linearTextViewAdicionales = 2131361959;
+			
+			// aapt resource value: 0x7f0a00a3
+			public const int linearTextViewContacto = 2131361955;
+			
+			// aapt resource value: 0x7f0a0099
+			public const int linearTextViewNombre = 2131361945;
+			
+			// aapt resource value: 0x7f0a0183
+			public const int linearTextViewProveedor = 2131362179;
+			
+			// aapt resource value: 0x7f0a018a
+			public const int linearTextViewVelocidadDeBajada = 2131362186;
+			
+			// aapt resource value: 0x7f0a0187
+			public const int linearTextViewVelocidadDeSubida = 2131362183;
+			
+			// aapt resource value: 0x7f0a0098
+			public const int linearTxtSpace1 = 2131361944;
+			
+			// aapt resource value: 0x7f0a00ab
+			public const int linearTxtSpaceSwitch1 = 2131361963;
+			
+			// aapt resource value: 0x7f0a00af
+			public const int linearTxtSpaceSwitch2 = 2131361967;
+			
+			// aapt resource value: 0x7f0a00b3
+			public const int linearTxtSpaceSwitch3 = 2131361971;
+			
+			// aapt resource value: 0x7f0a00b7
+			public const int linearTxtSpaceSwitch4 = 2131361975;
+			
+			// aapt resource value: 0x7f0a0197
+			public const int linearWifiTxtFinalizarBtn = 2131362199;
+			
+			// aapt resource value: 0x7f0a0195
+			public const int linearWifiTxtRegresarBtn = 2131362197;
+			
+			// aapt resource value: 0x7f0a0032
+			public const int listViewAgenciasHorGuaList = 2131361842;
+			
+			// aapt resource value: 0x7f0a002e
+			public const int listViewAgenciasHorList = 2131361838;
+			
+			// aapt resource value: 0x7f0a0030
+			public const int listViewAgenciasHorSubList = 2131361840;
 			
 			// aapt resource value: 0x7f0a004d
-			public const int marketpager = 2131361869;
+			public const int listViewAgenciasTxtList = 2131361869;
+			
+			// aapt resource value: 0x7f0a004f
+			public const int listViewAgenciasTxtSubList = 2131361871;
+			
+			// aapt resource value: 0x7f0a0090
+			public const int listViewEstacionamientoHorGuaList = 2131361936;
+			
+			// aapt resource value: 0x7f0a008c
+			public const int listViewEstacionamientoHorList = 2131361932;
+			
+			// aapt resource value: 0x7f0a008e
+			public const int listViewEstacionamientoHorSubList = 2131361934;
+			
+			// aapt resource value: 0x7f0a00b9
+			public const int listViewEstacionamientosTxtList = 2131361977;
+			
+			// aapt resource value: 0x7f0a00bb
+			public const int listViewEstacionamientosTxtSubList = 2131361979;
+			
+			// aapt resource value: 0x7f0a00e4
+			public const int listViewFachadaHorGuaList = 2131362020;
+			
+			// aapt resource value: 0x7f0a011a
+			public const int listViewMercadoHorGuaList = 2131362074;
+			
+			// aapt resource value: 0x7f0a0116
+			public const int listViewMercadoHorList = 2131362070;
+			
+			// aapt resource value: 0x7f0a0118
+			public const int listViewMercadoHorSubList = 2131362072;
+			
+			// aapt resource value: 0x7f0a012b
+			public const int listViewMercadosTxtList = 2131362091;
+			
+			// aapt resource value: 0x7f0a012d
+			public const int listViewMercadosTxtSubList = 2131362093;
+			
+			// aapt resource value: 0x7f0a012f
+			public const int listViewMercadosTxtSubList2 = 2131362095;
+			
+			// aapt resource value: 0x7f0a0178
+			public const int listViewSenalTxtList = 2131362168;
+			
+			// aapt resource value: 0x7f0a017a
+			public const int listViewSenalTxtSubList = 2131362170;
+			
+			// aapt resource value: 0x7f0a0192
+			public const int listViewWifiTxtList = 2131362194;
+			
+			// aapt resource value: 0x7f0a0194
+			public const int listViewWifiTxtSubList = 2131362196;
+			
+			// aapt resource value: 0x7f0a00f6
+			public const int loginButton = 2131362038;
+			
+			// aapt resource value: 0x7f0a00f3
+			public const int logsList = 2131362035;
+			
+			// aapt resource value: 0x7f0a00ea
+			public const int map = 2131362026;
+			
+			// aapt resource value: 0x7f0a00fa
+			public const int map2 = 2131362042;
+			
+			// aapt resource value: 0x7f0a001d
+			public const int mapAgencias = 2131361821;
+			
+			// aapt resource value: 0x7f0a005a
+			public const int mapCableado = 2131361882;
+			
+			// aapt resource value: 0x7f0a0060
+			public const int mapCajeros = 2131361888;
+			
+			// aapt resource value: 0x7f0a0075
+			public const int mapEstacionamientos = 2131361909;
+			
+			// aapt resource value: 0x7f0a00c9
+			public const int mapFachadas = 2131361993;
+			
+			// aapt resource value: 0x7f0a010d
+			public const int mapMarketsWithOverlay = 2131362061;
+			
+			// aapt resource value: 0x7f0a00fd
+			public const int mapMenuHome = 2131362045;
+			
+			// aapt resource value: 0x7f0a00ff
+			public const int mapMenuHomeAddMarker = 2131362047;
+			
+			// aapt resource value: 0x7f0a00fe
+			public const int mapMenuHomeShowMenu = 2131362046;
+			
+			// aapt resource value: 0x7f0a0137
+			public const int mapOficinas = 2131362103;
+			
+			// aapt resource value: 0x7f0a0070
+			public const int mapView = 2131361904;
+			
+			// aapt resource value: 0x7f0a0180
+			public const int mapWifi = 2131362176;
+			
+			// aapt resource value: 0x7f0a015f
+			public const int mapWithOverlay = 2131362143;
+			
+			// aapt resource value: 0x7f0a0114
+			public const int marketChangeCameraButton = 2131362068;
+			
+			// aapt resource value: 0x7f0a0113
+			public const int marketopenCameraButton = 2131362067;
+			
+			// aapt resource value: 0x7f0a0110
+			public const int marketpager = 2131362064;
 			
 			// aapt resource value: 0x7f0a0001
 			public const int none = 2131361793;
@@ -1173,218 +1653,467 @@ namespace PueblosMagicos.Android.Inventario
 			// aapt resource value: 0x7f0a0002
 			public const int normal = 2131361794;
 			
-			// aapt resource value: 0x7f0a008b
-			public const int oficinaFotosSigBtn = 2131361931;
+			// aapt resource value: 0x7f0a013c
+			public const int oficinaChangeCameraButton = 2131362108;
 			
-			// aapt resource value: 0x7f0a0089
-			public const int oficinasMapaPopupBtn = 2131361929;
+			// aapt resource value: 0x7f0a013a
+			public const int oficinaFotosSigBtn = 2131362106;
 			
-			// aapt resource value: 0x7f0a009e
-			public const int recuperarNipButton = 2131361950;
+			// aapt resource value: 0x7f0a013b
+			public const int oficinaOpenCameraButton = 2131362107;
 			
-			// aapt resource value: 0x7f0a00c1
-			public const int regresar_btn = 2131361985;
+			// aapt resource value: 0x7f0a0139
+			public const int oficinasMapaPopupBtn = 2131362105;
+			
+			// aapt resource value: 0x7f0a014d
+			public const int recuperarNipButton = 2131362125;
+			
+			// aapt resource value: 0x7f0a017b
+			public const int regresar_btn = 2131362171;
 			
 			// aapt resource value: 0x7f0a0003
 			public const int satellite = 2131361795;
 			
-			// aapt resource value: 0x7f0a001d
-			public const int scrollView1 = 2131361821;
+			// aapt resource value: 0x7f0a003d
+			public const int scrollView1 = 2131361853;
 			
-			// aapt resource value: 0x7f0a008c
-			public const int signalindicator = 2131361932;
+			// aapt resource value: 0x7f0a015e
+			public const int signalChangeCameraButton = 2131362142;
 			
-			// aapt resource value: 0x7f0a008d
-			public const int signalopenCameraButton = 2131361933;
+			// aapt resource value: 0x7f0a007b
+			public const int signalindicator = 2131361915;
 			
-			// aapt resource value: 0x7f0a008a
-			public const int signalpager = 2131361930;
+			// aapt resource value: 0x7f0a015d
+			public const int signalopenCameraButton = 2131362141;
 			
-			// aapt resource value: 0x7f0a001a
-			public const int siguienteMapaBtn = 2131361818;
+			// aapt resource value: 0x7f0a0078
+			public const int signalpager = 2131361912;
 			
-			// aapt resource value: 0x7f0a0088
-			public const int siguienteOficinaBtn = 2131361928;
+			// aapt resource value: 0x7f0a001e
+			public const int siguienteAgenciasBtn = 2131361822;
 			
-			// aapt resource value: 0x7f0a002c
-			public const int space4 = 2131361836;
+			// aapt resource value: 0x7f0a0076
+			public const int siguienteEstacionamientosBtn = 2131361910;
 			
-			// aapt resource value: 0x7f0a0083
-			public const int space5 = 2131361923;
+			// aapt resource value: 0x7f0a00ca
+			public const int siguienteFachadasBtn = 2131361994;
 			
-			// aapt resource value: 0x7f0a0029
-			public const int spaceNoCajeros = 2131361833;
+			// aapt resource value: 0x7f0a0061
+			public const int siguienteMapaBtn = 2131361889;
+			
+			// aapt resource value: 0x7f0a005b
+			public const int siguienteMapaBtnCableado = 2131361883;
+			
+			// aapt resource value: 0x7f0a0138
+			public const int siguienteOficinaBtn = 2131362104;
+			
+			// aapt resource value: 0x7f0a0190
+			public const int space = 2131362192;
+			
+			// aapt resource value: 0x7f0a0042
+			public const int space4 = 2131361858;
+			
+			// aapt resource value: 0x7f0a006c
+			public const int spaceNoCajeros = 2131361900;
 			
 			// aapt resource value: 0x7f0a0008
 			public const int standard = 2131361800;
 			
-			// aapt resource value: 0x7f0a002b
-			public const int switchCajasServicio = 2131361835;
+			// aapt resource value: 0x7f0a006e
+			public const int switchCajasServicio = 2131361902;
 			
-			// aapt resource value: 0x7f0a0015
-			public const int tab1 = 2131361813;
+			// aapt resource value: 0x7f0a00b2
+			public const int switchEstacionamiento24Hrs = 2131361970;
 			
-			// aapt resource value: 0x7f0a0016
-			public const int tab1_cajeros_icon = 2131361814;
+			// aapt resource value: 0x7f0a00b6
+			public const int switchEstacionamientoAutoservicio = 2131361974;
 			
-			// aapt resource value: 0x7f0a0034
-			public const int tab1_icon = 2131361844;
+			// aapt resource value: 0x7f0a00ae
+			public const int switchEstacionamientoTiempoLibre = 2131361966;
 			
-			// aapt resource value: 0x7f0a0042
-			public const int tab1_mercados_icon = 2131361858;
+			// aapt resource value: 0x7f0a00e1
+			public const int switchFachadaAnuncio = 2131362017;
 			
-			// aapt resource value: 0x7f0a0084
-			public const int tab1_oficinas_icon = 2131361924;
+			// aapt resource value: 0x7f0a00de
+			public const int switchFachadaComercio = 2131362014;
 			
-			// aapt resource value: 0x7f0a001e
-			public const int tab2 = 2131361822;
-			
-			// aapt resource value: 0x7f0a0018
-			public const int tab2_cajeros_icon = 2131361816;
-			
-			// aapt resource value: 0x7f0a0035
-			public const int tab2_icon = 2131361845;
-			
-			// aapt resource value: 0x7f0a0043
-			public const int tab2_mercados_icon = 2131361859;
-			
-			// aapt resource value: 0x7f0a0085
-			public const int tab2_oficinas_icon = 2131361925;
-			
-			// aapt resource value: 0x7f0a0036
-			public const int tab3 = 2131361846;
-			
-			// aapt resource value: 0x7f0a0037
-			public const int tab3_icon = 2131361847;
-			
-			// aapt resource value: 0x7f0a0044
-			public const int tab3_mercados_icon = 2131361860;
-			
-			// aapt resource value: 0x7f0a0086
-			public const int tab3_oficinas_icon = 2131361926;
+			// aapt resource value: 0x7f0a018f
+			public const int switchWifiFunciona = 2131362191;
 			
 			// aapt resource value: 0x7f0a0017
-			public const int tab4 = 2131361815;
+			public const int tab1 = 2131361815;
 			
-			// aapt resource value: 0x7f0a0038
-			public const int tab4_icon = 2131361848;
+			// aapt resource value: 0x7f0a017e
+			public const int tab1_Wifi_icon = 2131362174;
 			
-			// aapt resource value: 0x7f0a0045
-			public const int tab4_mercados_icon = 2131361861;
+			// aapt resource value: 0x7f0a0018
+			public const int tab1_agencias_icon = 2131361816;
+			
+			// aapt resource value: 0x7f0a0059
+			public const int tab1_cableado_icon = 2131361881;
+			
+			// aapt resource value: 0x7f0a005e
+			public const int tab1_cajeros_icon = 2131361886;
+			
+			// aapt resource value: 0x7f0a0071
+			public const int tab1_estacionamientos_icon = 2131361905;
+			
+			// aapt resource value: 0x7f0a00c6
+			public const int tab1_fachadas_icon = 2131361990;
+			
+			// aapt resource value: 0x7f0a003a
+			public const int tab1_icon = 2131361850;
+			
+			// aapt resource value: 0x7f0a0109
+			public const int tab1_mercados_icon = 2131362057;
+			
+			// aapt resource value: 0x7f0a0134
+			public const int tab1_oficinas_icon = 2131362100;
+			
+			// aapt resource value: 0x7f0a0063
+			public const int tab2 = 2131361891;
+			
+			// aapt resource value: 0x7f0a017f
+			public const int tab2_Wifi_icon = 2131362175;
+			
+			// aapt resource value: 0x7f0a001a
+			public const int tab2_agencias_icon = 2131361818;
+			
+			// aapt resource value: 0x7f0a005f
+			public const int tab2_cajeros_icon = 2131361887;
+			
+			// aapt resource value: 0x7f0a0072
+			public const int tab2_estacionamientos_icon = 2131361906;
+			
+			// aapt resource value: 0x7f0a00c7
+			public const int tab2_fachadas_icon = 2131361991;
+			
+			// aapt resource value: 0x7f0a003b
+			public const int tab2_icon = 2131361851;
+			
+			// aapt resource value: 0x7f0a010a
+			public const int tab2_mercados_icon = 2131362058;
+			
+			// aapt resource value: 0x7f0a0135
+			public const int tab2_oficinas_icon = 2131362101;
+			
+			// aapt resource value: 0x7f0a001b
+			public const int tab3 = 2131361819;
+			
+			// aapt resource value: 0x7f0a001c
+			public const int tab3_agencias_icon = 2131361820;
+			
+			// aapt resource value: 0x7f0a0073
+			public const int tab3_estacionamientos_icon = 2131361907;
+			
+			// aapt resource value: 0x7f0a00c8
+			public const int tab3_fachadas_icon = 2131361992;
+			
+			// aapt resource value: 0x7f0a003c
+			public const int tab3_icon = 2131361852;
+			
+			// aapt resource value: 0x7f0a010b
+			public const int tab3_mercados_icon = 2131362059;
+			
+			// aapt resource value: 0x7f0a0136
+			public const int tab3_oficinas_icon = 2131362102;
+			
+			// aapt resource value: 0x7f0a0019
+			public const int tab4 = 2131361817;
+			
+			// aapt resource value: 0x7f0a0074
+			public const int tab4_estacionamientos_icon = 2131361908;
+			
+			// aapt resource value: 0x7f0a00f9
+			public const int tab4_icon = 2131362041;
+			
+			// aapt resource value: 0x7f0a010c
+			public const int tab4_mercados_icon = 2131362060;
+			
+			// aapt resource value: 0x7f0a0058
+			public const int tabCableadoMapa = 2131361880;
+			
+			// aapt resource value: 0x7f0a0151
+			public const int tableRow1 = 2131362129;
+			
+			// aapt resource value: 0x7f0a0155
+			public const int tableRow2 = 2131362133;
+			
+			// aapt resource value: 0x7f0a0159
+			public const int tableRow3 = 2131362137;
 			
 			// aapt resource value: 0x7f0a0004
 			public const int terrain = 2131361796;
 			
-			// aapt resource value: 0x7f0a0032
-			public const int textOlvideNIP = 2131361842;
+			// aapt resource value: 0x7f0a007f
+			public const int textChangeCameraButton = 2131361919;
 			
-			// aapt resource value: 0x7f0a00a1
-			public const int textView1 = 2131361953;
-			
-			// aapt resource value: 0x7f0a00b8
-			public const int textView4 = 2131361976;
-			
-			// aapt resource value: 0x7f0a00ba
-			public const int textView5 = 2131361978;
-			
-			// aapt resource value: 0x7f0a005c
-			public const int textViewAgregar = 2131361884;
-			
-			// aapt resource value: 0x7f0a0058
-			public const int textViewApertura = 2131361880;
-			
-			// aapt resource value: 0x7f0a0024
-			public const int textViewBancosCont = 2131361828;
-			
-			// aapt resource value: 0x7f0a0023
-			public const int textViewCajBancos = 2131361827;
-			
-			// aapt resource value: 0x7f0a002a
-			public const int textViewCajServicio = 2131361834;
-			
-			// aapt resource value: 0x7f0a0027
-			public const int textViewCajaTxtNoCajeros = 2131361831;
-			
-			// aapt resource value: 0x7f0a0059
-			public const int textViewCancelar = 2131361881;
-			
-			// aapt resource value: 0x7f0a0062
-			public const int textViewCierre = 2131361890;
-			
-			// aapt resource value: 0x7f0a00c9
-			public const int textViewComentarios = 2131361993;
-			
-			// aapt resource value: 0x7f0a005b
-			public const int textViewEditar = 2131361883;
-			
-			// aapt resource value: 0x7f0a005f
-			public const int textViewEditarCancelar = 2131361887;
-			
-			// aapt resource value: 0x7f0a005e
-			public const int textViewEditarOk = 2131361886;
-			
-			// aapt resource value: 0x7f0a0065
-			public const int textViewEspacio = 2131361893;
-			
-			// aapt resource value: 0x7f0a007e
-			public const int textViewMercTxtContDesc = 2131361918;
-			
-			// aapt resource value: 0x7f0a0073
-			public const int textViewMercTxtContNombre = 2131361907;
+			// aapt resource value: 0x7f0a00f7
+			public const int textOlvideNIP = 2131362039;
 			
 			// aapt resource value: 0x7f0a007d
-			public const int textViewMercTxtDesc = 2131361917;
+			public const int textOpenCameraButton = 2131361917;
 			
-			// aapt resource value: 0x7f0a0081
-			public const int textViewMercTxtNoCom = 2131361921;
+			// aapt resource value: 0x7f0a0029
+			public const int textTimeApertura = 2131361833;
 			
-			// aapt resource value: 0x7f0a0072
-			public const int textViewMercTxtNombre = 2131361906;
+			// aapt resource value: 0x7f0a002b
+			public const int textTimeCierre = 2131361835;
+			
+			// aapt resource value: 0x7f0a0150
+			public const int textView1 = 2131362128;
+			
+			// aapt resource value: 0x7f0a016b
+			public const int textView4 = 2131362155;
+			
+			// aapt resource value: 0x7f0a016d
+			public const int textView5 = 2131362157;
+			
+			// aapt resource value: 0x7f0a0045
+			public const int textViewAgenciaContactoCont = 2131361861;
+			
+			// aapt resource value: 0x7f0a0040
+			public const int textViewAgenciaNombreCont = 2131361856;
+			
+			// aapt resource value: 0x7f0a0049
+			public const int textViewAgenciaProductoCont = 2131361865;
+			
+			// aapt resource value: 0x7f0a0025
+			public const int textViewAgregar = 2131361829;
+			
+			// aapt resource value: 0x7f0a0021
+			public const int textViewApertura = 2131361825;
+			
+			// aapt resource value: 0x7f0a0067
+			public const int textViewBancosCont = 2131361895;
+			
+			// aapt resource value: 0x7f0a0066
+			public const int textViewCajBancos = 2131361894;
+			
+			// aapt resource value: 0x7f0a006d
+			public const int textViewCajServicio = 2131361901;
+			
+			// aapt resource value: 0x7f0a006a
+			public const int textViewCajaTxtNoCajeros = 2131361898;
+			
+			// aapt resource value: 0x7f0a0022
+			public const int textViewCancelar = 2131361826;
+			
+			// aapt resource value: 0x7f0a002a
+			public const int textViewCierre = 2131361834;
+			
+			// aapt resource value: 0x7f0a0173
+			public const int textViewComentarios = 2131362163;
+			
+			// aapt resource value: 0x7f0a0044
+			public const int textViewContacto = 2131361860;
+			
+			// aapt resource value: 0x7f0a0024
+			public const int textViewEditar = 2131361828;
+			
+			// aapt resource value: 0x7f0a0028
+			public const int textViewEditarCancelar = 2131361832;
+			
+			// aapt resource value: 0x7f0a0027
+			public const int textViewEditarOk = 2131361831;
+			
+			// aapt resource value: 0x7f0a002c
+			public const int textViewEspacio = 2131361836;
+			
+			// aapt resource value: 0x7f0a00b1
+			public const int textViewEstacionamiento24Hrs = 2131361969;
+			
+			// aapt resource value: 0x7f0a00a8
+			public const int textViewEstacionamientoAdicionales = 2131361960;
+			
+			// aapt resource value: 0x7f0a00a9
+			public const int textViewEstacionamientoAdicionalesCont = 2131361961;
+			
+			// aapt resource value: 0x7f0a00b5
+			public const int textViewEstacionamientoAutoservicio = 2131361973;
+			
+			// aapt resource value: 0x7f0a009e
+			public const int textViewEstacionamientoCapacidadAutos = 2131361950;
+			
+			// aapt resource value: 0x7f0a00a4
+			public const int textViewEstacionamientoContacto = 2131361956;
+			
+			// aapt resource value: 0x7f0a00a5
+			public const int textViewEstacionamientoContactoCont = 2131361957;
 			
 			// aapt resource value: 0x7f0a009a
-			public const int textViewOficinaContacto = 2131361946;
+			public const int textViewEstacionamientoNombre = 2131361946;
 			
 			// aapt resource value: 0x7f0a009b
-			public const int textViewOficinaContactoCont = 2131361947;
+			public const int textViewEstacionamientoNombreCont = 2131361947;
+			
+			// aapt resource value: 0x7f0a00a1
+			public const int textViewEstacionamientoTarifa = 2131361953;
+			
+			// aapt resource value: 0x7f0a00ad
+			public const int textViewEstacionamientoTiempoLibre = 2131361965;
+			
+			// aapt resource value: 0x7f0a0085
+			public const int textViewEstacionamientosAgregar = 2131361925;
+			
+			// aapt resource value: 0x7f0a0081
+			public const int textViewEstacionamientosApertura = 2131361921;
+			
+			// aapt resource value: 0x7f0a0082
+			public const int textViewEstacionamientosCancelar = 2131361922;
+			
+			// aapt resource value: 0x7f0a0089
+			public const int textViewEstacionamientosCierre = 2131361929;
+			
+			// aapt resource value: 0x7f0a0084
+			public const int textViewEstacionamientosEditar = 2131361924;
+			
+			// aapt resource value: 0x7f0a0088
+			public const int textViewEstacionamientosEditarCancelar = 2131361928;
+			
+			// aapt resource value: 0x7f0a0087
+			public const int textViewEstacionamientosEditarOk = 2131361927;
+			
+			// aapt resource value: 0x7f0a008a
+			public const int textViewEstacionamientosEspacio = 2131361930;
 			
 			// aapt resource value: 0x7f0a0091
-			public const int textViewOficinaNombre = 2131361937;
+			public const int textViewEstacionamientosSinHorarios = 2131361937;
 			
-			// aapt resource value: 0x7f0a0092
-			public const int textViewOficinaNombreCont = 2131361938;
+			// aapt resource value: 0x7f0a00e0
+			public const int textViewFachadaAnuncio = 2131362016;
 			
-			// aapt resource value: 0x7f0a0098
-			public const int textViewOficinaTxtAforo = 2131361944;
+			// aapt resource value: 0x7f0a00dd
+			public const int textViewFachadaComercio = 2131362013;
 			
-			// aapt resource value: 0x7f0a0095
-			public const int textViewOficinaTxtNoSalas = 2131361941;
+			// aapt resource value: 0x7f0a00d9
+			public const int textViewFachadaNumeroCalle = 2131362009;
 			
-			// aapt resource value: 0x7f0a006c
-			public const int textViewSinHorarios = 2131361900;
+			// aapt resource value: 0x7f0a00da
+			public const int textViewFachadaNumeroCalleCont = 2131362010;
 			
-			// aapt resource value: 0x7f0a00ca
-			public const int textViewcomentariosCont = 2131361994;
+			// aapt resource value: 0x7f0a00d4
+			public const int textViewFachadasAgregar = 2131362004;
 			
-			// aapt resource value: 0x7f0a0061
-			public const int timePickerApertura = 2131361889;
+			// aapt resource value: 0x7f0a00d0
+			public const int textViewFachadasApertura = 2131362000;
 			
-			// aapt resource value: 0x7f0a0064
-			public const int timePickerCierre = 2131361892;
+			// aapt resource value: 0x7f0a00d1
+			public const int textViewFachadasCancelar = 2131362001;
+			
+			// aapt resource value: 0x7f0a00d3
+			public const int textViewFachadasEditar = 2131362003;
+			
+			// aapt resource value: 0x7f0a00d7
+			public const int textViewFachadasEditarCancelar = 2131362007;
+			
+			// aapt resource value: 0x7f0a00d6
+			public const int textViewFachadasEditarOk = 2131362006;
+			
+			// aapt resource value: 0x7f0a00e2
+			public const int textViewFachadasEspacio = 2131362018;
+			
+			// aapt resource value: 0x7f0a00e5
+			public const int textViewFachadasSinHorarios = 2131362021;
+			
+			// aapt resource value: 0x7f0a0124
+			public const int textViewMercTxtContDesc = 2131362084;
+			
+			// aapt resource value: 0x7f0a0120
+			public const int textViewMercTxtContNombre = 2131362080;
+			
+			// aapt resource value: 0x7f0a0123
+			public const int textViewMercTxtDesc = 2131362083;
+			
+			// aapt resource value: 0x7f0a0127
+			public const int textViewMercTxtNoCom = 2131362087;
+			
+			// aapt resource value: 0x7f0a011f
+			public const int textViewMercTxtNombre = 2131362079;
+			
+			// aapt resource value: 0x7f0a003f
+			public const int textViewNombre = 2131361855;
+			
+			// aapt resource value: 0x7f0a0147
+			public const int textViewOficinaContacto = 2131362119;
+			
+			// aapt resource value: 0x7f0a0148
+			public const int textViewOficinaContactoCont = 2131362120;
+			
+			// aapt resource value: 0x7f0a013e
+			public const int textViewOficinaNombre = 2131362110;
+			
+			// aapt resource value: 0x7f0a013f
+			public const int textViewOficinaNombreCont = 2131362111;
+			
+			// aapt resource value: 0x7f0a0145
+			public const int textViewOficinaTxtAforo = 2131362117;
+			
+			// aapt resource value: 0x7f0a0142
+			public const int textViewOficinaTxtNoSalas = 2131362114;
+			
+			// aapt resource value: 0x7f0a0048
+			public const int textViewProductos = 2131361864;
+			
+			// aapt resource value: 0x7f0a007a
+			public const int textViewSinFotos = 2131361914;
+			
+			// aapt resource value: 0x7f0a0033
+			public const int textViewSinHorarios = 2131361843;
+			
+			// aapt resource value: 0x7f0a018e
+			public const int textViewWifiFunciona = 2131362190;
+			
+			// aapt resource value: 0x7f0a0184
+			public const int textViewWifiProveedor = 2131362180;
+			
+			// aapt resource value: 0x7f0a0185
+			public const int textViewWifiProveedorCont = 2131362181;
+			
+			// aapt resource value: 0x7f0a018b
+			public const int textViewWifiVelocidadDeBajada = 2131362187;
+			
+			// aapt resource value: 0x7f0a0188
+			public const int textViewWifiVelocidadDeSubida = 2131362184;
+			
+			// aapt resource value: 0x7f0a0174
+			public const int textViewcomentariosCont = 2131362164;
+			
+			// aapt resource value: 0x7f0a005c
+			public const int trazarLineaBtnCableado = 2131361884;
 			
 			// aapt resource value: 0x7f0a000f
 			public const int triangle = 2131361807;
 			
-			// aapt resource value: 0x7f0a00b4
-			public const int txtBrujulaGrados = 2131361972;
+			// aapt resource value: 0x7f0a0167
+			public const int txtBrujulaGrados = 2131362151;
 			
-			// aapt resource value: 0x7f0a00b6
-			public const int txtBrujulaOrientacion = 2131361974;
+			// aapt resource value: 0x7f0a0169
+			public const int txtBrujulaOrientacion = 2131362153;
 			
-			// aapt resource value: 0x7f0a00bc
-			public const int txtLatGrados = 2131361980;
+			// aapt resource value: 0x7f0a00ee
+			public const int txtFechaOp = 2131362030;
 			
-			// aapt resource value: 0x7f0a00be
-			public const int txtLongGrados = 2131361982;
+			// aapt resource value: 0x7f0a0103
+			public const int txtHeaderMenuLateral = 2131362051;
+			
+			// aapt resource value: 0x7f0a016f
+			public const int txtLatGrados = 2131362159;
+			
+			// aapt resource value: 0x7f0a0171
+			public const int txtLongGrados = 2131362161;
+			
+			// aapt resource value: 0x7f0a0104
+			public const int txtNameHeaderMenuLateral = 2131362052;
+			
+			// aapt resource value: 0x7f0a00ef
+			public const int txtResultado = 2131362031;
+			
+			// aapt resource value: 0x7f0a00ed
+			public const int txtTipoOp = 2131362029;
+			
+			// aapt resource value: 0x7f0a00f2
+			public const int txtViewTituloLogViewer = 2131362034;
 			
 			// aapt resource value: 0x7f0a0010
 			public const int underline = 2131361808;
@@ -1431,79 +2160,133 @@ namespace PueblosMagicos.Android.Inventario
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Cajeros = 2130903040;
+			public const int Agencias = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int CajerosTextos = 2130903041;
+			public const int AgenciasHorarios = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int geolocalizacion_fragment = 2130903042;
+			public const int AgenciasTextos = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int ImageView = 2130903043;
+			public const int Cableado = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int Main = 2130903044;
+			public const int Cajeros = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int Map = 2130903045;
+			public const int CajerosTextos = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int MenuHome = 2130903046;
+			public const int CartoTestLayout = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int MenuLateral = 2130903047;
+			public const int Estacionamientos = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int MenuSimple = 2130903048;
+			public const int EstacionamientosFotos = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int Mercados = 2130903049;
+			public const int EstacionamientosHorarios = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int MercadosEditarHorario = 2130903050;
+			public const int EstacionamientosTextos = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int MercadosFotos = 2130903051;
+			public const int FachadaEditarHorario = 2130903051;
 			
 			// aapt resource value: 0x7f03000c
-			public const int MercadosHorarios = 2130903052;
+			public const int Fachadas = 2130903052;
 			
 			// aapt resource value: 0x7f03000d
-			public const int MercadosTextos = 2130903053;
+			public const int FachadasFotos = 2130903053;
 			
 			// aapt resource value: 0x7f03000e
-			public const int Oficinas = 2130903054;
+			public const int FachadasTextos = 2130903054;
 			
 			// aapt resource value: 0x7f03000f
-			public const int OficinasFotos = 2130903055;
+			public const int geolocalizacion_fragment = 2130903055;
 			
 			// aapt resource value: 0x7f030010
-			public const int OficinasTextos = 2130903056;
+			public const int ImageView = 2130903056;
 			
 			// aapt resource value: 0x7f030011
-			public const int RecuperarNip = 2130903057;
+			public const int LogItem = 2130903057;
 			
 			// aapt resource value: 0x7f030012
-			public const int SeleccionarModulo = 2130903058;
+			public const int LogViewer = 2130903058;
 			
 			// aapt resource value: 0x7f030013
-			public const int Senalamientos = 2130903059;
+			public const int Main = 2130903059;
 			
 			// aapt resource value: 0x7f030014
-			public const int SenalamientosFotos = 2130903060;
+			public const int Map = 2130903060;
 			
 			// aapt resource value: 0x7f030015
-			public const int SenalamientosMap = 2130903061;
+			public const int MenuEliminarHorario = 2130903061;
 			
 			// aapt resource value: 0x7f030016
-			public const int SenalamientosOrientacion = 2130903062;
+			public const int MenuHome = 2130903062;
 			
 			// aapt resource value: 0x7f030017
-			public const int SenalamientosTextos = 2130903063;
+			public const int MenuLateral = 2130903063;
 			
 			// aapt resource value: 0x7f030018
-			public const int simple_fragment = 2130903064;
+			public const int MenuLateralHeader = 2130903064;
+			
+			// aapt resource value: 0x7f030019
+			public const int MenuSimple = 2130903065;
+			
+			// aapt resource value: 0x7f03001a
+			public const int Mercados = 2130903066;
+			
+			// aapt resource value: 0x7f03001b
+			public const int MercadosEditarHorario = 2130903067;
+			
+			// aapt resource value: 0x7f03001c
+			public const int MercadosFotos = 2130903068;
+			
+			// aapt resource value: 0x7f03001d
+			public const int MercadosHorarios = 2130903069;
+			
+			// aapt resource value: 0x7f03001e
+			public const int MercadosTextos = 2130903070;
+			
+			// aapt resource value: 0x7f03001f
+			public const int Oficinas = 2130903071;
+			
+			// aapt resource value: 0x7f030020
+			public const int OficinasFotos = 2130903072;
+			
+			// aapt resource value: 0x7f030021
+			public const int OficinasTextos = 2130903073;
+			
+			// aapt resource value: 0x7f030022
+			public const int RecuperarNip = 2130903074;
+			
+			// aapt resource value: 0x7f030023
+			public const int SeleccionarModulo = 2130903075;
+			
+			// aapt resource value: 0x7f030024
+			public const int SenalamientosFotos = 2130903076;
+			
+			// aapt resource value: 0x7f030025
+			public const int SenalamientosMap = 2130903077;
+			
+			// aapt resource value: 0x7f030026
+			public const int SenalamientosOrientacion = 2130903078;
+			
+			// aapt resource value: 0x7f030027
+			public const int SenalamientosTextos = 2130903079;
+			
+			// aapt resource value: 0x7f030028
+			public const int simple_fragment = 2130903080;
+			
+			// aapt resource value: 0x7f030029
+			public const int Wifi = 2130903081;
+			
+			// aapt resource value: 0x7f03002a
+			public const int WifiTextos = 2130903082;
 			
 			static Layout()
 			{
@@ -1524,8 +2307,14 @@ namespace PueblosMagicos.Android.Inventario
 			// aapt resource value: 0x7f050011
 			public const int Hello = 2131034129;
 			
-			// aapt resource value: 0x7f05001b
-			public const int close_drawer = 2131034139;
+			// aapt resource value: 0x7f05001d
+			public const int add_marker = 2131034141;
+			
+			// aapt resource value: 0x7f050019
+			public const int changeCamera = 2131034137;
+			
+			// aapt resource value: 0x7f05001c
+			public const int close_drawer = 2131034140;
 			
 			// aapt resource value: 0x7f050001
 			public const int common_google_play_services_enable_button = 2131034113;
@@ -1584,14 +2373,14 @@ namespace PueblosMagicos.Android.Inventario
 			// aapt resource value: 0x7f050014
 			public const int geo_tab_label = 2131034132;
 			
-			// aapt resource value: 0x7f050019
-			public const int header_text = 2131034137;
+			// aapt resource value: 0x7f05001a
+			public const int header_text = 2131034138;
 			
 			// aapt resource value: 0x7f050018
 			public const int openCamera = 2131034136;
 			
-			// aapt resource value: 0x7f05001a
-			public const int open_drawer = 2131034138;
+			// aapt resource value: 0x7f05001b
+			public const int open_drawer = 2131034139;
 			
 			// aapt resource value: 0x7f050016
 			public const int orient_tab_label = 2131034134;

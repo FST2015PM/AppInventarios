@@ -16,6 +16,7 @@ using Android.Support.V4.Widget;
 using Android.Support.V4.App;
 using PueblosMagicos.Android.Inventario.Services;
 using PueblosMagicos.Android.Inventario.DataTables;
+using Android.Views.InputMethods;
 
 namespace PueblosMagicos.Android.Inventario
 {
@@ -25,12 +26,12 @@ namespace PueblosMagicos.Android.Inventario
       DataService data;
       public const int SimpleListItemChecked = 17367045;
       public const int SimpleExpandableListItem1 = 17367046;
-      private ImageButton tab1Button, tab2Button, tab3Button, tab4Button;
-      private ImageView buttonRegresar, buttonSiguiente;
+      private ImageButton tab1Button, tab2Button, tab3Button, tab4Button, btnInicio; //
+      private Button buttonRegresar, buttonSiguiente;
       private FrameLayout containerMercTxtList, containerMercTxtSubList, containerMercTxtSubList2;
       private TextView MercadosNom_count, MercadosDes_count;
       private LinearLayout linearBtnRegresar, linearMercTxtNombre, linearMercTxtDesc, linearBtnSiguiente, linearMercTxtNoCom;
-      private EditText editTextMercTxtNombre, editTextMercTxtDesc, editTextMercTxtNoCom, MercadosNomText, MercadosDesText;
+      private EditText editTextMercTxtNombre, editTextMercTxtDesc, editTextMercTxtNoCom;
       private Color selectedColor, deselectedColor;
       private ListView list;
       private int mercado = 0;
@@ -47,20 +48,21 @@ namespace PueblosMagicos.Android.Inventario
          data = new DataService();
 
          //MenuLateral
-         mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-         mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
+         //mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+         //mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
 
-         mLeftDrawer.Adapter = new MenuLateralAdapter(this, GlobalVariables.menuLateralListAdapter);
-         mLeftDrawer.ItemClick += OnMenuLateralItemClick;
+         //mLeftDrawer.Adapter = new MenuLateralAdapter(this, GlobalVariables.menuLateralListAdapter);
+         //mLeftDrawer.ItemClick += OnMenuLateralItemClick;
 
          // Create your application here
          tab1Button = this.FindViewById<ImageButton>(Resource.Id.tab1_mercados_icon);
          tab2Button = this.FindViewById<ImageButton>(Resource.Id.tab2_mercados_icon);
          tab3Button = this.FindViewById<ImageButton>(Resource.Id.tab3_mercados_icon);
          tab4Button = this.FindViewById<ImageButton>(Resource.Id.tab4_mercados_icon);
+         btnInicio = this.FindViewById<ImageButton>(Resource.Id.btnInicio); //
 
-         buttonRegresar = this.FindViewById<ImageView>(Resource.Id.MercadosTxtRegresarBtn);
-         buttonSiguiente = this.FindViewById<ImageView>(Resource.Id.MercadosTxtSiguienteBtn);
+         buttonRegresar = FindViewById<Button>(Resource.Id.MercadosTxtRegresarBtn);
+         buttonSiguiente = FindViewById<Button>(Resource.Id.MercadosTxtSiguienteBtn);
 
          MercadosNom_count = this.FindViewById<TextView>(Resource.Id.textViewMercTxtContNombre);
          MercadosDes_count = this.FindViewById<TextView>(Resource.Id.textViewMercTxtContDesc);
@@ -82,9 +84,14 @@ namespace PueblosMagicos.Android.Inventario
 
          if (!GlobalVariables.mercadoTxtMenuListAdapter.Any())
          {
-            GlobalVariables.mercadoTxtMenuListAdapter.Add(new MenusTableItem() { Heading = "Tipo de mercado", SubHeading = " ", ImageResourceMenuId = Resource.Drawable.OpcionesMenuIco });
-            GlobalVariables.mercadoTxtMenuListAdapter.Add(new MenusTableItem() { Heading = "Condiciones de servicio", SubHeading = " ", ImageResourceMenuId = Resource.Drawable.OpcionesMenuIco });
+            GlobalVariables.mercadoTxtMenuListAdapter.Add(new MenusTableItem() { Heading = "Tipo de mercado", SubHeading = "", ImageResourceMenuId = Resource.Drawable.OpcionesMenuIco });
+            GlobalVariables.mercadoTxtMenuListAdapter.Add(new MenusTableItem() { Heading = "Condiciones de servicio", SubHeading = "", ImageResourceMenuId = Resource.Drawable.OpcionesMenuIco });
          }
+
+         //Agregar botones en teclado
+         editTextMercTxtNombre.ImeOptions = global::Android.Views.InputMethods.ImeAction.Next;
+         editTextMercTxtDesc.ImeOptions = global::Android.Views.InputMethods.ImeAction.Next;
+         editTextMercTxtNoCom.ImeOptions = global::Android.Views.InputMethods.ImeAction.Done;
 
          editTextMercTxtNombre.Text = GlobalVariables.mercadoTxtNombre;
          editTextMercTxtDesc.Text = GlobalVariables.mercadoTxtDesc;
@@ -93,10 +100,14 @@ namespace PueblosMagicos.Android.Inventario
          list.Adapter = new MenuSimpleAdapter(this, GlobalVariables.mercadoTxtMenuListAdapter);
          list.ItemClick += OnSubListItemClick;
 
-         selectedColor = Color.ParseColor("#303030"); //The color u want    
-         deselectedColor = Color.ParseColor("#ffffff");
+         selectedColor = Color.ParseColor("#ffffff"); //The color u want    
+         deselectedColor = Color.ParseColor("#efc9b9");
 
          showView();
+         buttonSiguiente.Visibility = ViewStates.Gone; //
+         buttonRegresar.Text = "Regresar"; //
+         activaBtnGuardar(); //
+
          deselectAll();
          tab4Button.SetColorFilter(selectedColor);
 
@@ -108,6 +119,7 @@ namespace PueblosMagicos.Android.Inventario
             int numChar = 300 - editTextMercTxtNombre.Length();
             MercadosNom_count.Text = numChar.ToString();
             GlobalVariables.mercadoTxtNombre = editTextMercTxtNombre.Text;
+            activaBtnGuardar(); //
          };
 
          //Contar el número de carácteres de Descripcion
@@ -116,14 +128,22 @@ namespace PueblosMagicos.Android.Inventario
             int numChar = 300 - editTextMercTxtDesc.Length();
             MercadosDes_count.Text = numChar.ToString();
             GlobalVariables.mercadoTxtDesc = editTextMercTxtDesc.Text;
+            activaBtnGuardar(); //
          };
 
          editTextMercTxtNoCom.TextChanged += (object sender, TextChangedEventArgs e) =>
          {
             GlobalVariables.mercadoTxtNoCom = editTextMercTxtNoCom.Text;
+            activaBtnGuardar(); //
          };
 
          buttonSiguiente.Click += showTab1;
+
+         btnInicio.Click += delegate
+         {
+            var intent = new Intent(this, typeof(MenuHomeActivity));
+            StartActivity(intent);
+         };
 
          tab1Button.Click += delegate
          {
@@ -155,6 +175,44 @@ namespace PueblosMagicos.Android.Inventario
 
       }
 
+      private void activaBtnGuardar() //
+      {
+         int numCharNombre = 300 - editTextMercTxtNombre.Length();
+         int numCharDesc = 300 - editTextMercTxtDesc.Length();
+         int numCharNoCom = 300 - editTextMercTxtNoCom.Length();
+         string tipoMercado = GlobalVariables.mercadoTxtMenuListAdapter.ElementAt(0).SubHeading;
+         string servicioMercado = GlobalVariables.mercadoTxtMenuListAdapter.ElementAt(1).SubHeading;
+
+         if ((numCharNombre < 300) && (numCharDesc < 300) && (numCharNoCom < 300) && (tipoMercado.Trim() != "") && (servicioMercado.Trim() != ""))
+            buttonSiguiente.Visibility = ViewStates.Visible;
+         else buttonSiguiente.Visibility = ViewStates.Gone;
+
+      }
+
+      public void changeTextBtnRegresarTipo() //
+      {
+         var sparseArray = GlobalVariables.mercadoTxtTipo.ToArray();
+         string text = "Regresar";
+         if (sparseArray != null)
+            for (int x = 0; x < sparseArray.Count(); x++)
+            {
+               if (sparseArray[x])
+                  text = "Guardar";
+            }
+         buttonRegresar.Text = text;
+      }
+      public void changeTextBtnRegresarCondicion() //
+      {
+         var sparseArray = GlobalVariables.mercadoTxtCondicion.ToArray();
+         string text = "Regresar";
+         if (sparseArray != null)
+            for (int x = 0; x < sparseArray.Count(); x++)
+            {
+               if (sparseArray[x])
+                  text = "Guardar";
+            }
+         buttonRegresar.Text = text;
+      }
       private void deselectAll()
       {
          tab1Button.SetColorFilter(deselectedColor);
@@ -175,7 +233,6 @@ namespace PueblosMagicos.Android.Inventario
          containerMercTxtList.Visibility = ViewStates.Visible;
 
          linearBtnRegresar.Visibility = ViewStates.Gone;
-         //linearBtnRegresar2.Visibility = ViewStates.Gone;
          containerMercTxtSubList.Visibility = ViewStates.Gone;
          containerMercTxtSubList2.Visibility = ViewStates.Gone;
       }
@@ -193,6 +250,7 @@ namespace PueblosMagicos.Android.Inventario
 
          Mercados mercado = new Mercados()
          {
+            Id = Guid.NewGuid().ToString(),
             Created = DateTime.Now.ToString("yyyy-MM-dd"),
             Description = GlobalVariables.mercadoTxtDesc,
             Latitud = GlobalVariables.LatitudMercado,
@@ -200,36 +258,16 @@ namespace PueblosMagicos.Android.Inventario
             ServiceDays = "",
             ServiceHours = "",
             ShopNum = GlobalVariables.mercadoTxtNoCom,
-            Type = type
+            Type = type,
+            FotoName = GlobalVariables.MarketPhotoName,
+            Enviado = ""
          };
          data.SaveData(mercado);
 
-         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-         AlertDialog alertDialog = builder.Create();
-
-         //title
-         alertDialog.SetTitle("Pueblos Magicos");
-
-         //icon
-         //alertDialog.SetIcon(Resource.Drawable.Icon);
-
-         //question or message
-         alertDialog.SetMessage("¿Desea sincronizar? ");
-
-         //Buttons
-         alertDialog.SetButton("No", (s, ev) =>
-         {
-            //Do something
-            // Toast.MakeText(this, "Error", ToastLength.Long).Show();
-         });
-
-         alertDialog.SetButton2("Si", (s, ev) =>
-         {
-            //Do something
-            Toast.MakeText(this, "Listo!", ToastLength.Long).Show();
-         });
-
-         alertDialog.Show();
+         GlobalVariables.mercadoNuevaCaptura = true;
+         Toast.MakeText(this, "Listo!", ToastLength.Long).Show();
+         var intent = new Intent(this, typeof(MenuHomeActivity));
+         StartActivity(intent);
       }
 
       public void OnSubListItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -237,7 +275,7 @@ namespace PueblosMagicos.Android.Inventario
          //
          var listView = sender as ListView;
          var position = e.Position;
-         var subListAdapter = new ArrayAdapter<String>(this, SimpleListItemChecked, ((position == 0) ? OpcionesMenus.TipoMercado : OpcionesMenus.CondicionesServicioMercado));
+         var subListAdapter = new ArrayAdapter<String>(this, SimpleListItemChecked, ((position == 0) ? OpcionesMenus.TipoMercado : OpcionesMenus.CondicionesServicio));
          var subList = this.FindViewById<ListView>(Resource.Id.listViewMercadosTxtSubList2);
          mercado = position;
 
@@ -254,7 +292,6 @@ namespace PueblosMagicos.Android.Inventario
          editTextMercTxtNoCom.Visibility = ViewStates.Gone;
          containerMercTxtList.Visibility = ViewStates.Gone;
          containerMercTxtSubList.Visibility = ViewStates.Gone;
-         linearBtnRegresar.Visibility = ViewStates.Gone;
 
          linearBtnRegresar.Visibility = ViewStates.Visible;
          containerMercTxtSubList2.Visibility = ViewStates.Visible;
@@ -280,6 +317,7 @@ namespace PueblosMagicos.Android.Inventario
          }
          if (initialSelection != 100)
             subList.SetItemChecked(initialSelection, true);
+         else buttonRegresar.Text = "Regresar";
       }
 
       public void OnSubListItemClick2(object sender, AdapterView.ItemClickEventArgs e)
@@ -297,6 +335,7 @@ namespace PueblosMagicos.Android.Inventario
                else
                { GlobalVariables.mercadoTxtTipo[0] = false; GlobalVariables.mercadoTxtTipo[1] = false; }
                item.SubHeading = OpcionesMenus.TipoMercado[position];
+               changeTextBtnRegresarTipo();
                break;
             case 1:
                GlobalVariables.mercadoTxtCondicion[position] = true;
@@ -304,11 +343,13 @@ namespace PueblosMagicos.Android.Inventario
                   GlobalVariables.mercadoTxtCondicion[1] = false;
                else
                   GlobalVariables.mercadoTxtCondicion[0] = false;
-               item.SubHeading = OpcionesMenus.CondicionesServicioMercado[position];
+               item.SubHeading = OpcionesMenus.CondicionesServicio[position];
+               changeTextBtnRegresarCondicion();
                break;
          }
          GlobalVariables.mercadoTxtMenuListAdapter.ElementAt(mercado).SubHeading = item.SubHeading;
          list.Adapter = new MenuSimpleAdapter(this, GlobalVariables.mercadoTxtMenuListAdapter);
+         activaBtnGuardar(); //
       }
 
       private void showViewBack(object sender, EventArgs e)
@@ -326,6 +367,7 @@ namespace PueblosMagicos.Android.Inventario
 
          int numCharDesc = 300 - editTextMercTxtDesc.Length();
          MercadosDes_count.Text = numCharDesc.ToString();
+         activaBtnGuardar();
       }
 
       private void OnMenuLateralItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -337,17 +379,32 @@ namespace PueblosMagicos.Android.Inventario
             case 0:
                StartActivity(typeof(SenalamientosMapActivity));
                break;
-            case 3:
+            case 1:
                StartActivity(typeof(MercadosActivity));
                break;
-            case 4:
+            case 2:
                StartActivity(typeof(CajerosActivity));
                break;
-            case 6:
+            case 3:
                StartActivity(typeof(OficinasActivity));
                break;
+            case 4:
+               StartActivity(typeof(AgenciasActivity));
+               break;
+            case 5:
+               StartActivity(typeof(EstacionamientosActivity));
+               break;
+            case 6:
+               StartActivity(typeof(FachadasActivity));
+               break;
+            case 7:
+               StartActivity(typeof(WifisActivity));
+               break;
+            case 8:
+               //StartActivity(typeof(CableadosActivity));
+               break;
          }
-         mDrawerLayout.CloseDrawer(mLeftDrawer);
+         //mDrawerLayout.CloseDrawer(mLeftDrawer);
       }
    }
 }

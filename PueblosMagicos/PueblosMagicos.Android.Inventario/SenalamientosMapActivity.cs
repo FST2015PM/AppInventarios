@@ -32,6 +32,8 @@ namespace PueblosMagicos.Android.Inventario
       List<String> mLeftItems = new List<string>();
       ListView mLeftDrawer;
 
+      private ImageButton btnInicio; //
+
       protected override void OnCreate(Bundle savedInstanceState)
       {
          base.OnCreate(savedInstanceState);
@@ -39,10 +41,10 @@ namespace PueblosMagicos.Android.Inventario
          SetContentView(Resource.Layout.SenalamientosMap);
 
          //MenuLateral
-         mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-         mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
-         mLeftDrawer.Adapter = new MenuLateralAdapter(this, GlobalVariables.menuLateralListAdapter);
-         mLeftDrawer.ItemClick += OnMenuLateralItemClick;
+         //mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+         //mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
+         //mLeftDrawer.Adapter = new MenuLateralAdapter(this, GlobalVariables.menuLateralListAdapter);
+         //mLeftDrawer.ItemClick += OnMenuLateralItemClick;
 
          InitMapFragment();
 
@@ -50,21 +52,29 @@ namespace PueblosMagicos.Android.Inventario
          tab2Button = this.FindViewById<ImageButton>(Resource.Id.tab2_icon);
          tab3Button = this.FindViewById<ImageButton>(Resource.Id.tab3_icon);
          tab4Button = this.FindViewById<ImageButton>(Resource.Id.tab4_icon);
+         btnInicio = this.FindViewById<ImageButton>(Resource.Id.btnInicio); //
          SenalMapaPopupBtn = FindViewById<Button>(Resource.Id.SenalMapaPopupBtn);
          SenalMapaSigBtn = FindViewById<Button>(Resource.Id.SenalMapaSigBtn);
 
-         selectedColor = Color.ParseColor("#303030"); //The color u want    
-         deselectedColor = Color.ParseColor("#ffffff");
+         selectedColor = Color.ParseColor("#ffffff"); //The color u want    
+         deselectedColor = Color.ParseColor("#96c88e");
 
          deselectAll();
          tab1Button.SetColorFilter(selectedColor);
 
          SenalMapaSigBtn.Click += showTab2;
-
+         SenalMapaSigBtn.Visibility = ViewStates.Gone;
          SenalMapaPopupBtn.Click += delegate
          {
             SenalMapaPopupBtn.Visibility = ViewStates.Gone;
+            SenalMapaSigBtn.Visibility = ViewStates.Visible;
          };
+
+         btnInicio.Click += delegate //
+         {
+             var intent = new Intent(this, typeof(MenuHomeActivity));
+             StartActivity(intent);
+         }; //
 
          tab2Button.Click += showTab2;
 
@@ -173,20 +183,35 @@ namespace PueblosMagicos.Android.Inventario
           var posicion = e.Position;
           switch (posicion)
           {
-              case 0:
-                  StartActivity(typeof(SenalamientosMapActivity));
-                  break;
-              case 3:
-                  StartActivity(typeof(MercadosActivity));
-                  break;
-              case 4:
-                  StartActivity(typeof(CajerosActivity));
-                  break;
-              case 6:
-                  StartActivity(typeof(OficinasActivity));
-                  break;
-          }
-          mDrawerLayout.CloseDrawer(mLeftDrawer);
+                case 0:
+                    StartActivity(typeof(SenalamientosMapActivity));
+                    break;
+                case 1:
+                    StartActivity(typeof(MercadosActivity));
+                    break;
+                case 2:
+                    StartActivity(typeof(CajerosActivity));
+                    break;
+                case 3:
+                    StartActivity(typeof(OficinasActivity));
+                    break;
+                case 4:
+                    StartActivity(typeof(AgenciasActivity));
+                    break;
+                case 5:
+                    StartActivity(typeof(EstacionamientosActivity));
+                    break;
+                case 6:
+                    StartActivity(typeof(FachadasActivity));
+                    break;
+                case 7:
+                     StartActivity(typeof(WifisActivity));
+                    break;
+                case 8:
+                    //StartActivity(typeof(CableadosActivity));
+                    break;
+            }
+          //mDrawerLayout.CloseDrawer(mLeftDrawer);
       }
 
    }

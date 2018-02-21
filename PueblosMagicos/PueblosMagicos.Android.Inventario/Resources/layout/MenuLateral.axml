@@ -2,28 +2,31 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp" >
-  <ImageView
-      android:id="@+id/ImageMenuLateral"
-      android:layout_width="35dp"
-      android:layout_height="35dp"
-      android:padding="5dp"
-      android:src="@drawable/icon"
-      android:layout_alignParentLeft="true" />
-  <LinearLayout
-      android:id="@+id/LinearListMenuLateral"
-      android:orientation="vertical"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:paddingLeft="30dip"
-      android:gravity="left"
-      android:paddingTop="7dp">
-    <TextView
-        android:id="@+id/TextViewMenuLateral"
+    android:padding="10dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp">
+    <LinearLayout
+        android:id="@+id/LinearListMenuLateral"
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:paddingLeft="20dip"/>
-  </LinearLayout>
+        android:paddingLeft="10dp"
+        android:gravity="left"
+        android:paddingTop="7dp">
+        <TextView
+            android:id="@+id/TextViewMenuLateral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:text="Menu de prueba" />
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/ImageMenuLateral"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:padding="5dp"
+        android:src="@drawable/icon"
+        android:layout_alignParentRight="true"
+         />
 </RelativeLayout>

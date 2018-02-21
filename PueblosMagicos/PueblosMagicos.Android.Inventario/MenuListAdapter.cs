@@ -42,10 +42,10 @@ namespace PueblosMagicos.Android.Inventario
             View view = convertView;
             if (view == null) // no view to re-use, create new
                 view = context.LayoutInflater.Inflate(Resource.Layout.MercadosEditarHorario, null);
-            view.FindViewById<TextView>(Resource.Id.TextViewMercadosGuardarHorario).Text = item.Heading;
-            view.FindViewById<TextView>(Resource.Id.TextViewSubMercadosGuardarHorario).Text = item.SubHeading;
-            view.FindViewById<ImageView>(Resource.Id.ImageMercadosGuardarHorario).SetImageResource(item.ImageResourceId);
-            view.FindViewById<ImageView>(Resource.Id.ImageMercadosMenuHorario).SetImageResource(item.ImageResourceMenuId);
+            view.FindViewById<TextView>(Resource.Id.TextViewGuardarHorario).Text = item.Heading;
+            view.FindViewById<TextView>(Resource.Id.TextViewSubGuardarHorario).Text = item.SubHeading;
+            view.FindViewById<ImageView>(Resource.Id.ImageGuardarHorario).SetImageResource(item.ImageResourceId);
+            view.FindViewById<ImageView>(Resource.Id.ImageMenuHorario).SetImageResource(item.ImageResourceMenuId);
 
             return view;
         }

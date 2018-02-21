@@ -3,25 +3,57 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-   <LinearLayout
-       xmlns:map="http://schemas.android.com/apk/res-auto"
-       android:orientation="vertical"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:gravity="fill_horizontal|fill_vertical"
-       android:minHeight="25px">
-      <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-       android:id="@+id/mapMenuHome"
-       android:layout_width="fill_parent"
-       android:layout_height="fill_parent" />
-   </LinearLayout>
-   <ListView
-         android:id="@+id/left_drawer"
-         android:layout_width="300dp"
-         android:layout_height="match_parent"
-         android:layout_gravity="left"
-         android:choiceMode="singleChoice"
-         android:background="@color/green_menu_lateral"
-         android:divider="#FFFFFF"
-         android:dividerHeight="3px" />
+    <LinearLayout xmlns:map="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="fill_horizontal|fill_vertical"
+        android:minHeight="25px">
+        <FrameLayout
+            android:id="@+id/mapMenuHome"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:gravity="top">
+        <Button
+            android:id="@+id/mapMenuHomeShowMenu"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/menulateral"
+            android:gravity="center_horizontal" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:gravity="bottom|center"
+        android:layout_marginBottom="20dp">
+        <Button
+            android:id="@+id/mapMenuHomeAddMarker"
+            android:layout_width="62dp"
+            android:layout_height="55dp"
+            android:background="@drawable/iconpin2"
+            android:gravity="center_horizontal" />
+        <TextView
+            android:text="@string/add_marker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dip"
+            android:fontFamily="@string/ApplicationName"
+            android:textColor="@android:color/black"
+            android:gravity="center_horizontal" />
+    </LinearLayout>
+    <ListView
+        android:id="@+id/left_drawer"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:choiceMode="singleChoice"
+        android:background="@drawable/fondo"
+        android:divider="#43545e"
+        android:dividerHeight="3px" />
 </android.support.v4.widget.DrawerLayout>

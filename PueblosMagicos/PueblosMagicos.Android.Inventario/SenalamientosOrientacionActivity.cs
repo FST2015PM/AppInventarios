@@ -31,10 +31,11 @@ namespace PueblosMagicos.Android.Inventario
       List<float> gravity = new List<float>();
       List<float> magnet = new List<float>();
 
-      private ImageButton tab1Button, tab2Button, tab3Button, tab4Button, SenalOrientSigBtn;
+      private ImageButton tab1Button, tab2Button, tab3Button, tab4Button;
+      private Button SenalOrientSigBtn;
       private ImageButton SenalOrientPopupBtn;
       private Color selectedColor, deselectedColor;
-
+      private ImageButton btnInicio; //
       DrawerLayout mDrawerLayout;
       List<String> mLeftItems = new List<string>();
       ListView mLeftDrawer;
@@ -45,11 +46,11 @@ namespace PueblosMagicos.Android.Inventario
          SetContentView(Resource.Layout.SenalamientosOrientacion);
 
          //MenuLateral
-         mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-         mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
+         //mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+         //mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
          
-         mLeftDrawer.Adapter = new MenuLateralAdapter(this, GlobalVariables.menuLateralListAdapter);
-         mLeftDrawer.ItemClick += OnMenuLateralItemClick;
+         //mLeftDrawer.Adapter = new MenuLateralAdapter(this, GlobalVariables.menuLateralListAdapter);
+         //mLeftDrawer.ItemClick += OnMenuLateralItemClick;
 
          sensorMgr = (SensorManager)GetSystemService(Context.SensorService);
          accelerometer = sensorMgr.GetDefaultSensor(SensorType.Accelerometer);
@@ -61,7 +62,8 @@ namespace PueblosMagicos.Android.Inventario
          tab3Button = this.FindViewById<ImageButton>(Resource.Id.tab3_icon);
          tab4Button = this.FindViewById<ImageButton>(Resource.Id.tab4_icon);
          SenalOrientPopupBtn = FindViewById<ImageButton>(Resource.Id.SenalOrientPopupBtn);
-         SenalOrientSigBtn = FindViewById<ImageButton>(Resource.Id.SenalOrientSigBtn);
+         SenalOrientSigBtn = FindViewById<Button>(Resource.Id.SenalOrientSigBtn);
+         btnInicio = this.FindViewById<ImageButton>(Resource.Id.btnInicio); //
 
          //Controles de ubicacion.
          txtBrujulaGrados = this.FindViewById<TextView>(Resource.Id.txtBrujulaGrados);
@@ -71,17 +73,24 @@ namespace PueblosMagicos.Android.Inventario
          txtLatGrados.Text = GlobalVariables.LatitudCoordinates;
          txtLongGrados.Text = GlobalVariables.LongitudCoordinates;
 
-         selectedColor = Color.ParseColor("#303030"); //The color u want    
-         deselectedColor = Color.ParseColor("#ffffff");
+         selectedColor = Color.ParseColor("#ffffff"); //The color u want    
+         deselectedColor = Color.ParseColor("#96c88e");
 
          deselectAll();
          tab3Button.SetColorFilter(selectedColor);
 
+         //SenalOrientSigBtn.Visibility = ViewStates.Gone;
 
          SenalOrientPopupBtn.Click += delegate
          {
             SenalOrientPopupBtn.Visibility = ViewStates.Gone;
          };
+
+         btnInicio.Click += delegate //
+         {
+             var intent = new Intent(this, typeof(MenuHomeActivity));
+             StartActivity(intent);
+         }; //
 
          SenalOrientSigBtn.Click += showTab4;
 
@@ -229,20 +238,35 @@ namespace PueblosMagicos.Android.Inventario
           var posicion = e.Position;
           switch (posicion)
           {
-              case 0:
-                  StartActivity(typeof(SenalamientosMapActivity));
-                  break;
-              case 3:
-                  StartActivity(typeof(MercadosActivity));
-                  break;
-              case 4:
-                  StartActivity(typeof(CajerosActivity));
-                  break;
-              case 6:
-                  StartActivity(typeof(OficinasActivity));
-                  break;
-          }
-          mDrawerLayout.CloseDrawer(mLeftDrawer);
+                case 0:
+                    StartActivity(typeof(SenalamientosMapActivity));
+                    break;
+                case 1:
+                    StartActivity(typeof(MercadosActivity));
+                    break;
+                case 2:
+                    StartActivity(typeof(CajerosActivity));
+                    break;
+                case 3:
+                    StartActivity(typeof(OficinasActivity));
+                    break;
+                case 4:
+                    StartActivity(typeof(AgenciasActivity));
+                    break;
+                case 5:
+                    StartActivity(typeof(EstacionamientosActivity));
+                    break;
+                case 6:
+                    StartActivity(typeof(FachadasActivity));
+                    break;
+                case 7:
+                     StartActivity(typeof(WifisActivity));
+                    break;
+                case 8:
+                    //StartActivity(typeof(CableadosActivity));
+                    break;
+            }
+          //mDrawerLayout.CloseDrawer(mLeftDrawer);
       }
    }
 }

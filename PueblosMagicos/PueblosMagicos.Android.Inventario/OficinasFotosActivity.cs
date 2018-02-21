@@ -27,10 +27,13 @@ namespace PueblosMagicos.Android.Inventario
     public class OficinasFotosActivity : Activity
     {
         public const string SAMPLE_CATEGORY = "mono.apidemo.sample";
-        private ImageButton tab1Button, tab2Button, tab3Button, tab4Button;
-        private ImageButton SenalFotosSigBtn;
+        private ImageButton tab1Button, tab2Button, tab3Button, btnInicio;
+        private Button OficinaFotosSigBtn, oficinaChangeCameraButton, oficinaOpenCameraButton; //;
+        private TextView textViewSinFotos, textChangeCameraButton, textOpenCameraButton; //
         private Color selectedColor, deselectedColor;
         public PageIndicator mIndicator;
+        private ViewPager viewPager; //
+        private int NoFotos; //
         private File _dir;
         private File _file;
 
@@ -44,38 +47,37 @@ namespace PueblosMagicos.Android.Inventario
             SetContentView(Resource.Layout.OficinasFotos);
 
             //MenuLateral
-            mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-            mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
+            //mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+            //mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
             
-            mLeftDrawer.Adapter = new MenuLateralAdapter(this, GlobalVariables.menuLateralListAdapter);
-            mLeftDrawer.ItemClick += OnMenuLateralItemClick;
+            //mLeftDrawer.Adapter = new MenuLateralAdapter(this, GlobalVariables.menuLateralListAdapter);
+            //mLeftDrawer.ItemClick += OnMenuLateralItemClick;
 
             tab1Button = this.FindViewById<ImageButton>(Resource.Id.tab1_oficinas_icon);
             tab2Button = this.FindViewById<ImageButton>(Resource.Id.tab2_oficinas_icon);
             tab3Button = this.FindViewById<ImageButton>(Resource.Id.tab3_oficinas_icon);
-            SenalFotosSigBtn = FindViewById<ImageButton>(Resource.Id.oficinaFotosSigBtn);
+            OficinaFotosSigBtn = FindViewById<Button>(Resource.Id.oficinaFotosSigBtn);
+            btnInicio = this.FindViewById<ImageButton>(Resource.Id.btnInicio); //
+            textViewSinFotos = this.FindViewById<TextView>(Resource.Id.textViewSinFotos); //
+            textChangeCameraButton = this.FindViewById<TextView>(Resource.Id.textChangeCameraButton); //
+            textOpenCameraButton = this.FindViewById<TextView>(Resource.Id.textOpenCameraButton); //
+            oficinaChangeCameraButton = FindViewById<Button>(Resource.Id.oficinaChangeCameraButton); //
+            oficinaOpenCameraButton = FindViewById<Button>(Resource.Id.oficinaOpenCameraButton); //
 
-            selectedColor = Color.ParseColor("#303030"); //The color u want    
-            deselectedColor = Color.ParseColor("#ffffff");
+            selectedColor = Color.ParseColor("#ffffff"); //The color u want    
+            deselectedColor = Color.ParseColor("#ca9def");
 
             deselectAll();
             tab2Button.SetColorFilter(selectedColor);
 
-            FindViewById<Button>(Resource.Id.signalopenCameraButton).Click += OnOpenCamera;
-            var viewPager = FindViewById<ViewPager>(Resource.Id.signalpager);
-            ImageAdapter adapter = new ImageAdapter(this);
-            adapter.TipoAdapter = 3;
-            viewPager.Adapter = adapter;
+            oficinaOpenCameraButton.Click += OnOpenCamera; //
+            oficinaChangeCameraButton.Click += OnOpenCamera; //
 
-            mIndicator = FindViewById<CirclePageIndicator>(Resource.Id.signalindicator);
-            mIndicator.SetViewPager(viewPager);
+            viewPager = FindViewById<ViewPager>(Resource.Id.signalpager);
 
-            if (IsThereAnAppToTakePictures())
-            {
-                CreateDirectoryForPictures();
-            }
-
-            SenalFotosSigBtn.Click += showTab3;
+            actualizaFotos();
+            
+            OficinaFotosSigBtn.Click += showTab3;
             tab3Button.Click += showTab3;
 
             tab1Button.Click += delegate
@@ -84,6 +86,12 @@ namespace PueblosMagicos.Android.Inventario
                 tab1Button.SetColorFilter(selectedColor);
 
                 StartActivity(typeof(OficinasActivity));
+            };
+
+            btnInicio.Click += delegate //
+            {
+                var intent = new Intent(this, typeof(MenuHomeActivity));
+                StartActivity(intent);
             };
         }
 
@@ -95,6 +103,51 @@ namespace PueblosMagicos.Android.Inventario
             StartActivity(typeof(OficinasTextosActivity));
         }
 
+        private void actualizaFotos() //
+        {
+            ImageAdapter adapter = new ImageAdapter(this);
+            adapter.TipoAdapter = (int)GlobalVariables.Modulos.Oficina;
+            viewPager.Adapter = adapter;
+
+            NoFotos = adapter.Count;
+
+            mIndicator = FindViewById<CirclePageIndicator>(Resource.Id.signalindicator);
+            mIndicator.SetViewPager(viewPager);
+
+            if (IsThereAnAppToTakePictures())
+            {
+                CreateDirectoryForPictures();
+            }
+
+            showMessages();
+        }
+        private void showMessages() //
+        {
+            var state1 = ViewStates.Visible;
+            var state2 = ViewStates.Gone;
+
+            if (NoFotos == 0)
+            {
+                oficinaOpenCameraButton.Visibility = state1;
+                textViewSinFotos.Visibility = state1;
+                textOpenCameraButton.Visibility = state1;
+
+                oficinaChangeCameraButton.Visibility = state2;
+                OficinaFotosSigBtn.Visibility = state2;
+                textChangeCameraButton.Visibility = state2;
+
+            }
+            else
+            {
+                oficinaOpenCameraButton.Visibility = state2;
+                textViewSinFotos.Visibility = state2;
+                textOpenCameraButton.Visibility = state2;
+
+                oficinaChangeCameraButton.Visibility = state1;
+                OficinaFotosSigBtn.Visibility = state1;
+                textChangeCameraButton.Visibility = state1;
+            }
+        }
         private void CreateDirectoryForPictures()
         {
             _dir = new File(Environment.GetExternalStoragePublicDirectory(Environment.DirectoryPictures), "InvPueblosMagicosOffice");
@@ -127,6 +180,7 @@ namespace PueblosMagicos.Android.Inventario
             base.OnResume();
             deselectAll();
             tab2Button.SetColorFilter(selectedColor);
+            actualizaFotos(); //
         }
 
         void OnOpenCamera(object sender, EventArgs e)
@@ -134,10 +188,12 @@ namespace PueblosMagicos.Android.Inventario
             try
             {
                 Intent intent = new Intent(MediaStore.ActionImageCapture);
+                if (string.IsNullOrWhiteSpace(GlobalVariables.oficinaFotoActual))
+                    GlobalVariables.oficinaFotoActual = String.Format("office_{0}.jpg", Guid.NewGuid());
 
-                _file = new File(_dir, String.Format("office_{0}.jpg", Guid.NewGuid()));
-
+                _file = new File(_dir, GlobalVariables.oficinaFotoActual);
                 intent.PutExtra(MediaStore.ExtraOutput, Uri.FromFile(_file));
+                GlobalVariables.OfficesPhotoName = Uri.FromFile(_file).Path;
 
                 StartActivityForResult(intent, 0);
             }
@@ -169,17 +225,33 @@ namespace PueblosMagicos.Android.Inventario
                 case 0:
                     StartActivity(typeof(SenalamientosMapActivity));
                     break;
-                case 3:
+                case 1:
                     StartActivity(typeof(MercadosActivity));
                     break;
-                case 4:
+                case 2:
                     StartActivity(typeof(CajerosActivity));
                     break;
-                case 6:
+                case 3:
                     StartActivity(typeof(OficinasActivity));
                     break;
+                case 4:
+                    StartActivity(typeof(AgenciasActivity));
+                    break;
+                case 5:
+                    StartActivity(typeof(EstacionamientosActivity));
+                    break;
+                case 6:
+                    StartActivity(typeof(FachadasActivity));
+                    break;
+                case 7:
+                     StartActivity(typeof(WifisActivity));
+                    break;
+                case 8:
+                    //StartActivity(typeof(CableadosActivity));
+                    
+                    break;
             }
-            mDrawerLayout.CloseDrawer(mLeftDrawer);
+            //mDrawerLayout.CloseDrawer(mLeftDrawer);
         }
     }
 }

@@ -14,6 +14,10 @@ namespace PueblosMagicos.Android.Inventario
 {
    internal class OpcionesMenus
    {
+       public static string[] Dias = { "Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado" };
+       public static string[] CondicionesServicio = { "Formal", "Informal" };
+
+
        #region Señalamientos
            public static string[] TipoSenalamiento = { "Turístico", "Tránsito" };
            public static string[] PosicionSenalamiento = { "A nivel del suelo", "Elevado" };
@@ -21,10 +25,16 @@ namespace PueblosMagicos.Android.Inventario
        #endregion
 
        #region Mercados
-            public static string[] DiasMercados = { "Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado" };
-
             public static string[] TipoMercado = { "Artesanal", "Gastronómico", "Tradicional" };
-            public static string[] CondicionesServicioMercado = { "Formal", "Informal" };
+        #endregion
+
+        #region Agencias
+            public static string[] TipoAgencia = { "Agencia", "Touroperador" };
+        #endregion
+
+        #region Fachadas
+            public static string[] TipoFachada = { "Casa", "Comercio" };
+            public static string[] TipoFachadaComercio = { "Anuncio homologado" };
         #endregion
     }
 }

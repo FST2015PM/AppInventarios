@@ -13,7 +13,7 @@ namespace PueblosMagicos.Android.Inventario
 {
    public class ImageAdapter : PagerAdapter
    {
-      private File _dir;
+       private File _dir, _file;
       private Context context;
       int mCount;
       private File[] images;
@@ -30,18 +30,42 @@ namespace PueblosMagicos.Android.Inventario
             try
             {
                int oldCound = mCount;
+               string fotoActual = "";
 
-               if (TipoAdapter == 0)
-                  _dir = new File(Environment.GetExternalStoragePublicDirectory(Environment.DirectoryPictures), "InvPueblosMagicosSignal");
-               else if (TipoAdapter == 1)
-                  _dir = new File(Environment.GetExternalStoragePublicDirectory(Environment.DirectoryPictures), "InvPueblosMagicosMarket");
-               else if (TipoAdapter == 2)
-                  _dir = new File(Environment.GetExternalStoragePublicDirectory(Environment.DirectoryPictures), "InvPueblosMagicosATM");
-               else if (TipoAdapter == 3)
-                  _dir = new File(Environment.GetExternalStoragePublicDirectory(Environment.DirectoryPictures), "InvPueblosMagicosOffice");
+               if (TipoAdapter == (int)GlobalVariables.Modulos.Senalamiento)
+               {
+                   _dir = new File(Environment.GetExternalStoragePublicDirectory(Environment.DirectoryPictures), "InvPueblosMagicosSignal");
+                   fotoActual = GlobalVariables.senalFotoActual;
+               }
+               else if (TipoAdapter == (int)GlobalVariables.Modulos.Mercado)
+               {
+                   _dir = new File(Environment.GetExternalStoragePublicDirectory(Environment.DirectoryPictures), "InvPueblosMagicosMarket");
+                   fotoActual = GlobalVariables.mercadoFotoActual;
+               }
+               else if (TipoAdapter == (int)GlobalVariables.Modulos.Oficina){
+                   _dir = new File(Environment.GetExternalStoragePublicDirectory(Environment.DirectoryPictures), "InvPueblosMagicosOffice");
+                   fotoActual = GlobalVariables.oficinaFotoActual;
+               }
+               else if (TipoAdapter == (int)GlobalVariables.Modulos.Estacionamiento){
+                   _dir = new File(Environment.GetExternalStoragePublicDirectory(Environment.DirectoryPictures), "InvPueblosMagicosParking");
+                   fotoActual = GlobalVariables.estacionamientoFotoActual;
+               }
+               else if (TipoAdapter == (int)GlobalVariables.Modulos.Fachada)
+               {
+                   _dir = new File(Environment.GetExternalStoragePublicDirectory(Environment.DirectoryPictures), "InvPueblosMagicosFacade");
+                   fotoActual = GlobalVariables.fachadaFotoActual;
+               }
+                
+                _file = new File(_dir, fotoActual);
+               
+                images = _dir.ListFiles();  //Lista de imagenes
+                images[0] = _file;  // Una imágen
 
-               images = _dir.ListFiles();
-               mCount = _dir.List().Length;
+                if (!string.IsNullOrWhiteSpace(fotoActual))
+                    mCount = 1; // _dir.List().Length;
+                else
+                    mCount = 0;
+
                if (oldCound != mCount)
                   this.NotifyDataSetChanged();
                return mCount;

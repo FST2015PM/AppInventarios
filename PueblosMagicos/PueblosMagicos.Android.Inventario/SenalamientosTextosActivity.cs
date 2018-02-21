@@ -24,13 +24,13 @@ namespace PueblosMagicos.Android.Inventario
       DataService data;
       public const int SimpleListItemChecked = 17367045;
       public const int SimpleExpandableListItem1 = 17367046;
-      private ImageButton tab1Button, tab2Button, tab3Button, tab4Button;
-      private ImageView buttonRegresar;
+      private ImageButton tab1Button, tab2Button, tab3Button, tab4Button, btnInicio; //
+      private Button buttonRegresar;
       private EditText editText;
       private FrameLayout frameLayoutList, frameLayoutSubList;
       private Color selectedColor, deselectedColor;
-      private LinearLayout textView, linearSenalTxtFinalizarBtn, linear1;
-      private ImageButton SenalTxtSiguienteBtn;
+      private LinearLayout textView, linearSenalTxtFinalizarBtn;
+      private Button buttonSiguiente;
       private ListView list;
       private TextView sms_count;
       private int senalamiento = 0;
@@ -46,26 +46,27 @@ namespace PueblosMagicos.Android.Inventario
          data = new DataService();
 
          //MenuLateral
-         mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-         mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
+         //mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+         //mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
 
-         mLeftDrawer.Adapter = new MenuLateralAdapter(this, GlobalVariables.menuLateralListAdapter);
-         mLeftDrawer.ItemClick += OnMenuLateralItemClick;
+         //mLeftDrawer.Adapter = new MenuLateralAdapter(this, GlobalVariables.menuLateralListAdapter);
+         //mLeftDrawer.ItemClick += OnMenuLateralItemClick;
 
          // Create your application here
          tab1Button = this.FindViewById<ImageButton>(Resource.Id.tab1_icon);
          tab2Button = this.FindViewById<ImageButton>(Resource.Id.tab2_icon);
          tab3Button = this.FindViewById<ImageButton>(Resource.Id.tab3_icon);
          tab4Button = this.FindViewById<ImageButton>(Resource.Id.tab4_icon);
+         btnInicio = this.FindViewById<ImageButton>(Resource.Id.btnInicio); //
 
-         buttonRegresar = this.FindViewById<ImageView>(Resource.Id.regresar_btn);
+         buttonRegresar = this.FindViewById<Button>(Resource.Id.regresar_btn);
          editText = this.FindViewById<EditText>(Resource.Id.editTextSenalCom);
          frameLayoutList = this.FindViewById<FrameLayout>(Resource.Id.containerList);
          frameLayoutSubList = this.FindViewById<FrameLayout>(Resource.Id.containerSubList);
          textView = this.FindViewById<LinearLayout>(Resource.Id.linearTextView);
          linearSenalTxtFinalizarBtn = this.FindViewById<LinearLayout>(Resource.Id.linearSenalTxtFinalizarBtn);
-         linear1 = this.FindViewById<LinearLayout>(Resource.Id.linear1);
-         SenalTxtSiguienteBtn = this.FindViewById<ImageButton>(Resource.Id.SenalTxtFinalizarBtn);
+         //linear1 = this.FindViewById<LinearLayout>(Resource.Id.linear1);
+         buttonSiguiente = this.FindViewById<Button>(Resource.Id.SenalTxtFinalizarBtn);
          list = this.FindViewById<ListView>(Resource.Id.listViewSenalTxtList);
          sms_count = this.FindViewById<TextView>(Resource.Id.textViewcomentariosCont);
 
@@ -81,27 +82,38 @@ namespace PueblosMagicos.Android.Inventario
          list.Adapter = new MenuSimpleAdapter(this, GlobalVariables.senalTxtMenuListAdapter);
          list.ItemClick += OnListItemClick;
 
-         selectedColor = Color.ParseColor("#303030"); //The color u want    
-         deselectedColor = Color.ParseColor("#ffffff");
+         selectedColor = Color.ParseColor("#ffffff"); //The color u want    
+         deselectedColor = Color.ParseColor("#96c88e");
+
+         editText.ImeOptions = global::Android.Views.InputMethods.ImeAction.Done;
 
          showView();
+         buttonSiguiente.Visibility = ViewStates.Gone;
+         buttonRegresar.Text = "Regresar";
+         activaBtnGuardar();
          deselectAll();
          tab4Button.SetColorFilter(selectedColor);
 
          buttonRegresar.Click += showViewBack;
 
-         SenalTxtSiguienteBtn.Click += showFinalizarActivity;
+         buttonSiguiente.Click += showFinalizarActivity;
 
          tab1Button.Click += showTab1;
 
+         btnInicio.Click += delegate //
+         {
+            var intent = new Intent(this, typeof(MenuHomeActivity));
+            StartActivity(intent);
+         };
 
          //Contar el número de carácteres del EditText
          editText.TextChanged += (object sender, TextChangedEventArgs e) =>
-         {
-            int numChar = 300 - editText.Length();
-            sms_count.Text = numChar.ToString();
-            GlobalVariables.senalTxtComentario = editText.Text;
-         };
+      {
+         int numChar = 300 - editText.Length();
+         sms_count.Text = numChar.ToString();
+         GlobalVariables.senalTxtComentario = editText.Text;
+         activaBtnGuardar();
+      };
 
          tab2Button.Click += delegate
          {
@@ -120,8 +132,58 @@ namespace PueblosMagicos.Android.Inventario
             var intent = new Intent(this, typeof(SenalamientosOrientacionActivity));
             StartActivity(intent);
          };
+      }
 
+      private void activaBtnGuardar()
+      {
+         int numCharComentario = 300 - editText.Length();
 
+         string tipoSenal = GlobalVariables.senalTxtMenuListAdapter.ElementAt(0).SubHeading;
+         string posicionSenal = GlobalVariables.senalTxtMenuListAdapter.ElementAt(1).SubHeading;
+         string visibilidadSenal = GlobalVariables.senalTxtMenuListAdapter.ElementAt(2).SubHeading;
+         if ((numCharComentario < 300) && (tipoSenal.Trim() != "") && (posicionSenal.Trim() != "") && (visibilidadSenal.Trim() != ""))
+            buttonSiguiente.Visibility = ViewStates.Visible;
+         else buttonSiguiente.Visibility = ViewStates.Gone;
+
+      }
+
+      public void changeTextBtnRegresarTipo()
+      {
+         var sparseArray = GlobalVariables.senalTxtTipo.ToArray();
+         string text = "Regresar";
+         if (sparseArray != null)
+            for (int x = 0; x < sparseArray.Count(); x++)
+            {
+               if (sparseArray[x])
+                  text = "Guardar";
+            }
+         buttonRegresar.Text = text;
+      }
+
+      public void changeTextBtnRegresarPosicion()
+      {
+         var sparseArray = GlobalVariables.senalTxtPosicion.ToArray();
+         string text = "Regresar";
+         if (sparseArray != null)
+            for (int x = 0; x < sparseArray.Count(); x++)
+            {
+               if (sparseArray[x])
+                  text = "Guardar";
+            }
+         buttonRegresar.Text = text;
+      }
+
+      public void changeTextBtnRegresarVisibilidad()
+      {
+         var sparseArray = GlobalVariables.senalTxtVisibilidad.ToArray();
+         string text = "Regresar";
+         if (sparseArray != null)
+            for (int x = 0; x < sparseArray.Count(); x++)
+            {
+               if (sparseArray[x])
+                  text = "Guardar";
+            }
+         buttonRegresar.Text = text;
       }
 
       private void showFinalizarActivity(object sender, EventArgs e)
@@ -154,36 +216,16 @@ namespace PueblosMagicos.Android.Inventario
             Longitud = GlobalVariables.LongitudSenalamiento,
             Type = type,
             Position = position,
-            Visible = visible
+            Visible = visible, 
+            FotoName = GlobalVariables.SignalPhotoName, 
+            Enviado = ""
          };
          data.SaveData(signal);
 
-         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-         AlertDialog alertDialog = builder.Create();
-
-         //title
-         alertDialog.SetTitle("Pueblos Magicos");
-
-         //icon
-         //alertDialog.SetIcon(Resource.Drawable.Icon);
-
-         //question or message
-         alertDialog.SetMessage("¿Desea sincronizar? ");
-
-         //Buttons
-         alertDialog.SetButton("No", (s, ev) =>
-         {
-            //Do something
-            // Toast.MakeText(this, "Error", ToastLength.Long).Show();
-         });
-
-         alertDialog.SetButton2("Si", (s, ev) =>
-         {
-            //Do something
-            Toast.MakeText(this, "Listo!", ToastLength.Long).Show();
-         });
-
-         alertDialog.Show();
+         GlobalVariables.senalNuevaCaptura = true;
+         Toast.MakeText(this, "Listo!", ToastLength.Long).Show();
+         var intent = new Intent(this, typeof(MenuHomeActivity));
+         StartActivity(intent);
       }
 
       private void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -202,7 +244,7 @@ namespace PueblosMagicos.Android.Inventario
 
          buttonRegresar.Visibility = ViewStates.Visible;
          frameLayoutSubList.Visibility = ViewStates.Visible;
-         linear1.Visibility = ViewStates.Visible;
+         //linear1.Visibility = ViewStates.Visible;
 
          editText.Visibility = ViewStates.Gone;
          frameLayoutList.Visibility = ViewStates.Gone;
@@ -236,6 +278,7 @@ namespace PueblosMagicos.Android.Inventario
          }
          if (initialSelection != 100)
             subList.SetItemChecked(initialSelection, true);
+         else buttonRegresar.Text = "Regresar";
       }
 
       public void OnSubListItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -251,6 +294,7 @@ namespace PueblosMagicos.Android.Inventario
                else
                   GlobalVariables.senalTxtTipo[0] = false;
                item.SubHeading = OpcionesMenus.TipoSenalamiento[position];
+               changeTextBtnRegresarTipo();
                break;
             case 1:
                GlobalVariables.senalTxtPosicion[position] = true;
@@ -259,6 +303,7 @@ namespace PueblosMagicos.Android.Inventario
                else
                   GlobalVariables.senalTxtPosicion[0] = false;
                item.SubHeading = OpcionesMenus.PosicionSenalamiento[position];
+               changeTextBtnRegresarPosicion();
                break;
             case 2:
                GlobalVariables.senalTxtVisibilidad[position] = true;
@@ -269,10 +314,12 @@ namespace PueblosMagicos.Android.Inventario
                else
                { GlobalVariables.senalTxtVisibilidad[0] = false; GlobalVariables.senalTxtVisibilidad[1] = false; }
                item.SubHeading = OpcionesMenus.VisibilidadSenalamiento[position];
+               changeTextBtnRegresarVisibilidad();
                break;
          }
          GlobalVariables.senalTxtMenuListAdapter.ElementAt(senalamiento).SubHeading = item.SubHeading;
          list.Adapter = new MenuSimpleAdapter(this, GlobalVariables.senalTxtMenuListAdapter);
+         activaBtnGuardar();
       }
 
       private void deselectAll()
@@ -305,7 +352,7 @@ namespace PueblosMagicos.Android.Inventario
 
          buttonRegresar.Visibility = ViewStates.Gone;
          frameLayoutSubList.Visibility = ViewStates.Gone;
-         linear1.Visibility = ViewStates.Gone;
+         //linear1.Visibility = ViewStates.Gone;
       }
 
 
@@ -319,6 +366,7 @@ namespace PueblosMagicos.Android.Inventario
          sms_count.Text = numChar.ToString();
          GlobalVariables.senalTxtComentario = editText.Text;
          list.Adapter = new MenuSimpleAdapter(this, GlobalVariables.senalTxtMenuListAdapter);
+         activaBtnGuardar();
       }
 
 
@@ -341,17 +389,32 @@ namespace PueblosMagicos.Android.Inventario
             case 0:
                StartActivity(typeof(SenalamientosMapActivity));
                break;
-            case 3:
+            case 1:
                StartActivity(typeof(MercadosActivity));
                break;
-            case 4:
+            case 2:
                StartActivity(typeof(CajerosActivity));
                break;
-            case 6:
+            case 3:
                StartActivity(typeof(OficinasActivity));
                break;
+            case 4:
+               StartActivity(typeof(AgenciasActivity));
+               break;
+            case 5:
+               StartActivity(typeof(EstacionamientosActivity));
+               break;
+            case 6:
+               StartActivity(typeof(FachadasActivity));
+               break;
+            case 7:
+               StartActivity(typeof(WifisActivity));
+               break;
+            case 8:
+               //StartActivity(typeof(CableadosActivity));
+               break;
          }
-         mDrawerLayout.CloseDrawer(mLeftDrawer);
+         //mDrawerLayout.CloseDrawer(mLeftDrawer);
       }
 
       public int _currentPlayId { get; set; }

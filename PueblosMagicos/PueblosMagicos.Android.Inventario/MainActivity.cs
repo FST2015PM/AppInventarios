@@ -8,12 +8,14 @@ using System.Threading;
 using Android.Locations;
 using Android.Gms.Common;
 using Android.Gms.Common.Apis;
+using Android.Provider;
 using PueblosMagicos.Android.Inventario.Services;
 using Android.Views;
 using Java.IO;
 
 using Environment = Android.OS.Environment;
 using Uri = Android.Net.Uri;
+using System.Collections.Generic;
 
 namespace PueblosMagicos.Android.Inventario
 {
@@ -37,20 +39,44 @@ namespace PueblosMagicos.Android.Inventario
          dataService.InitializeDB();
 
          RequestWindowFeature(WindowFeatures.NoTitle);
+
          if (locMgr == null)
             locMgr = GetSystemService(Context.LocationService) as LocationManager;
 
-         if (locMgr.AllProviders.Contains(LocationManager.NetworkProvider)
-                  && locMgr.IsProviderEnabled(LocationManager.NetworkProvider))
+         if (locMgr.IsProviderEnabled(LocationManager.GpsProvider) && 
+            locMgr.AllProviders.Contains(LocationManager.NetworkProvider)
+         && locMgr.IsProviderEnabled(LocationManager.NetworkProvider))
          {
             locMgr.RequestLocationUpdates(LocationManager.NetworkProvider, 50, 1, this);
+            return;
          }
          else
          {
+            showGPSDisabledAlertToUser();
+            return;
          }
 
       }
+      private void showGPSDisabledAlertToUser()
+      {
+         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+         AlertDialog alertDialog = builder.Create();
 
+         alertDialog.SetTitle("Pueblos Magicos");
+         alertDialog.SetMessage("Active su GPS para continuar.");
+
+         alertDialog.SetButton("OK", (s, ev) =>
+         {
+            Intent salida = new Intent(Intent.ActionMain);
+            this.FinishAffinity();
+            this.Finish();
+            Process.KillProcess(Process.MyPid());
+            System.Environment.Exit(0);
+            this.MoveTaskToBack(true);
+         });
+
+         alertDialog.Show();
+      }
       protected override void OnPause()
       {
          base.OnPause();
@@ -98,14 +124,34 @@ namespace PueblosMagicos.Android.Inventario
       {
          GlobalVariables.Latitud = location.Latitude;
          GlobalVariables.Longitud = location.Longitude;
+
          GlobalVariables.LatitudSenalamiento = location.Latitude;
          GlobalVariables.LongitudSenalamiento = location.Longitude;
+
          GlobalVariables.LatitudMercado = location.Latitude;
          GlobalVariables.LongitudMercado = location.Longitude;
+
          GlobalVariables.LatitudCajero = location.Latitude;
          GlobalVariables.LongitudCajero = location.Longitude;
+
          GlobalVariables.LatitudOficina = location.Latitude;
          GlobalVariables.LongitudOficina = location.Longitude;
+
+         GlobalVariables.LatitudEstacionamiento = location.Latitude;
+         GlobalVariables.LongitudEstacionamiento = location.Longitude;
+
+         GlobalVariables.LatitudFachada = location.Latitude;
+         GlobalVariables.LongitudFachada = location.Longitude;
+
+         GlobalVariables.LatitudWifi = location.Latitude;
+         GlobalVariables.LongitudWifi = location.Longitude;
+
+         GlobalVariables.LatitudAgencias = location.Latitude;
+         GlobalVariables.LongitudAgencias = location.Longitude;
+
+         GlobalVariables.LatitudCableado = location.Latitude;
+         GlobalVariables.LongitudCableado = location.Longitude;
+
          GlobalVariables.LatitudCoordinates = LocationConverter.getLatitudeAsDMS(location.Latitude, 2);
          GlobalVariables.LongitudCoordinates = LocationConverter.getLongitudeAsDMS(location.Longitude, 2);
 
@@ -122,6 +168,18 @@ namespace PueblosMagicos.Android.Inventario
          }
 
          _dir = new File(Environment.GetExternalStoragePublicDirectory(Environment.DirectoryPictures), "InvPueblosMagicosOffice");
+         if (!_dir.Exists())
+         {
+            _dir.Mkdirs();
+         }
+
+         _dir = new File(Environment.GetExternalStoragePublicDirectory(Environment.DirectoryPictures), "InvPueblosMagicosParking");
+         if (!_dir.Exists())
+         {
+            _dir.Mkdirs();
+         }
+
+         _dir = new File(Environment.GetExternalStoragePublicDirectory(Environment.DirectoryPictures), "InvPueblosMagicosFacade");
          if (!_dir.Exists())
          {
             _dir.Mkdirs();

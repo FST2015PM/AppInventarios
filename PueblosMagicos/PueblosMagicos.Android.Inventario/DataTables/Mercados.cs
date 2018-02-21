@@ -9,11 +9,13 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using SQLite;
 
 namespace PueblosMagicos.Android.Inventario.DataTables
 {
    public class Mercados
    {
+      [PrimaryKey]
       public string Id { get; set; }
       public double Latitud { get; set; }
       public double Longitud { get; set; }
@@ -21,7 +23,9 @@ namespace PueblosMagicos.Android.Inventario.DataTables
       public string Description { get; set; }
       public string Created { get; set; }
       public string ShopNum { get; set; }
-      public string ServiceDays{get;set;}
+      public string ServiceDays { get; set; }
       public string ServiceHours { get; set; }
+      public string FotoName { get; set; }
+      public string Enviado { get; set; }
    }
 }
